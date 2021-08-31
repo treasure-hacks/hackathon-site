@@ -6,6 +6,10 @@ Bronze:        #CD7F32
 Light Green:   #7BE600
 Dark Green:    #2D630D
 */
+html {
+  background-color: #261441;
+  color: white;
+}
 @import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
 body, button {
   margin: 0px;
@@ -679,10 +683,25 @@ h3.sponsor-title{
     display: none;
   }
 }
-.wrapper.homepage-wrapper{
-  background-image: url("images/background.jpg");
-  background-repeat: repeat;
-  background-size: 100%;
+.wrapper.homepage-wrapper {
+  position: relative;
+}
+.wrapper.homepage-wrapper::before,
+.wrapper.homepage-wrapper::after {
+  content: ' ';
+  width: 320px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  /* background-image: url(images/background.jpg); */
+  background-image: url('/images/cave_wall_tileable_left.png');
+  background-repeat: repeat-y;
+  background-size: 320px;
+  z-index: -1;
+}
+.wrapper.homepage-wrapper::after {
+  right: 0;
+  background-image: url('/images/cave_wall_tileable_right.png');
 }
 .category-icon{
 	width: 100px;
