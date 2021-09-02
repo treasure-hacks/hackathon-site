@@ -16,25 +16,8 @@ function home() {
 }
 
 
-var countDownDate = new Date("Sep 4, 2021 8:00:00").getTime();
-if (window.location.pathname == '/dates.html') {
-  var x = setInterval(function () {
-    var now = new Date().getTime();
-    var distance = countDownDate - now;
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById("countdown").innerHTML = "EXPIRED";
-    }
-  }, 1000);
-}
 var countDownDate2 = new Date("Oct 9, 2021 8:00:00").getTime();
-if (window.location.pathname == '/dates.html') {
+if (window.location.pathname == '/schedule.html') {
   var y = setInterval(function () {
     var now2 = new Date().getTime();
     var distance2 = countDownDate2 - now2;
@@ -80,11 +63,10 @@ toggle.addEventListener("click", function () {
     document.getElementById("navigation").style.boxShadow = "none";
     var x;
 	
-	smenu.style.height = "0px";
 	
     x = smenu.appendChild(document.createElement("a"));
-    x.href = "/dates.html";
-    x.innerHTML = "Dates";
+    x.href = "/schedule.html";
+    x.innerHTML = "Schedule";
     x.className = "menu-item"
 
     x = smenu.appendChild(document.createElement("a"));
