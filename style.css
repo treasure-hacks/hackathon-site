@@ -189,6 +189,11 @@ hr{
 }
 .section{
 	padding: 0px 8px;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .row {
    text-align:center;
@@ -399,7 +404,7 @@ h4{
   font-size: clamp(36px, calc(10px + 4vw), 120px);
   text-shadow: 0px 0px 10px #000;
   margin: 0.4em 0;
-  scroll-margin: 50vh;
+  scroll-margin: 45vh;
 }
 .header-text-container p {
   font-size: 24px;
