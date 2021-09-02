@@ -16,20 +16,20 @@ function home() {
 }
 
 
-var countDownDate2 = new Date("Oct 9, 2021 8:00:00").getTime();
+var countDownDate = new Date("Oct 9, 2021 8:00:00").getTime();
 if (window.location.pathname == '/schedule.html') {
   var y = setInterval(function () {
-    var now2 = new Date().getTime();
-    var distance2 = countDownDate2 - now2;
-    var days2 = Math.floor(distance2 / (1000 * 60 * 60 * 24));
-    var hours2 = Math.floor((distance2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes2 = Math.floor((distance2 % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds2 = Math.floor((distance2 % (1000 * 60)) / 1000);
-    document.getElementById("countdown2").innerHTML = days2 + "d " + hours2 + "h "
-      + minutes2 + "m " + seconds2 + "s ";
-    if (distance2 < 0) {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+    if (distance < 0) {
       clearInterval(y);
-      document.getElementById("countdown2").innerHTML = "In Progress!";
+      document.getElementById("countdown").innerHTML = "In Progress!";
     }
   }, 1000);
 }
