@@ -698,7 +698,7 @@ h3.sponsor-title{
 }
 .category-item{
 	width: 30%!important;
-	margin: 25px 50px;
+	margin: 10px 0px;
 	padding: 10px;
 }
 @media only screen and (max-width: 800px){
