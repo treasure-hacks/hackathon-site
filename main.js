@@ -79,7 +79,9 @@ toggle.addEventListener("click", function () {
     document.body.appendChild(smenu);
     document.getElementById("navigation").style.boxShadow = "none";
     var x;
-
+	
+	smenu.style.height = "0px";
+	
     x = smenu.appendChild(document.createElement("a"));
     x.href = "/dates.html";
     x.innerHTML = "Dates";
@@ -104,6 +106,9 @@ toggle.addEventListener("click", function () {
     x.href = "https://bank.hackclub.com/donations/start/treasure-hacks";
     x.innerHTML = "Donate";
     x.className = "menu-item"
+	
+	
+	
   }
   else{
     document.getElementById("menu-on-small").remove();
