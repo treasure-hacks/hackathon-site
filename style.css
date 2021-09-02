@@ -19,6 +19,7 @@ body, button {
 }
 p{
   margin: 0px 10px;
+  font-size: 20px;
 }
 @media only screen and (max-width: 700px){
   h1 {
@@ -112,13 +113,30 @@ p{
 		transform: translate(-50%, -60px);
 	}
 }
-footer{
-	height: 70px;
-	background-color: #C0C0C0;
+footer {
+  width: 100%;
+	height: 57.45vw;
 	display: flex;
-	align-items:center;
-	padding: 0px 50px;
-	
+	align-items: flex-end;
+	padding: 30px 40px;
+  position: relative;
+  z-index: 50;
+  box-sizing: border-box;
+}
+footer::before {
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 71.8vw;
+  background-image: url('/images/cave_background/bottom.png');
+  background-position: bottom;
+  background-size: cover;
+}
+footer > .link {
+  z-index: 1;
+  color: white;
 }
 #countdown{
 	font-size: 50px;
@@ -139,15 +157,15 @@ footer{
 	background-color: rgba(255,255,255,0.8)
 }
 hr{
-	width: 100vw;
-    border: 0;
-    height: 2px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	width: 100%;
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, #fff0, #ffffffb0, #fff0);
 	margin-bottom: 40px;
 	margin-top: 40px;
 }
 .section{
-	padding: 0px 10%;
+	padding: 0px 8px;
 }
 .row {
    text-align:center;
@@ -288,7 +306,7 @@ h4{
 }
 .bottom-links{
 	position: absolute;
-	right: 50px;
+	right: 40px;
 	flex-wrap: wrap;
 }
 @media only screen and (max-width: 600px){
@@ -344,16 +362,31 @@ h4{
   content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 
-.image-main{
-	height: calc(100vh - 70px);
+.image-main {
   width: 100%!important;
   object-fit: cover;
   object-position: 50% 50%;
-  filter: blur(3px);
 }
 .section-main{
 	height: calc(100vh - 70px);
   width: 100vw;
+}
+.header-text-container {
+  position: absolute;
+  bottom: 10vw;
+  width: 100%;
+  transform: translateY(-50%);
+  padding: 0 15vw;
+  box-sizing: border-box;
+}
+.header-text-container h2 {
+  color: white;
+  font-size: clamp(36px, calc(10px + 4vw), 120px);
+  text-shadow: 0px 0px 10px #000;
+  margin: 0.4em 0;
+}
+.header-text-container p {
+  font-size: 24px;
 }
 .banner-text{
   position:absolute;
@@ -362,7 +395,7 @@ h4{
   color: white;
   font-size: 50px;
   left:50%;
-  top: calc(50% + 35px);
+  bottom: 15vw;
   transform: translate(-50%, -50%);
   width: calc(100% - 100px);
   padding: 0px 50px;
@@ -577,8 +610,9 @@ h3.sponsor-title{
 .logo{
 	margin-left: 20px;
 	max-height: 50px;
-	position: relative;
+	position: absolute;
 	top: 50%;
+  left: 0;
 	transform: translateY(-50%);
 	cursor: pointer;
 }
@@ -683,25 +717,34 @@ h3.sponsor-title{
     display: none;
   }
 }
-.wrapper.homepage-wrapper {
+center.main-header {
+  display: flex;
+  align-items: flex-end;
+  height: calc(80vh + 100vw);
+  min-height: 135vw;
+  max-height: 150vw;
   position: relative;
 }
-.wrapper.homepage-wrapper::before,
-.wrapper.homepage-wrapper::after {
+@media only screen and (max-width: 640px) {
+  center.main-header {
+    height: 200vh;
+  }
+}
+.main-content {
+  position: relative;
+  padding: 0 15vw;
+}
+.main-content::before {
   content: ' ';
-  width: 320px;
+  width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
-  /* background-image: url(images/background.jpg); */
-  background-image: url('/images/cave_wall_tileable_left.png');
+  left: 0;
+  background-image: url('/images/cave_background/walls.png');
   background-repeat: repeat-y;
-  background-size: 320px;
+  background-size: 100%;
   z-index: -1;
-}
-.wrapper.homepage-wrapper::after {
-  right: 0;
-  background-image: url('/images/cave_wall_tileable_right.png');
 }
 .category-icon{
 	width: 100px;
