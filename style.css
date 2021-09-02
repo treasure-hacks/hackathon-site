@@ -6,9 +6,20 @@ Bronze:        #CD7F32
 Light Green:   #7BE600
 Dark Green:    #2D630D
 */
+:root {
+  --col-bg-main: #261441;
+}
 html {
-  background-color: #261441;
+  background-color: var(--col-bg-main);
   color: white;
+}
+.content-skip {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  color: white;
+  text-decoration: none;
+  z-index: 10;
 }
 @import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
 body, button {
@@ -115,10 +126,9 @@ p{
 }
 footer {
   width: 100%;
-	height: 57.45vw;
+	height: 52.5vw;
 	display: flex;
 	align-items: flex-end;
-	padding: 30px 40px;
   position: relative;
   z-index: 50;
   box-sizing: border-box;
@@ -129,13 +139,26 @@ footer::before {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 71.8vw;
+  height: 63vw;
   background-image: url('/images/cave_background/bottom.png');
   background-position: bottom;
   background-size: cover;
 }
-footer > .link {
+footer .flex {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   z-index: 1;
+  height: min(15vw, 100px)  ;
+  color: white;
+  padding: 0 min(40px, 4vw);
+  box-sizing: border-box;
+}
+footer .flex a {
   color: white;
 }
 #countdown{
@@ -305,17 +328,9 @@ h4{
 	cursor: pointer;
 }
 .bottom-links{
-	position: absolute;
-	right: 40px;
-	flex-wrap: wrap;
+  margin-left: auto;
 }
 @media only screen and (max-width: 600px){
-	footer{
-		display: block;
-		height: 100px;
-		padding-top: 30px;
-		text-align: center;
-	}
 	.bottom-links{
 		position: relative;
 		left: 50%;
@@ -342,7 +357,7 @@ h4{
 
 .panel {
   padding: 0 18px;
-  background-color: white;
+  background-color: var(--col-bg-main);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
@@ -384,6 +399,7 @@ h4{
   font-size: clamp(36px, calc(10px + 4vw), 120px);
   text-shadow: 0px 0px 10px #000;
   margin: 0.4em 0;
+  scroll-margin: 50vh;
 }
 .header-text-container p {
   font-size: 24px;

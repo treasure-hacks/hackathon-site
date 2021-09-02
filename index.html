@@ -28,12 +28,14 @@
   </header>
 		<div class="wrapper homepage-wrapper"> <!-- wrapper div starts -->
 			<div class="padder"></div>
-			
+
+			<a class="content-skip" href="#title">Skip to Content &#x21e3;</a>
+
       <center class="main-header">
         <img class="image-main" src="images/cave_background/top.png"/>
         <div class="header-text-container">
-          <!-- <h2 class="banner-text">Treasure Hacks</h2> -->
-          <h2>Treasure Hacks</h2>
+          <h2 id="title">Treasure Hacks</h2>
+          <!-- THIS ID IS FOR THE SKIP TO CONTENT BUTTON -->
           <p>Helping young coders to find the value of programming</p>
         </div>
       </center>
@@ -219,17 +221,35 @@
         <!-- END MAIN CONTENT -->
       </div>
 			<footer>
-				<a href="mailto:contact.treasurehacks@gmail.com" class="link">contact.treasurehacks@gmail.com</a>
-				<div class="bottom-links">
-					<a class="link" href="https://www.linkedin.com/company/treasure-hacks/about/?viewAsMember=true"><img src="images/linkedin-logo.png"/></a>
-          <a class="link" href="https://discord.gg/QTYrT5K6"><img src="images/discord-logo.png"/></a>
-          <a class="link" href="https://www.instagram.com/treasure_hacks/"><img src="images/instagram-logo.png"/></a>
-				</div>
+				<div class="flex">
+          <a href="mailto:contact@treasurehacks.dev" class="link">contact@treasurehacks.dev</a>
+          <div class="bottom-links">
+            <a class="link" href="https://www.linkedin.com/company/treasure-hacks/about/?viewAsMember=true"><img src="images/linkedin-logo.png"/></a>
+            <a class="link" href="https://discord.gg/QTYrT5K6"><img src="images/discord-logo.png"/></a>
+            <a class="link" href="https://www.instagram.com/treasure_hacks/"><img src="images/instagram-logo.png"/></a>
+          </div>
+        </div>
 			</footer>
 		</div>
-		<div id = "black-square">
+		<div id="black-square">
 			<button onclick="goToTop()" id="goToTop" title="Go to top" style="font-size: 30px; font-weight: bold;">⇧</button>
 		</div>
 		<script src="main.js"></script>
+    <script>
+      const contentSkipBtn = document.querySelector('.content-skip');
+      contentSkipBtn.addEventListener('click', function() {
+        contentSkipBtn.style.display = 'none'
+      });
+      function scrollPos() {
+        return document.body.scrollTop || window.scrollY
+      }
+      window.addEventListener('load', () => {
+        if (scrollPos() !== 0) contentSkipBtn.style.display = 'none'
+        document.documentElement.style.scrollBehavior = 'smooth'
+      });
+      window.addEventListener('scroll', () => {
+        if (scrollPos() !== 0) contentSkipBtn.style.display = 'none'
+      })
+    </script>
 	</body>
 </html>
