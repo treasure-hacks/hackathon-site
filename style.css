@@ -639,8 +639,6 @@ h3.sponsor-title{
 }
 #hamburger{
   display: none;
-  width: 18.29px;
-  height: 21.23px;
 }
 @media only screen and (max-width: 700px){
   .menu-items{
