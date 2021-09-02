@@ -684,3 +684,7 @@ h3.sponsor-title{
   background-repeat: repeat;
   background-size: 100%;
 }
+.category-icon{
+	width: 200px;
+	height: 200px;
+}
