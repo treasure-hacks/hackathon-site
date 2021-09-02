@@ -686,6 +686,7 @@ h3.sponsor-title{
 }
 .category-icon{
 	width: 100px;
+	margin: 10px;
 }
 .category-row {
    text-align:center;
@@ -698,7 +699,7 @@ h3.sponsor-title{
 .category-item{
 	width: 30%!important;
 	margin: 25px 50px;
-	border-radius: 20px;
+	padding: 10px;
 }
 @media only screen and (max-width: 800px){
 	.category-item{width: 50%!important;}
