@@ -29,7 +29,7 @@ if (window.location.pathname == '/schedule.html') {
       + minutes2 + "m " + seconds2 + "s ";
     if (distance2 < 0) {
       clearInterval(y);
-      document.getElementById("countdown2").innerHTML = "EXPIRED";
+      document.getElementById("countdown2").innerHTML = "In Progress!";
     }
   }, 1000);
 }
@@ -80,7 +80,7 @@ toggle.addEventListener("click", function () {
     x.className = "menu-item"
 
     x = smenu.appendChild(document.createElement("a"));
-    x.href = "https://docs.google.com/forms/d/1C-KtST6-cQaMofAhXzPbXKvx80VH8ZhEvDJncBpmrHg";
+    x.href = "https://docs.google.com/forms/d/e/1FAIpQLSfd1cNojHTgsXazii8Q-WoecmSdOxn94rCEJb_q_A6R29Ribw/viewform";
     x.innerHTML = "Register";
     x.className = "menu-item"
 
