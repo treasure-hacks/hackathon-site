@@ -702,8 +702,8 @@ h3.sponsor-title{
 	padding: 10px;
 }
 @media only screen and (max-width: 800px){
-	.category-item{width: 50%!important;}
+	.category-item{width: 75%!important;}
 }
 @media only screen and (max-width: 500px){
-	.category-item{width: 80%!important;}
+	.category-item{width: 85%!important;}
 }
