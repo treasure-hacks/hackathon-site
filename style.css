@@ -263,8 +263,8 @@ h3{
 }
 .sponsor{
   width: 200px;
+  height: 130px;
   border-radius: 5px;
-  padding: 10px;
   height: 100%;
   object-fit: contain;
 }
@@ -393,7 +393,7 @@ h4{
 }
 .header-text-container {
   position: absolute;
-  bottom: 10vw;
+  bottom: calc(5vw - 100px);
   width: 100%;
   transform: translateY(-50%);
   padding: 0 15vw;
@@ -404,7 +404,7 @@ h4{
   font-size: clamp(36px, calc(10px + 4vw), 120px);
   text-shadow: 0px 0px 10px #000;
   margin: 0.4em 0;
-  scroll-margin: 45vh;
+  scroll-margin: 50vh;
 }
 .header-text-container p {
   font-size: 24px;
