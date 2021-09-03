@@ -139,10 +139,10 @@ footer::before {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 65vw;
+  height: 64.7vw;
   background-image: url('/images/cave_background/bottom.png');
   background-position: bottom;
-  background-size: cover;
+  background-size: 100vw;
 }
 footer .flex {
   position: absolute;
@@ -325,6 +325,7 @@ h4{
 .link > img{
 	max-width: 40px;
 	max-height: 40px;
+  border-radius: 9px;
 	transition: all 0.3s ease;
 	margin: 0px 4px;
 }
@@ -334,6 +335,12 @@ h4{
 }
 .bottom-links{
   margin-left: auto;
+}
+.bottom-links a {
+  display: inline-block;
+}
+.bottom-links .smallscreen, .smallscreen-divider {
+  display: none;
 }
 @media only screen and (max-width: 600px){
 	.bottom-links{
@@ -348,12 +355,13 @@ h4{
   color: #bebebe;
   cursor: pointer;
   padding: 18px;
-  width: 80%;
+  width: 100%;
   border: none;
   text-align: left;
   outline: none;
   font-size: 15px;
   transition: 0.4s;
+  box-sizing: border-box;
 }
 
 .active, .accordion:hover {
@@ -366,7 +374,8 @@ h4{
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  width: 80%;
+  width: 100%;
+  box-sizing: border-box;
 }
 .accordion:after {
   content: '\02795'; /* Unicode character for "plus" sign (+) */
@@ -749,6 +758,28 @@ center.main-header {
 @media only screen and (max-width: 640px) {
   center.main-header {
     height: 200vh;
+  }
+  footer .flex {
+    height: 60px;
+    padding: 0 8px;
+    align-items: flex-start;
+  }
+  footer .flex > a[href*="mailto"] {
+    display: none;
+  }
+  footer .flex .bottom-links {
+    margin: 0;
+  }
+  .bottom-links {
+    display: flex;
+    width: 100%;
+  }
+  .bottom-links .smallscreen {
+    display: inline-block;
+  }
+  .smallscreen-divider {
+    display: inline-block;
+    margin: auto;
   }
 }
 .main-content {
