@@ -250,12 +250,12 @@
         return document.body.scrollTop || window.scrollY
       }
       window.addEventListener('load', () => {
-        if (scrollPos() !== 0) contentSkipBtn.style.display = 'none'
+        if (document.querySelector('.header-text-container p').getBoundingClientRect().y < window.innerHeight) contentSkipBtn.style.display = 'none'
         document.documentElement.style.scrollBehavior = 'smooth'
       });
       window.addEventListener('scroll', () => {
         if (scrollPos() !== 0) contentSkipBtn.style.display = 'none'
-      })
+      }, { passive: true })
     </script>
 	</body>
 </html>
