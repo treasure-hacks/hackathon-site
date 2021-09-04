@@ -12,49 +12,63 @@
 	<body>
 		<header class="header">
       <div class="navbar" id="navigation">
-        <img alt="Treasure Hacks Logo" class="logo logo-large" src="logos/image2.png" onclick="home()">
+        <img alt="Treasure Hacks Logo" class="logo logo-large" src="/logos/header_white.png" onclick="home()">
         <i class="fa fa-bars hamburger fa-lg" id="hamburger"></i>
         <div class="menu-items">
           <!--<div class = "menu-item">Previous Winners</div>-->
           <a class="menu-item" href="schedule.html">Schedule</a>
           <a class="menu-item" href="team.html">Team</a>
-          <a class="menu-item" href="sponsorship-information.pdf">Sponsor Us</a>
-          <a class="menu-item" href="https://docs.google.com/forms/d/e/1FAIpQLSfd1cNojHTgsXazii8Q-WoecmSdOxn94rCEJb_q_A6R29Ribw/viewform">Register</a>
-          <a class="menu-item" href="https://bank.hackclub.com/donations/start/treasure-hacks">Donate</a>
+          <a class="menu-item" target="_blank" href="sponsorship-information.pdf">Sponsor Us</a>
+          <a class="menu-item" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfd1cNojHTgsXazii8Q-WoecmSdOxn94rCEJb_q_A6R29Ribw/viewform">Register</a>
+          <a class="menu-item" target="_blank" href="https://bank.hackclub.com/donations/start/treasure-hacks">Donate</a>
         </div>
       </div>
     </header>
 		<div class="wrapper"> <!-- wrapper div starts -->
 			<div class="padder"></div>
-			<center><h1>Our Team</h1></center>
-			<hr/>
-			<center><h2>Project Leaders</h2></center>
-			<div class="flex names-container">
-				<div>
-					<img class="person" src="images/brandon-joe.jpg"/>
-					<h3>Brandon Joe</h3>
-					<h4>President/Lead</h4>
-					<p>Hi there, I'm Brandon Joe, a senior at Tesoro High School. My interest in computer science started as a young kid when I started creating broken games during summer camps and block programming projects on Scratch. However, this interest evolved into proficiency in several coding languages along with leadership in many stem-based organizations.</p>
+			<div class="main-content">
+
+				<!-- <center><div class="padder"></div><h1>Our Team</h1></center> -->
+				<div class="section" style="min-height: 100px;">
+					<div class="padder"></div>
+					<center><h1>Our Team</h1></center>
 				</div>
-				<div>
-					<img class="person" src="images/ethan-kosaki.jpg"/>
-					<h3>Ethan Kosaki</h3>
-					<h4>Vice President/Operations</h4>
-					<p>Hi, I'm Ethan Kosaki. I enjoy using programming to use programming in creative ways to solved different problems. Through TreasureHacks, I want to create a community for computer science students. Treasure Hacks is a way to spread my interest in programming with other high school students.</p>
+
+				<hr/>
+				<center><h2>Project Leaders</h2></center>
+				<div class="flex names-container">
+					<div>
+						<img class="person" src="images/brandon-joe.jpg"/>
+						<h3>Brandon Joe</h3>
+						<h4>President/Lead</h4>
+						<p>Hi there, I'm Brandon Joe, a senior at Tesoro High School. My interest in computer science started as a young kid when I started creating broken games during summer camps and block programming projects on Scratch. However, this interest evolved into proficiency in several coding languages along with leadership in many stem-based organizations.</p>
+					</div>
+					<div>
+						<img class="person" src="images/daniel-kim.jpg"/>
+						<h3>Daniel Kim</h3>
+						<h4>Publicity/Social Media</h4>
+						<p>My name is Daniel Kim, and I have worked in various leadership positions inside and outside of my high school. As a cofounder of a volunteer organization, I worked vigorously on outreach and curriculum development, while being the vice president of Tesoro NHS allowed me to develop communication and management skills. Through Treasure Hacks, I hope to continue to disseminate the pedagogical uses of technology.</p>
+					</div>
+					<div>
+						<img class="person" src="images/ethan-kosaki.jpg"/>
+						<h3>Ethan Kosaki</h3>
+						<h4>Vice President/Operations</h4>
+						<p>Hi, I'm Ethan Kosaki. I enjoy using programming to use programming in creative ways to solved different problems. Through TreasureHacks, I want to create a community for computer science students. Treasure Hacks is a way to spread my interest in programming with other high school students.</p>
+					</div>
+					<div>
+						<img class="person" src="images/ethan-wang.jpg"/>
+						<h3>Ethan Wang</h3>
+						<h4>Treasurer/Technology</h4>
+						<p>Hello, I'm Ethan Wang. I have always been intrigued about how things work, and I enjoy creating games. My passion for computer science has allowed me to win the sponsorship award at a local hackathon, as well as land an internship at Hopscotch Technologies.</p>
+					</div>
 				</div>
-				<div>
-					<img class="person" src="images/ethan-wang.jpg"/>
-					<h3>Ethan Wang</h3>
-					<h4>Treasurer/Technology</h4>
-					<p>Hello, I'm Ethan Wang. I have always been intrigued about how things work, and I enjoy creating games. My passion for computer science has allowed me to win the sponsorship award at a local hackathon, as well as land an internship at Hopscotch Technologies.</p>
-				</div>
-				<div>
-					<img class="person" src="images/daniel-kim.jpg"/>
-					<h3>Daniel Kim</h3>
-					<h4>Publicity/Social Media</h4>
-					<p>My name is Daniel Kim, and I have worked in various leadership positions inside and outside of my high school. As a cofounder of a volunteer organization, I worked vigorously on outreach and curriculum development, while being the vice president of Tesoro NHS allowed me to develop communication and management skills. Through Treasure Hacks, I hope to continue to disseminate the pedagogical uses of technology.</p>
-				</div>
+
+				<br/><br/><br/>
+				<br/><br/><br/>
+				<br/><br/><br/>
+
 			</div>
+			
       <!--
 			<hr/>
 			<center><h2>Judges</h2></center>
@@ -78,15 +92,19 @@
 			</div>
 		</div>
     -->
-		<br style="line-height: 50px;"/>
-			<footer>
-				<a href="mailto:contact.treasurehacks@gmail.com" class="link">contact.treasurehacks@gmail.com</a>
+		<!-- <br style="line-height: 50px;"/> -->
+		<footer>
+			<div class="flex">
+				<a href="mailto:contact@treasurehacks.dev" class="link">contact@treasurehacks.dev</a>
 				<div class="bottom-links">
-					<a class="link" href="https://www.linkedin.com/company/treasure-hacks/about/?viewAsMember=true"><img src="images/linkedin-logo.png"/></a>
-          <a class="link" href="https://discord.gg/QTYrT5K6"><img src="images/discord-logo.png"/></a>
-          <a class="link" href="https://www.instagram.com/treasure_hacks/"><img src="images/instagram-logo.png"/></a>
+					<a class="link smallscreen" href="mailto:contact@treasurehacks.dev"><img src="/images/contact_icons/email.png"/></a>
+					<a class="link" target="_blank" href="https://www.linkedin.com/company/treasure-hacks/about/?viewAsMember=true"><img src="/images/contact_icons/linkedin.png"/></a>
+					<div class="smallscreen-divider"></div>
+					<a class="link" target="_blank" href="https://api.treasurehacks.dev/links/discord"><img src="images/contact_icons/discord.png"/></a>
+					<a class="link" target="_blank" href="https://www.instagram.com/treasure_hacks/"><img src="images/contact_icons/instagram.png"/></a>
 				</div>
-			</footer>
+			</div>
+		</footer>
 		<div id = "black-square">
 			<button onclick="goToTop()" id="goToTop" title="Go to top">🡹</button>
 		</div>
