@@ -284,10 +284,12 @@ h3{
   object-fit: contain;
 }
 .item {
-  width: 220px!important;
-  height: 130px!important;
-  margin: 25px 50px;
+  min-width: 33%;
+  height: 130px;
+  margin: 30px 0;
   border-radius: 20px;
+  padding: 0 30px;
+  box-sizing: border-box
 }
 
 .description {
