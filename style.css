@@ -832,19 +832,27 @@ center.main-header {
 .category-icon{
 	width: 100px;
 	margin: 10px;
+  filter: invert(1);
+  -webkit-filter: invert(1);
 }
 .category-row {
    text-align:center;
    display: flex;
    width: 100%;
    flex-wrap: wrap;
-   align-items: center;
    justify-content:center;
 }
 .category-item{
 	width: 30%!important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 	margin: 10px 0px;
 	padding: 10px;
+}
+.category-item p {
+  margin: auto;
+  padding: 10px 0 0;
 }
 @media only screen and (max-width: 800px){
 	.category-item{width: 75%!important;}
