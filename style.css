@@ -413,6 +413,7 @@ h4{
 }
 .faq-answer{
   padding: 10px 0px;
+  font-size: 16px;
 }
 .active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
