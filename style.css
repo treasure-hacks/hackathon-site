@@ -417,7 +417,7 @@ h4{
   text-align:left;
 }
 .faq-answer > a{
-	color: #aaa;
+	color: #9cf;
 }
 .active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
