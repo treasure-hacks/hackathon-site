@@ -422,6 +422,7 @@ h4{
   text-align:left;
   margin: 0px;
   background-color: rgba(255,255,255, 0.06);
+  line-height: 22px;
 }
 .faq-answer > a{
 	color: #9cf;
