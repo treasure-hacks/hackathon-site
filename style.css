@@ -875,3 +875,9 @@ center.main-header {
 @media only screen and (max-width: 500px){
 	.category-item{width: 85%!important;}
 }
+#hackathon-schedule{
+	margin-top: 30px;
+}
+.switcherOuter{
+	display: none;
+}
