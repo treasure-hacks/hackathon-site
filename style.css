@@ -877,7 +877,13 @@ center.main-header {
 }
 #hackathon-schedule{
 	margin-top: 30px;
+	overflow: hidden;
+	width: 80%;
+	max-width: 800px;
+	height: 80vh;
+	overflow: hidden;
+	border: none;
 }
-.switcherOuter{
+#top-bar{
 	display: none;
 }

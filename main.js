@@ -98,3 +98,7 @@ toggle.addEventListener("click", function () {
     document.getElementById("navigation").style.boxShadow = "0px 0px 8px 0px rgb(0 0 0)";
   }
 });
+
+
+
+document.getElementbyId('top-bar').remove();
