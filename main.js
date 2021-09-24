@@ -101,4 +101,6 @@ toggle.addEventListener("click", function () {
 
 
 
-document.getElementbyId('top-bar').remove();
+document.getElementbyId('hackathon-schedule').onload = function (){
+	
+}
