@@ -878,6 +878,7 @@ center.main-header {
 table {
   border-collapse: collapse;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 td, th {
