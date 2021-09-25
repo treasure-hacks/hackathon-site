@@ -224,6 +224,14 @@ hr{
 	}
 }
 
+.map-frame {
+  margin: 16px;
+  border: none;
+  width: 100vh;
+  height: 75vh;
+  max-width: 66vw;
+  max-height: 50vw;
+}
 .names-container h3{
 	margin: 10px 0px;
 	font-size: 25px;
