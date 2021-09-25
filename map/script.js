@@ -8,7 +8,7 @@ map.addControl(new mapboxgl.NavigationControl());
 
 // Fetch the location markers for the map
 const xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://api.treasurehacks.dev/forms/location-markers')
+xhr.open('GET', 'https://api.treasurehacks.dev/forms/location-markers')
 xhr.onreadystatechange = function() {
   if (xhr.readyState !== 4) return
   if (xhr.status !== 200) return console.error(new Error('Unable to load data'))
