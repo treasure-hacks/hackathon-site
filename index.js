@@ -5,6 +5,10 @@ const EventEmitter = require('events')
 const changeEmitter = new EventEmitter()
 changeEmitter.setMaxListeners(10 ** 30)
 const Handlebars = require('handlebars')
+if (!fs.existsSync('.ENV')) {
+  fs.copyFileSync('EXAMPLE.ENV', '.ENV')
+  console.log('Created .ENV file from example')
+}
 require('dotenv').config()
 
 const args = {
@@ -46,31 +50,10 @@ function recursivePartials (folderName) {
       const template = fs.readFileSync('./partials/' + routeName, 'utf-8')
       const renderer = Handlebars.compile(template)
       Handlebars.registerPartial(partialName, renderer)
-      console.log(partialName)
     }
   })
 }
 recursivePartials('partials')
-// Watch changes
-watch('partials', { recursive: true }, function (evt, name) {
-  if (evt !== 'remove') {
-    const stat = fs.lstatSync(name)
-    if (stat.isDirectory()) return
-  }
-
-  console.log(`\x1b[32mChange detected, rebuilding... (${evt + ' ' + name}) \x1b[0m`)
-  const partialName = name.replace(/^partials\/|\.hbs$/g, '')
-
-  // Update Partial by re-registering it
-  if (evt !== 'remove') {
-    const template = fs.readFileSync(name, 'utf-8')
-    const renderer = Handlebars.compile(template)
-    Handlebars.registerPartial(partialName, renderer)
-  }
-
-  // Rebuild the app using the template
-  buildApp()
-})
 
 function buildApp () {
   // Clear the docs directory
@@ -119,11 +102,34 @@ function buildApp () {
   }
   recursiveRoutes('views')
 }
-watch('views', { recursive: true }, function (evt, name) {
-  console.log(`\x1b[32mChange detected, rebuilding... (${evt + ' ' + name}) \x1b[0m`)
-  buildApp()
-})
 buildApp()
+
+if (args.watch) {
+  // Watch changes
+  watch('partials', { recursive: true }, function (evt, name) {
+    if (evt !== 'remove') {
+      const stat = fs.lstatSync(name)
+      if (stat.isDirectory()) return
+    }
+
+    console.log(`\x1b[32mChange detected, rebuilding... (${evt + ' ' + name}) \x1b[0m`)
+    const partialName = name.replace(/^partials\/|\.hbs$/g, '')
+
+    // Update Partial by re-registering it
+    if (evt !== 'remove') {
+      const template = fs.readFileSync(name, 'utf-8')
+      const renderer = Handlebars.compile(template)
+      Handlebars.registerPartial(partialName, renderer)
+    }
+
+    // Rebuild the app using the template
+    buildApp()
+  })
+  watch('views', { recursive: true }, function (evt, name) {
+    console.log(`\x1b[32mChange detected, rebuilding... (${evt + ' ' + name}) \x1b[0m`)
+    buildApp()
+  })
+}
 
 if (args.serve) {
   const express = require('express')
