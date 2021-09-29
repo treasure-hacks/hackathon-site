@@ -37,9 +37,11 @@ Those changes will be applied to the site automatically when you compile the cod
 
 ### Adding Reusable Values
 This is how to add variables that you can access from any HTML template file (NAME.html.hbs)
+NOTE: Generally, we don't need to use this, so make sure to contact @Awesome-E beforehand to make sure that the usage is justified.
+
 1. In the `.ENV` file, add the variable name and value in this format, on a new line: `BUILD_VARNAME=test` (each accessible variable must have `BUILD_` at the start of the key).
 2. From the template file (NAME.html.hbs), add the HTML code `<div>{{VARNAME}}</div>`. This will result in `<div>test</div>` when the site is compiled.
-- To render "partials" (reusable HTML code), create a partial inside of the `partials
+3. If the change is applied to the GitHub site, we want that to be tracked, so add it back to `EXAMPLE.ENV`.
 
 ### Reusing HTML Code
 To reuse HTML code, we are using a feature called "partials" in the Handlebars library, and the term "partial" just refers to any HTML code that is reusable within the entire site.
