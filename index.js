@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const watch = require('node-watch')
 const EventEmitter = require('events')
 const changeEmitter = new EventEmitter()
 changeEmitter.setMaxListeners(10 ** 30)
@@ -11,12 +12,64 @@ const args = {
   serve: process.argv.indexOf('--serve') > -1
 }
 
-const newENV = {}
+// Config using config.js and ENV vars
+const config = require('./config')
 Object.entries(process.env).forEach(entry => {
   const key = entry[0]
   const val = entry[1]
   if (!key.match(/^BUILD_/)) return
-  newENV[key.replace(/^BUILD_/, '')] = val
+  config[key.replace(/^BUILD_/, '')] = val
+})
+
+// Render Templates
+function renderTemplate (renderer, path) {
+  try {
+    return renderer(config)
+  } catch (error) {
+    console.log(`\x1b[31mHandlebars compile error: ${path}\x1b[0m`)
+    return config.hbs_compile_error_msg
+  }
+}
+
+// Register Handlbars Partial Views
+function recursivePartials (folderName) {
+  fs.readdirSync(folderName).forEach(function (file) {
+    // For each file in directory, get name and stat
+    const fullName = path.join(folderName, file)
+    const stat = fs.lstatSync(fullName)
+    if (stat.isDirectory()) {
+      // Folders
+      recursivePartials(fullName)
+    } else {
+      const routeName = fullName.replace(/^partials\//g, '')
+      const partialName = routeName.replace(/\.hbs$/, '')
+      const template = fs.readFileSync('./partials/' + routeName, 'utf-8')
+      const renderer = Handlebars.compile(template)
+      Handlebars.registerPartial(partialName, renderer)
+      console.log(partialName)
+    }
+  })
+}
+recursivePartials('partials')
+// Watch changes
+watch('partials', { recursive: true }, function (evt, name) {
+  if (evt !== 'remove') {
+    const stat = fs.lstatSync(name)
+    if (stat.isDirectory()) return
+  }
+
+  console.log(`\x1b[32mChange detected, rebuilding... (${evt + ' ' + name}) \x1b[0m`)
+  const partialName = name.replace(/^partials\/|\.hbs$/g, '')
+
+  // Update Partial by re-registering it
+  if (evt !== 'remove') {
+    const template = fs.readFileSync(name, 'utf-8')
+    const renderer = Handlebars.compile(template)
+    Handlebars.registerPartial(partialName, renderer)
+  }
+
+  // Rebuild the app using the template
+  buildApp()
 })
 
 function buildApp () {
@@ -35,16 +88,6 @@ function buildApp () {
       } else {
         const routeName = fullName.replace(/^views/g, '')
 
-        // Handle file changes
-        changeEmitter.on('unwatch', () => {
-          fs.unwatchFile('./views' + routeName, watchHandler)
-        })
-        function watchHandler (curr, prev) {
-          console.log('\x1b[32mChange detected, rebuilding...\x1b[0m')
-          changeEmitter.emit('unwatch')
-          buildApp()
-        }
-
         // Create directory if it doesn't exist
         const dir = folderName.replace(/^views/g, 'docs')
         if (!fs.existsSync(dir)) {
@@ -56,8 +99,8 @@ function buildApp () {
         if (routeName.match(/\.(hbs)$/)) {
           // Handlebars files
           const template = fs.readFileSync('./views' + routeName, 'utf-8')
-          const renderTemplate = Handlebars.compile(template)
-          const html = renderTemplate(newENV)
+          const renderer = Handlebars.compile(template)
+          const html = renderTemplate(renderer, './views' + routeName)
           fs.writeFile('./docs' + routeName.replace(/\.hbs$/, ''), html, err => {
             if (err) return console.log(err)
           })
@@ -67,12 +110,15 @@ function buildApp () {
             if (err) return console.log(err)
           })
         }
-
-        if (args.watch) fs.watchFile('./views' + routeName, { interval: 100 }, watchHandler)
       }
     })
   }
   recursiveRoutes('views')
+
+  watch('views', { recursive: true }, function (evt, name) {
+    console.log(`\x1b[32mChange detected, rebuilding... (${evt + ' ' + name}) \x1b[0m`)
+    buildApp()
+  })
 }
 buildApp()
 
