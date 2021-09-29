@@ -30,7 +30,8 @@ function renderTemplate (renderer, path) {
   try {
     return renderer(config)
   } catch (error) {
-    console.log(`\x1b[31mHandlebars compile error: ${path}\x1b[0m`)
+    console.log(error)
+    console.log(`\x1b[31mHandlebars compile error: ${path}\nSee traceback above for more information.\x1b[0m`)
     return config.hbs_compile_error_msg
   }
 }
