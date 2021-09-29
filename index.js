@@ -80,7 +80,7 @@ if (args.serve) {
   const express = require('express')
   const http = require('http')
   const app = express()
-  app.use(express.static('./docs/'))
+  app.use(express.static('./docs'))
   http.createServer(app).listen(5700, () => {
     console.log('\x1b[36mListening on port 5700\x1b[0m')
   })
