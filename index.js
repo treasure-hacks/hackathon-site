@@ -114,12 +114,11 @@ function buildApp () {
     })
   }
   recursiveRoutes('views')
-
-  watch('views', { recursive: true }, function (evt, name) {
-    console.log(`\x1b[32mChange detected, rebuilding... (${evt + ' ' + name}) \x1b[0m`)
-    buildApp()
-  })
 }
+watch('views', { recursive: true }, function (evt, name) {
+  console.log(`\x1b[32mChange detected, rebuilding... (${evt + ' ' + name}) \x1b[0m`)
+  buildApp()
+})
 buildApp()
 
 if (args.serve) {
