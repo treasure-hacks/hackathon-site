@@ -4,8 +4,9 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "build": "node index.js",
     "dev": "node index.js --watch --serve",
-    "serve": "cd docs/ && python3 -m http.server 5700"
+    "serve": "node index.js --serve"
   },
   "repository": {
     "type": "git",

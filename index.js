@@ -40,7 +40,7 @@ function buildApp () {
           fs.unwatchFile('./views' + routeName, watchHandler)
         })
         function watchHandler (curr, prev) {
-          console.log('\x1b[32mChange detected, restarting...\x1b[0m')
+          console.log('\x1b[32mChange detected, rebuilding...\x1b[0m')
           changeEmitter.emit('unwatch')
           buildApp()
         }
@@ -60,13 +60,11 @@ function buildApp () {
           const html = renderTemplate(newENV)
           fs.writeFile('./docs' + routeName.replace(/\.hbs$/, ''), html, err => {
             if (err) return console.log(err)
-            // console.log('File written succesfully: ' + routeName.replace(/\.hbs$/, ''))
           })
         } else {
           // Copy other (static) files
           fs.copyFile('./views' + routeName, './docs' + routeName, err => {
             if (err) return console.log(err)
-            // console.log('File copied succesfully: ' + routeName)
           })
         }
 
