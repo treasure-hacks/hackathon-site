@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "dev": "node index.js --dev",
+    "dev": "node index.js --watch --serve",
     "serve": "cd docs/ && python3 -m http.server 5700"
   },
   "repository": {
@@ -23,7 +23,8 @@
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0"
+    "eslint-plugin-promise": "^5.1.0",
+    "express": "^4.17.1"
   },
   "dependencies": {
     "dotenv": "^10.0.0",

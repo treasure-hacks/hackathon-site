@@ -1,9 +1,15 @@
 const fs = require('fs')
 const path = require('path')
+const EventEmitter = require('events')
+const changeEmitter = new EventEmitter()
+changeEmitter.setMaxListeners(10 ** 30)
 const Handlebars = require('handlebars')
 require('dotenv').config()
 
-fs.rmdirSync('docs', { recursive: true })
+const args = {
+  watch: process.argv.indexOf('--watch') > -1,
+  serve: process.argv.indexOf('--serve') > -1
+}
 
 const newENV = {}
 Object.entries(process.env).forEach(entry => {
@@ -13,47 +19,71 @@ Object.entries(process.env).forEach(entry => {
   newENV[key.replace(/^BUILD_/, '')] = val
 })
 
-function recursiveRoutes (folderName) {
-  fs.readdirSync(folderName).forEach(function (file) {
-    const fullName = path.join(folderName, file)
-    const stat = fs.lstatSync(fullName)
+function buildApp () {
+  // Clear the docs directory
+  fs.rmdirSync('docs', { recursive: true })
 
-    if (stat.isDirectory()) {
-      recursiveRoutes(fullName)
-    } else {
-      const routeName = fullName.replace(/^views/g, '')
+  function recursiveRoutes (folderName) {
+    fs.readdirSync(folderName).forEach(function (file) {
+      // For each file in directory, get name and stat
+      const fullName = path.join(folderName, file)
+      const stat = fs.lstatSync(fullName)
 
-      function watchHandler (curr, prev) {
-        console.log('\x1b[32mChange detected, restarting...\x1b[0m')
-        fs.unwatchFile('./views' + routeName, watchHandler)
-        recursiveRoutes('views')
-      }
-      fs.unwatchFile('./views' + routeName, watchHandler)
-
-      // Create directory if it doesn't exist
-      const dir = folderName.replace(/^views/g, 'docs')
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, {
-          recursive: true
-        })
-      }
-
-      if (routeName.match(/\.(hbs|js)$/)) {
-        const template = fs.readFileSync('./views' + routeName, 'utf-8')
-        const renderTemplate = Handlebars.compile(template)
-        const html = renderTemplate(newENV)
-        fs.writeFile('./docs' + routeName.replace(/\.hbs$/, ''), html, err => {
-          if (err) return console.log(err)
-          console.log('File written succesfully: ' + routeName.replace(/\.hbs$/, ''))
-        })
+      if (stat.isDirectory()) {
+        // Folders
+        recursiveRoutes(fullName)
       } else {
-        fs.copyFile('./views' + routeName, './docs' + routeName, err => {
-          if (err) return console.log(err)
-          console.log('File copied succesfully: ' + routeName)
+        const routeName = fullName.replace(/^views/g, '')
+
+        // Handle file changes
+        changeEmitter.on('unwatch', () => {
+          fs.unwatchFile('./views' + routeName, watchHandler)
         })
+        function watchHandler (curr, prev) {
+          console.log('\x1b[32mChange detected, restarting...\x1b[0m')
+          changeEmitter.emit('unwatch')
+          buildApp()
+        }
+
+        // Create directory if it doesn't exist
+        const dir = folderName.replace(/^views/g, 'docs')
+        if (!fs.existsSync(dir)) {
+          fs.mkdirSync(dir, {
+            recursive: true
+          })
+        }
+
+        if (routeName.match(/\.(hbs)$/)) {
+          // Handlebars files
+          const template = fs.readFileSync('./views' + routeName, 'utf-8')
+          const renderTemplate = Handlebars.compile(template)
+          const html = renderTemplate(newENV)
+          fs.writeFile('./docs' + routeName.replace(/\.hbs$/, ''), html, err => {
+            if (err) return console.log(err)
+            // console.log('File written succesfully: ' + routeName.replace(/\.hbs$/, ''))
+          })
+        } else {
+          // Copy other (static) files
+          fs.copyFile('./views' + routeName, './docs' + routeName, err => {
+            if (err) return console.log(err)
+            // console.log('File copied succesfully: ' + routeName)
+          })
+        }
+
+        if (args.watch) fs.watchFile('./views' + routeName, { interval: 100 }, watchHandler)
       }
-      fs.watchFile('./views' + routeName, { interval: 100 }, watchHandler)
-    }
+    })
+  }
+  recursiveRoutes('views')
+}
+buildApp()
+
+if (args.serve) {
+  const express = require('express')
+  const http = require('http')
+  const app = express()
+  app.use(express.static('./docs/'))
+  http.createServer(app).listen(5700, () => {
+    console.log('\x1b[36mListening on port 5700\x1b[0m')
   })
 }
-recursiveRoutes('views')
