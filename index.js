@@ -101,14 +101,18 @@ function buildApp () {
           const template = fs.readFileSync('./views' + routeName, 'utf-8')
           const renderer = Handlebars.compile(template)
           const html = renderTemplate(renderer, './views' + routeName)
-          fs.writeFile('./docs' + routeName.replace(/\.hbs$/, ''), html, err => {
-            if (err) return console.log(err)
-          })
+          try {
+            fs.writeFileSync('./docs' + routeName.replace(/\.hbs$/, ''), html)
+          } catch (error) {
+            console.log(error)
+          }
         } else {
           // Copy other (static) files
-          fs.copyFile('./views' + routeName, './docs' + routeName, err => {
-            if (err) return console.log(err)
-          })
+          try {
+            fs.copyFileSync('./views' + routeName, './docs' + routeName)
+          } catch (error) {
+            console.log(error)
+          }
         }
       }
     })
