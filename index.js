@@ -92,10 +92,13 @@ function buildApp () {
             console.log(error)
           }
         } else if (routeName.match(/\.s[ac]ss$/)) {
-          sass.render({ file: './views' + routeName }, function (error, result) {
-            if (error) return console.log(error)
+          const result = sass.renderSync({ file: './views' + routeName })
+          try {
             fs.writeFileSync('./docs' + routeName.replace(/\.s[ac]ss$/, '.css'), result.css)
-          })
+          } catch (error) {
+            console.log(error)
+            console.log(`\x1b[31mSass CSS compile error: ${path}\nSee traceback above for more information.\x1b[0m`)
+          }
         } else {
           // Copy other (static) files
           try {
