@@ -5,6 +5,7 @@ const EventEmitter = require('events')
 const changeEmitter = new EventEmitter()
 changeEmitter.setMaxListeners(10 ** 30)
 const Handlebars = require('handlebars')
+const sass = require('sass')
 if (!fs.existsSync('.ENV')) {
   fs.copyFileSync('EXAMPLE.ENV', '.ENV')
   console.log('Created .ENV file from example')
@@ -90,6 +91,11 @@ function buildApp () {
           } catch (error) {
             console.log(error)
           }
+        } else if (routeName.match(/\.s[ac]ss$/)) {
+          sass.render({ file: './views' + routeName }, function (error, result) {
+            if (error) return console.log(error)
+            fs.writeFileSync('./docs' + routeName.replace(/\.s[ac]ss$/, '.css'), result.css)
+          })
         } else {
           // Copy other (static) files
           try {
