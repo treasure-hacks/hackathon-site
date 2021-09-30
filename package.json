@@ -1,0 +1,35 @@
+{
+  "name": "treasurehacks-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "node index.js",
+    "dev": "node index.js --watch --serve",
+    "serve": "node index.js --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/treasure-hacks/treasurehacks-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/treasure-hacks/treasurehacks-site/issues"
+  },
+  "homepage": "https://github.com/treasure-hacks/treasurehacks-site#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "express": "^4.17.1",
+    "node-watch": "^0.7.2"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "handlebars": "^4.7.7"
+  }
+}
