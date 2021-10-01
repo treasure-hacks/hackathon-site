@@ -32,6 +32,8 @@ body, button {
 p{
   margin: 0px 10px;
   font-size: 20px;
+  line-height: 1.5em;
+  text-align: center;
 }
 @media only screen and (max-width: 700px){
   h1 {
@@ -876,6 +878,7 @@ center.main-header {
 .category-item p {
   margin: auto;
   padding: 10px 0 0;
+  line-height: initial;
 }
 @media only screen and (max-width: 800px){
 	.category-item{width: 75%!important;}
