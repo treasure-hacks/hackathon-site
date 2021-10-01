@@ -31,8 +31,8 @@ body, button {
 }
 p{
   margin: 0px 10px;
-  font-size: 20px;
-  line-height: 1.5em;
+  font-size: 19px;
+  line-height: 1.45em;
   text-align: center;
 }
 @media only screen and (max-width: 700px){
@@ -454,7 +454,7 @@ h4{
   position: absolute;
   bottom: calc(5vw - 100px);
   width: 100%;
-  transform: translateY(-50%);
+  transform: translateY(-25%);
   padding: 0 15vw;
   box-sizing: border-box;
 }
