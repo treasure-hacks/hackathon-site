@@ -9,7 +9,7 @@ Dark Green:    #2D630D
 */
 @import url("https://fonts.googleapis.com/css2?family=Sora&display=swap");
 :root {
-  --col-bg-main: #261441;
+  --col-bg-main: #211436;
   --col-bg-toolbar: #111e;
 }
 
@@ -135,7 +135,7 @@ p {
 }
 footer {
   width: 100%;
-  height: 52.5vw;
+  height: 57vw;
   display: flex;
   align-items: flex-end;
   position: relative;
@@ -148,7 +148,7 @@ footer::before {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 64.7vw;
+  height: 70vw;
   background-image: url("/images/cave_background/bottom.png");
   background-position: bottom;
   background-size: 100vw;
