@@ -7,7 +7,7 @@ Light Green:   #7BE600
 Dark Green:    #2D630D
 */
 :root {
-  --col-bg-main: #261441;
+  --col-bg-main: #211436;
   --col-bg-toolbar: #111e;
 }
 html {
@@ -31,7 +31,9 @@ body, button {
 }
 p{
   margin: 0px 10px;
-  font-size: 20px;
+  font-size: 19px;
+  line-height: 1.45em;
+  text-align: center;
 }
 @media only screen and (max-width: 700px){
   h1 {
@@ -127,7 +129,7 @@ p{
 }
 footer {
   width: 100%;
-	height: 52.5vw;
+	height: 57vw;
 	display: flex;
 	align-items: flex-end;
   position: relative;
@@ -139,7 +141,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 64.7vw;
+    height: 70vw;
     background-image: url('/images/cave_background/bottom.png');
     background-position: bottom;
     background-size: 100vw;
@@ -452,7 +454,7 @@ h4{
   position: absolute;
   bottom: calc(5vw - 100px);
   width: 100%;
-  transform: translateY(-50%);
+  transform: translateY(-25%);
   padding: 0 15vw;
   box-sizing: border-box;
 }
@@ -804,9 +806,9 @@ h3.sponsor-title{
 center.main-header {
   display: flex;
   align-items: flex-end;
-  height: calc(80vh + 100vw);
-  min-height: 135vw;
-  max-height: 150vw;
+  height: calc(75vh + 97vw);
+  min-height: 128vw;
+  max-height: 145vw;
   position: relative;
 }
 @media only screen and (max-width: 640px) {
@@ -876,6 +878,7 @@ center.main-header {
 .category-item p {
   margin: auto;
   padding: 10px 0 0;
+  line-height: initial;
 }
 @media only screen and (max-width: 800px){
 	.category-item{width: 75%!important;}
