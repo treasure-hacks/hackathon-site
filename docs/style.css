@@ -893,8 +893,8 @@ h3.sponsor-title {
 center.main-header {
   display: flex;
   align-items: flex-end;
-  height: calc(80vh + 100vw);
-  min-height: 135vw;
+  height: calc(75vh + 100vw);
+  min-height: 125vw;
   max-height: 150vw;
   position: relative;
 }
