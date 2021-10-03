@@ -17,27 +17,29 @@ html, body {
   height: 10px;
   position: relative;
   cursor: pointer;
-}
-.marker-container img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
 }
 
-body .mapboxgl-ctrl-top-right .mapboxgl-ctrl-group {
-  opacity: 0.6;
-}
-body :is(.mapboxgl-ctrl-bottom-right, .mapboxgl-ctrl-bottom-left) {
-  opacity: 0.6;
-  border-radius: 3px;
-  overflow: hidden;
-  bottom: 4px;
-  right: 3.5px;
-}
-body .mapboxgl-ctrl-bottom-right a {
-  margin: 0 2px;
+body {
+  .mapboxgl-ctrl-top-right .mapboxgl-ctrl-group {
+    opacity: 0.6;
+  }
+  :is(.mapboxgl-ctrl-bottom-right, .mapboxgl-ctrl-bottom-left) {
+    opacity: 0.6;
+    border-radius: 3px;
+    overflow: hidden;
+    bottom: 4px;
+    right: 3.5px;
+  }
+  .mapboxgl-ctrl-bottom-right a {
+    margin: 0 2px;
+  }
 }
 
 .ring {
