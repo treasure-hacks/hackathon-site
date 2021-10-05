@@ -11,6 +11,17 @@ html, body {
   height: 100%;
   margin: auto;
 }
+.map-container .participant-count, #map .participant-count {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  font: 16px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  opacity: 0.6;
+  padding: 8px;
+  user-select: none;
+  -webkit-user-select: none;
+}
 
 .marker-container {
   width: 10px;

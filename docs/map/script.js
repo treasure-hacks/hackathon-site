@@ -13,6 +13,7 @@ xhr.onreadystatechange = function () {
   if (xhr.readyState !== 4) return
   if (xhr.status !== 200) return console.error(new Error('Unable to load data'))
   const markers = JSON.parse(xhr.responseText)
+  document.querySelector('.participant-count').innerText = markers.count + ' Total Participants'
   markers.items.forEach(m => {
     const container = document.createElement('div')
     container.classList.add('marker-container')
