@@ -16,7 +16,7 @@ function home() {
 }
 
 
-var countDownDate = new Date("Oct 9, 2021 8:00:00").getTime();
+var countDownDate = new Date("Oct 15, 2021 17:00:00").getTime();
 if (window.location.pathname == '/schedule.html') {
   var y = setInterval(function () {
     var now = new Date().getTime();
