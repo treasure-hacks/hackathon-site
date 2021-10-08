@@ -1023,3 +1023,7 @@ tr:nth-child(even) {
     display: none;
   }
 }
+.category-block {
+  min-height: 180px;
+  font-size: 19px;
+}
