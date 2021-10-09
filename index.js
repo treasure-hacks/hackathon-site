@@ -155,6 +155,22 @@ if (args.serve) {
   const http = require('http')
   const app = express()
   app.use(express.static('./docs'))
+  app.use(function (req, res) {
+    try {
+      fs.readFile('./docs/404.html', function (error, content) {
+        if (error) {
+          res.writeHead(500, { 'Content-Type': 'text/plain' })
+          res.end('Internal Server Error', 'utf-8')
+        } else {
+          res.writeHead(404, { 'Content-Type': 'text/html' })
+          res.end(content, 'utf-8')
+        }
+      })
+    } catch (error) {
+      // Error is handled in function
+      // This is to catch the exception thrown by fs.readFile
+    }
+  })
   http.createServer(app).listen(5700, () => {
     console.log('\x1b[36mListening on port 5700\x1b[0m')
   })
