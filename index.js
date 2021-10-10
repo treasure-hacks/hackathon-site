@@ -6,6 +6,7 @@ const changeEmitter = new EventEmitter()
 changeEmitter.setMaxListeners(10 ** 30)
 const Handlebars = require('handlebars')
 const sass = require('sass')
+const htmlMinify = require('html-minifier').minify
 if (!fs.existsSync('.ENV')) {
   fs.copyFileSync('EXAMPLE.ENV', '.ENV')
   console.log('Created .ENV file from example')
@@ -86,13 +87,21 @@ function buildApp () {
           const template = fs.readFileSync('./views' + routeName, 'utf-8')
           const renderer = Handlebars.compile(template)
           const html = renderTemplate(renderer, './views' + routeName)
+          let minified = null
+          if (routeName.replace(/\.hbs$/, '').match(/\.html$/)) {
+            minified = htmlMinify(html, {
+              collapseWhitespace: true,
+              minifyJS: true,
+              minifyCSS: true
+            })
+          }
           try {
-            fs.writeFileSync('./docs' + routeName.replace(/\.hbs$/, ''), html)
+            fs.writeFileSync('./docs' + routeName.replace(/\.hbs$/, ''), minified || html)
           } catch (error) {
             console.log(error)
           }
         } else if (routeName.match(/\.s[ac]ss$/)) {
-          const result = sass.renderSync({ file: './views' + routeName })
+          const result = sass.renderSync({ file: './views' + routeName, outputStyle: 'compressed' })
           try {
             fs.writeFileSync('./docs' + routeName.replace(/\.s[ac]ss$/, '.css'), result.css)
           } catch (error) {
@@ -146,6 +155,22 @@ if (args.serve) {
   const http = require('http')
   const app = express()
   app.use(express.static('./docs'))
+  app.use(function (req, res) {
+    try {
+      fs.readFile('./docs/404.html', function (error, content) {
+        if (error) {
+          res.writeHead(500, { 'Content-Type': 'text/plain' })
+          res.end('Internal Server Error', 'utf-8')
+        } else {
+          res.writeHead(404, { 'Content-Type': 'text/html' })
+          res.end(content, 'utf-8')
+        }
+      })
+    } catch (error) {
+      // Error is handled in function
+      // This is to catch the exception thrown by fs.readFile
+    }
+  })
   http.createServer(app).listen(5700, () => {
     console.log('\x1b[36mListening on port 5700\x1b[0m')
   })
