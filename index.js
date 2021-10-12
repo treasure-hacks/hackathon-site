@@ -42,7 +42,7 @@ function renderTemplate (renderer, path) {
 function recursivePartials (folderName) {
   fs.readdirSync(folderName).forEach(function (file) {
     // For each file in directory, get name and stat
-    const fullName = path.join(folderName, file)
+    const fullName = path.join(folderName, file).replace(/\\/g, '/')
     const stat = fs.lstatSync(fullName)
     if (stat.isDirectory()) {
       // Folders
