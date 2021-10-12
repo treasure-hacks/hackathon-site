@@ -848,6 +848,7 @@ center.main-header {
 	margin: 10px;
   filter: invert(1);
   -webkit-filter: invert(1);
+  padding-bottom: 13px;
 }
 .category-row {
    text-align:center;
@@ -906,4 +907,9 @@ tr:nth-child(even) {
 .category-block{
 	min-height:190px;
 	font-size: 19px;
+}
+.icons-container{
+	width: 100%;
+    display: flex;
+    justify-content: center;
 }

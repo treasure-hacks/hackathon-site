@@ -80,3 +80,39 @@ toggle.addEventListener("click", function () {
     document.getElementById("navigation").style.boxShadow = "0px 0px 8px 0px rgb(0 0 0)";
   }
 });
+
+
+
+window.addEventListener('mouseover', function(e) {
+    categoryDetails(e.target);
+});
+window.addEventListener('click', function(e) {
+    categoryDetails(e.target);
+});
+function categoryDetails(target){
+	resetall();
+	switch(target.id) {
+		case "best-overall": {
+			target.style.borderBottom = "3px solid black";
+			target.style.paddingBottom = "10px";
+			break;
+		}
+		case "best-solo": {
+			target.style.borderBottom = "3px solid black";
+			target.style.paddingBottom = "10px";
+			break;
+		}
+		case "best-duo": {
+			target.style.borderBottom = "3px solid black";
+			target.style.paddingBottom = "10px";
+			break;
+		}
+	}
+}
+function resetall(){
+	var list = ["best-overall","best-solo","best-duo","most-aesthetically-pleasing","most-people-helped","qoom","sashido"];
+	for (var i = 0; i < list.length; i++){
+		document.getElementById(list[i]).style.border = "none";
+		document.getElementById(list[i]).style.paddingBottom = "13px";
+	}
+}
