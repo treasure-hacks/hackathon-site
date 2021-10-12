@@ -87,12 +87,13 @@ window.addEventListener('mouseover', function(e) {
     categoryDetails(e.target);
 });
 window.addEventListener('click', function(e) {
-    categoryDetails(e.target);
+	resetAll()
+	categoryDetails(e.target);
 });
 function categoryDetails(target){
 	switch(target.id) {
 		case "best-overall": {
-			resetall();
+			resetAll();
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
 			document.getElementById("category-title").innerHTML = "Best Overall";
@@ -103,7 +104,7 @@ function categoryDetails(target){
 
 		}
 		case "best-solo": {
-			resetall();
+			resetAll();
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
 			document.getElementById("category-title").innerHTML = "Best Solo Hack";
@@ -112,7 +113,7 @@ function categoryDetails(target){
 			break;
 		}
 		case "best-duo": {
-			resetall();
+			resetAll();
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
 			document.getElementById("category-title").innerHTML = "Best Duo Hack";
@@ -121,7 +122,7 @@ function categoryDetails(target){
 			break;
 		}
 		case "most-aesthetically-pleasing": {
-			resetall();
+			resetAll();
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
 			document.getElementById("category-title").innerHTML = "Most Aesthetically Pleasing";
@@ -130,7 +131,7 @@ function categoryDetails(target){
 			break;
 		}
 		case "most-people-helped": {
-			resetall();
+			resetAll();
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
 			document.getElementById("category-title").innerHTML = "Most People Helped";
@@ -139,7 +140,7 @@ function categoryDetails(target){
 			break;
 		}
 		case "qoom": {
-			resetall();
+			resetAll();
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
 			document.getElementById("category-title").innerHTML = "Best Qoom Hack";
@@ -148,7 +149,7 @@ function categoryDetails(target){
 			break;
 		}
 		case "sashido": {
-			resetall();
+			resetAll();
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
 			document.getElementById("category-title").innerHTML = "Best Sashido Hack";
@@ -157,7 +158,7 @@ function categoryDetails(target){
 			break;
 		}
 		case "all-participants": {
-			resetall();
+			resetAll();
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
 			document.getElementById("category-title").innerHTML = "All Participants";
@@ -167,8 +168,8 @@ function categoryDetails(target){
 		}
 	}
 }
-function resetall(){
-	var list = ["best-overall","best-solo","best-duo","most-aesthetically-pleasing","most-people-helped","qoom","sashido"];
+function resetAll(){
+	var list = ["best-overall","best-solo","best-duo","most-aesthetically-pleasing","most-people-helped","qoom","sashido", "all-participants"];
 	for (var i = 0; i < list.length; i++){
 		document.getElementById(list[i]).style.border = "none";
 		document.getElementById(list[i]).style.paddingBottom = "13px";

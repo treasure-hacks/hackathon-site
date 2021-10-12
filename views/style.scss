@@ -912,8 +912,21 @@ tr:nth-child(even) {
 	width: 100%;
     display: flex;
     justify-content: center;
+	flex-wrap: wrap;
 }
 .icons-container > img{
 	max-width: 10%;
 	min-width: 50px;
+}
+.icons-container > img{
+	-webkit-transition : -webkit-filter 500ms linear;
+	filter: color();
+}
+.category-description{
+	margin-bottom: 20px;
+	text-align: left;
+}
+.category-prizes{
+	margin-bottom: 20px;
+	text-align: left;
 }
