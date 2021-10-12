@@ -90,21 +90,70 @@ window.addEventListener('click', function(e) {
     categoryDetails(e.target);
 });
 function categoryDetails(target){
-	resetall();
 	switch(target.id) {
 		case "best-overall": {
+			resetall();
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
+			document.getElementById("category-title").innerHTML = "Best Overall";
+			document.getElementById("category-description").innerHTML = "The \"Best Solo Hack\" award will be given to a single hacker with the best solo project in the entire Hackathon.";
+			document.getElementById("category-prizes").innerHTML = "Prizes for this category include 1 $30 Amazon Gift Card For Each Group Member, 1 Cloud Stinger Headsets For Each Group Member, and 1 Alloy FPS RGB Refurb Keyboard For Each Group Member";
+			
 			break;
+
 		}
 		case "best-solo": {
+			resetall();
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
+			document.getElementById("category-title").innerHTML = "Best Solo Hack";
+			document.getElementById("category-description").innerHTML = "The \"Best Overall\" award will be given to a hacker or team who best demonstrates their project&rsquo;s creativity, practicality, engineering excellence, and presentation.";
+			document.getElementById("category-prizes").innerHTML = "Prizes for this category include 1 $30 Amazon Gift Card, 1 Cloud Stinger Headset, 1 Alloy FPS RGB Refurb Keyboard, and Goliath Automation and Robotics Monster Kit";
 			break;
 		}
 		case "best-duo": {
+			resetall();
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
+			document.getElementById("category-title").innerHTML = "Best Duo Hack";
+			document.getElementById("category-description").innerHTML = "Collaboration skills are super important in the programming world! The \"Best Duo Hack\" award will be given to a team of two hackers with the best project.";
+			document.getElementById("category-prizes").innerHTML = "Prizes for this category include";
+			break;
+		}
+		case "most-aesthetically-pleasing": {
+			resetall();
+			target.style.borderBottom = "3px solid black";
+			target.style.paddingBottom = "10px";
+			document.getElementById("category-title").innerHTML = "Most Aesthetically Pleasing";
+			document.getElementById("category-description").innerHTML = "Are you a creative and artistic person? The \"Most Aesthetically Pleasing\" award will be given to the project with the most polish, best presentation, and most intuitive user experience.";
+			document.getElementById("category-prizes").innerHTML = "Prizes for this category include";
+			break;
+		}
+		case "most-people-helped": {
+			resetall();
+			target.style.borderBottom = "3px solid black";
+			target.style.paddingBottom = "10px";
+			document.getElementById("category-title").innerHTML = "Most People Helped";
+			document.getElementById("category-description").innerHTML = "At Treasure Hacks, we value teamwork and working together. The \"Most People Helped\" award will be given to the hacker who has helped the most other groups complete their projects.";
+			document.getElementById("category-prizes").innerHTML = "Prizes for this category include";
+			break;
+		}
+		case "qoom": {
+			resetall();
+			target.style.borderBottom = "3px solid black";
+			target.style.paddingBottom = "10px";
+			document.getElementById("category-title").innerHTML = "Best Qoom Hack";
+			document.getElementById("category-description").innerHTML = "Qoom is a dream tool built to bring anything you imagine into reality with seamless development tools to create projects with HTML, CSS, and Javascript. This award will be given to the best project using Qoom.";
+			document.getElementById("category-prizes").innerHTML = "Prizes for this category include";
+			break;
+		}
+		case "sashido": {
+			resetall();
+			target.style.borderBottom = "3px solid black";
+			target.style.paddingBottom = "10px";
+			document.getElementById("category-title").innerHTML = "Best Sashido Hack";
+			document.getElementById("category-description").innerHTML = "SashiDo is offering a special prize for the most original Image project build with SashiDo & Teachable Machine by Google.";
+			document.getElementById("category-prizes").innerHTML = "Prizes for this category include";
 			break;
 		}
 	}

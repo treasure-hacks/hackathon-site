@@ -913,3 +913,7 @@ tr:nth-child(even) {
     display: flex;
     justify-content: center;
 }
+.icons-container > img{
+	max-width: 10%;
+	min-width: 50px;
+}
