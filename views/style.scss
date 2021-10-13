@@ -919,12 +919,7 @@ tr:nth-child(even) {
 	min-width: 50px;
 }
 .icons-container > img:hover{
-	animation: colorize 2s;
-	animation-fill-mode: forwards;
-}
-@keyframes colorize{
-	0%{}
-	100%{filter: invert(63%) sepia(57%) saturate(518%) hue-rotate(9deg) brightness(100%) contrast(89%);}
+	filter: invert(63%) sepia(57%) saturate(518%) hue-rotate(9deg) brightness(100%) contrast(89%);
 }
 .category-description{
 	margin-bottom: 20px;
