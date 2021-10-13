@@ -920,12 +920,12 @@ tr:nth-child(even) {
 }
 .icons-container > img:hover{
 	filter: invert(63%) sepia(57%) saturate(518%) hue-rotate(9deg) brightness(100%) contrast(89%);
+	transition: 0.2s ease-out;
 }
-.category-description{
-	margin-bottom: 20px;
+#category-description{
+	margin-bottom: 25px;
 	text-align: left;
 }
-.category-prizes{
-	margin-bottom: 20px;
+#category-prizes{
 	text-align: left;
 }
