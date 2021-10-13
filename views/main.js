@@ -173,6 +173,6 @@ function resetAll(){
 	var list = ["best-overall","best-solo","best-duo","most-aesthetically-pleasing","most-people-helped","qoom","sashido", "all-participants"];
 	for (var i = 0; i < list.length; i++){
 		document.getElementById(list[i]).style.borderColor = "rgba(0,0,0,0)";
-		document.getElementById(list[i]).style.paddingBottom = "13px";
+		document.getElementById(list[i]).style.paddingBottom = "10px";
 	}
 }
