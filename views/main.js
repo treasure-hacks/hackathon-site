@@ -159,7 +159,6 @@ function categoryDetails(target){
 		}
 		case "all-participants": {
 			resetAll();
-			target.style.filter = "invert(63%) sepia(57%) saturate(518%) hue-rotate(9deg) brightness(100%) contrast(89%);"
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
 			document.getElementById("category-title").innerHTML = "All Participants";
