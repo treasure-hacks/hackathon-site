@@ -917,7 +917,7 @@ tr:nth-child(even) {
 .icons-container > img{
 	max-width: 10%;
 	min-width: 50px;
-	margin-bottom: 3px solid rgba(0,0,0,0)
+	border-bottom: 3px solid rgba(0,0,0,0)
 }
 .icons-container > img:hover{
 	filter: invert(63%) sepia(57%) saturate(518%) hue-rotate(9deg) brightness(100%) contrast(89%);
