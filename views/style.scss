@@ -145,6 +145,7 @@ footer {
     background-image: url('/images/cave_background/bottom.webp');
     background-position: bottom;
     background-size: 100vw;
+    pointer-events: none;
   }
 }
 footer .flex {
