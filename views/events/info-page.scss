@@ -1,0 +1,29 @@
+.main-content a {
+  color: #9cf;
+}
+h1, h2, h3 {
+  text-align: center;
+}
+p, li {
+  margin: 10px;
+}
+ol li {
+  font-size: 19px;
+  line-height: 1.45em;
+}
+button {
+  width: auto;
+  background: none;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.75;
+  }
+  &:active {
+    opacity: 0.5;
+  }
+}
