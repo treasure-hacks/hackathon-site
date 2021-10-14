@@ -1,21 +1,3 @@
-function goToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-setInterval(function () {
-  var x = document.getElementById("black-square");
-  if (window.scrollY < 200) {
-    x.style.display = "none";
-  }
-  else {
-    x.style.display = "none";
-  }
-}, 1);
-
-function home() {
-  window.location.replace('index.html');
-}
-
-
 var countDownDate = new Date("Oct 15, 2021 17:00:00").getTime();
 if (window.location.pathname == '/schedule.html') {
   var y = setInterval(function () {
