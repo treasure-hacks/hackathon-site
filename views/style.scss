@@ -695,6 +695,16 @@ h3.sponsor-title {
 	transform: translateY(-50%);
 	cursor: pointer;
 }
+.header {
+  + #menu-on-small {
+    max-height: 0;
+    transition: max-height 0.2s;
+    overflow: hidden;
+  }
+  &.open + #menu-on-small {
+    max-height: 250px;
+  }
+}
 .navbar {
 	position: fixed;
 	height: 70px;
@@ -703,7 +713,13 @@ h3.sponsor-title {
 	display: flex;
 	justify-content: left;
 	background-color: var(--col-bg-toolbar);
+  transition: box-shadow 0.2s;
+  transition-delay: 0.1s;
   box-shadow: 0px 0px 8px 0px rgb(0 0 0);
+  &.open {
+    box-shadow: none;
+    transition-delay: 0s;
+  }
 }
 .menu-item {
 	margin: 0px 12px;
