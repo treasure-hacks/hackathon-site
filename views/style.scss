@@ -73,19 +73,6 @@ p{
                 0 0 15px #D5B032,
                 0 0 20px #D5B032;
 }
-#black-square{
-	opacity: 1;
-	position: fixed;
-	animation-fill-mode:forwards;
-	z-index: 20;
-	border: none;
-	background-color: rgba(0,0,0,.5);
-	height: 70px;
-	width: 70px;
-	right: 0;
-	bottom: 0;
-	border-radius: 10px;
-}
 .button {
 	text-decoration: none;
     outline: 0;
