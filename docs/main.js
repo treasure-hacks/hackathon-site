@@ -11,11 +11,6 @@ setInterval(function () {
   }
 }, 1);
 
-function home() {
-  window.location.replace('index.html');
-}
-
-
 var countDownDate = new Date("Oct 15, 2021 17:00:00").getTime();
 if (window.location.pathname == '/schedule.html') {
   var y = setInterval(function () {
