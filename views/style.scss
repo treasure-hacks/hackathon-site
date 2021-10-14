@@ -923,8 +923,9 @@ tr:nth-child(even) {
   transition: 0.2s ease-out;
 }
 .icons-container > img:hover{
-	filter: invert(63%) sepia(57%) saturate(518%) hue-rotate(9deg) brightness(108%) contrast(89%);
-	-webkit-filter: invert(63%) sepia(57%) saturate(518%) hue-rotate(9deg) brightness(108%) contrast(98%);
+  --filter-value: invert(0.75) sepia(67%) saturate(5) hue-rotate(9deg) brightness(108%) contrast(98%);
+	filter: var(--filter-value);
+	-webkit-filter: var(--filter-value);
 }
 #category-description{
 	margin-bottom: 25px;
