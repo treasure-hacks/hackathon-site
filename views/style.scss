@@ -917,13 +917,14 @@ tr:nth-child(even) {
 	flex-wrap: wrap;
 }
 .icons-container > img{
-	max-width: 10%;
+	width: 10%;
 	min-width: 50px;
 	border-bottom: 3px solid rgba(0,0,0,0);
+  transition: 0.2s ease-out;
 }
 .icons-container > img:hover{
-	filter: invert(100%) sepia(67%) saturate(2358%) hue-rotate(334deg) brightness(105%) contrast(98%);
-	transition: 0.2s ease-out;
+	filter: invert(63%) sepia(57%) saturate(518%) hue-rotate(9deg) brightness(108%) contrast(89%);
+	-webkit-filter: invert(63%) sepia(57%) saturate(518%) hue-rotate(9deg) brightness(108%) contrast(98%);
 }
 #category-description{
 	margin-bottom: 25px;
