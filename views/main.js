@@ -87,7 +87,6 @@ window.addEventListener('mouseover', function(e) {
     categoryDetails(e.target);
 });
 window.addEventListener('click', function(e) {
-	resetAll()
 	categoryDetails(e.target);
 });
 function categoryDetails(target){
