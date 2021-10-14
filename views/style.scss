@@ -664,7 +664,7 @@ h3.sponsor-title {
   .navbar {
     position: fixed;
     height: 70;
-    z-index: 1000;
+    z-index: 100;
     width: 100%;
     justify-content: right;
     align-items: right;
@@ -700,6 +700,7 @@ h3.sponsor-title {
     max-height: 0;
     transition: max-height 0.2s;
     overflow: hidden;
+    z-index: 1000;
   }
   &.open + #menu-on-small {
     max-height: 250px;
