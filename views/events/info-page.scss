@@ -1,8 +1,23 @@
 .main-content a {
   color: #9cf;
 }
+.section {
+  min-height: 0;
+}
+.section img {
+  border-radius: 12px;
+  max-width: 90%;
+}
 h1, h2, h3 {
   text-align: center;
+}
+h3 span.gold {
+  color: gold;
+}
+@media only screen and (max-width: 480px) {
+  h3 {
+    font-size: 5vw;
+  }
 }
 p, li {
   margin: 10px;
