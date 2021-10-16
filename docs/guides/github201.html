@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <title>GitHub 201 – Collaboration and Pull Requests</title>
+  <meta name="generator" content="Jekyll v3.9.0" />
+  <meta property="og:title" content="GitHub 201 – Collaboration and Pull Requests" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description" content="Welcome! This guide goes over the basics of collaborating in GitHub, and it takes you from adding collaborators in the repository to having people review each other's code." />
+  <meta property="og:description" content="Welcome! This guide goes over the basics of collaborating in GitHub, and it takes you from adding collaborators in the repository to having people review each other's code." />
+  <meta property="og:site_name" content="Treasure Hacks" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:title" content="GitHub 201 – Collaboration and Pull Requests" />
+  <script type="application/ld+json">
+    {"description":"Frontend Website for Treasure Hacks","url":"https://treasurehacks.dev/guides/github_201.html","@type":"WebPage","headline":"Welcome!","@context":"https://schema.org"}
+  </script>
+  <!-- End Jekyll SEO tag -->
+  <link rel="icon" href="/logos/image5.png">
+
+  <link rel="stylesheet" href="https://treasurehacks.dev/assets/css/style.css?v=c014f6207bcf170ce73836c477c5500e6ccf0309">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+  <!-- You can set your favicon here -->
+  <!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+  <!-- end custom head snippets -->
+  <style>
+      img {
+        display: block;
+      }
+      ins {
+        background-color: #c2f2ff;
+        text-decoration: none;
+      }
+      del {
+        background-color: #ffead9;
+        text-decoration: none;
+      }
+  </style>
+</head>
+<body>
+  <div class="container-lg px-3 my-5 markdown-body">
+    <h1 id="github-201-collaboration-and-branches">GitHub 201: Collaboration and Branches</h1>
+    <p>Now that you've learned the basics of hosting code on GitHub, let's get into collaboration, as more often than not, you'll be coding with other people, whether that is with a partner, group, an entire company, or just maintaining an open-source project!</p>
+    <h2 id="adding-users">Adding Users</h2>
+    <p>Before we can collaborate, let's add collaborators to our repository. You can go to the repository's settings, and manage access. Authenticate, then add the GitHub usernames of people who you would like to collaborate with.</p>
+    <p><img src="/assets/guides/gh201_access.png" alt="GitHub Access Settings"></p>
+    <h2 id="what-is-a-branch">What is a Branch?</h2>
+    <p>A "branch" on GitHub is a working copy of the code being hosted. Branches are used when you want to make changes and have them be tracked while they are still in development.</p>
+    <p>Most of the time, we will create a new branch based off of the current state of the main branch.</p>
+    <details>
+      <summary>The Main Branch</summary>
+      <p>The main, or master, branch, is the branch where all changes eventually end up. The code that the end user sees is deployed from the main branch, and this branch is never edited directly. Typically, code on the main branch has been reviewed and can be considered stable.</p>
+      <p><img src="/assets/guides/gh201_branch1.png?a" alt="Local Repo Directory">
+        If we host this on GitHub pages, the user will always see main. With different branches, you can make changes that the user will only see once the bugs have been fixed.
+      </p>
+      <hr>
+    </details>
+    <p>When you create a branch based on main, the code is essentially copied, and you can work on the new copy independent from any changes that are pushed on main.</p>
+    <details>
+      <summary>Some more terminology</summary>
+      <ul>
+        <li>Deploy: copying code from a hosted source such as GitHub to a server so that users can view and interact with your website or application.</li>
+        <li>Production: The code that end users see.</li>
+        <li>Host: A place or service that owns the server you are using to serve your website.</li>
+      </ul>
+      <hr>
+    </details>
+    <h3 id="example">Example</h3>
+    <p><img src="/assets/guides/gh201_directory.png" alt="Branch Example"></p>
+    <p>Suppose there's a website. Bob wants to add a button to navigation, and Sally wants to change the styling of the home page. They both want their changes to be reviewed before deploying the website to production.</p>
+    <ol>
+      <li>Bob creates a new branch called "nav-button", and Sally creates a new branch called "update-styles". At this point, the main, nav-button, and update-styles branch are all the same.
+        <img src="/assets/guides/gh201_newbranch.png" alt="Creating a new Branch in GitHub Desktop">
+      </li>
+      <li>As long as Bob and Sally don't change the same lines of the same files, Git can track and merge changes without second thought. Since Bob is working on the navigation bar, he will only be modifying HTML files. Likewise, Sally will only make changes to the "style.css" file.</li>
+      <li>After they make their changes, the code of the three branches are different. main is unchanged, nav-button has just Bob's changes, and update-styles has only Sally's changes
+        <img src="/assets/guides/gh201_branch2.png?a" alt="Code Changes">
+      </li>
+    </ol>
+    <h2 id="pull-requests">Pull Requests</h2>
+    <p>Once developers have made their desired changes to their branch of code, they can create a "pull request" (also called a PR) to merge their code to main and push it to production.</p>
+    <p>To create a pull request, you can press <code>ctrl/cmd + R</code> in GitHub Desktop.</p>
+    <p><img src="/assets/guides/gh201_makepr1.png" alt="GitHub Desktop Create Pull Request">
+      Alternatively, you can go to GitHub and create one under the "Pull Requests" tab, or 
+      <img src="/assets/guides/gh201_makepr2.png" alt="GitHub.com Create Pull Request">
+    </p>
+    <p>Give your PR a title and description detailing the changes, and choose someone or multiple people to review your code, whether that is your peer or QA (quality assurance).</p>
+    <p><img src="/assets/guides/gh201_makepr3.png" alt="GitHub.com PR Details"></p>
+    <p>Then, click "create pull request"</p>
+    <h3 id="approving-or-requesting-changes">Approving or Requesting Changes</h3>
+    <p>Once someone has looked at the code, they can go to the "files changed" tab. Then, click "start a review"</p>
+    <p><img src="/assets/guides/gh201_reviewpr.png?a" alt="Reviewing a PR"></p>
+    <p>Add a comment, and select whether you want to approve the PR or request changes. Once you submit your review, the creator of the PR will be emailed.</p>
+    <p>If you requested changes and want to highlight specific lines of code that need to be addressed, find the file under "files changed" and drag the line numbers (on the left side of the file) until your desired selection is highlighted in yellow. Press the plus button, and submit your line-specific review before clicking "submit review"</p>
+    <p><img src="/assets/guides/gh201_reviewlines1.png" alt="Commenting on specific lines">
+      <img src="/assets/guides/gh201_reviewlines2.png" alt="Finishing that review">
+    </p>
+    <p>Once the requested changes are addressed, the creator of the PR can request re-review of the PR, which will notify the person reviewing the code again.</p>
+    <p><img src="/assets/guides/gh201_rerequest.png" alt="Re-Request Review Button"></p>
+    <h3 id="continuing-our-example">Continuing our Example</h3>
+    <ol start="4">
+      <li>At this point, both Bob and Sally can make a <strong>pull request</strong> (aka merge request).</li>
+      <li>Then, both of them will request review of someone who is reviewing their code, i.e. Alice.</li>
+      <li>Alice approves Bob's "nav-button" PR but requests changes on Sally's "update-styles" PR.</li>
+    </ol>
+    <h2 id="merging-prs">Merging PRs</h2>
+    <p>To merge a pull request, Scroll down and find the "merge pull request" button. Click this, and confirm that you want to merge it.</p>
+    <p><img src="/assets/guides/gh201_merge.png" alt="Merge Pull Request button"></p>
+    <p>Once done, you can delete the branch.
+      <img src="/assets/guides/gh201_deletebranch.png" alt="Delete branch button">
+    </p>
+    <ol start="7">
+      <li>Bob can merge his PR since it was approved. Now, the main branch has Bob's navigation changes. Sally's branch has her changes only and <strong>NOT</strong> the changes that were just merged.</li>
+      <li>Sally addresses the changes to her "update-styles" branch and requests re-review from Alice, who approves her updated changes.</li>
+      <li>Since her code has been approved, Sally merges her changes. Main is now updated, and has both Bob's and Sally's changes.</li>
+    </ol>
+    <p><img src="/assets/guides/gh201_final.png" alt="Final Result"></p>
+    <p>Congrats, you've successfully made changes on a different branch, had someone review it, and merged it to main... you are now a true collaborative developer!</p>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"
+      integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+  <script>anchors.add();</script>
+</body>
+</html>
