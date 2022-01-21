@@ -738,7 +738,7 @@ h3.sponsor-title {
 #hamburger {
   display: none;
 }
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 870px) {
   .menu-items {
     display: none!important;
   }
@@ -775,7 +775,7 @@ h3.sponsor-title {
 #menu-on-small > a {
   margin-bottom: 20px;
 }
-@media only screen and (min-width: 701px){
+@media only screen and (min-width: 871px){
   #menu-on-small {
     display: none;
   }
@@ -1018,4 +1018,18 @@ table .time {
 	max-width: 100vw;
 	flex-wrap: wrap;
 	justify-content: space-around;
+}
+.flex-grid{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: middle;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px;
+}
+.flex-grid > *{
+  width: 28%;
+}
+.flex-grid > * > h3{
+  margin: 15px 0px;;
 }
