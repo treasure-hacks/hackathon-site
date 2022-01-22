@@ -1031,7 +1031,8 @@ table .time {
 }
 .flex-grid > *{
   width: 28%;
+  min-width: 300px;
 }
 .flex-grid > * > h3{
-  margin: 15px 0px;;
+  margin: 15px 0px;
 }
