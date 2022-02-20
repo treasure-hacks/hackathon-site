@@ -1027,6 +1027,7 @@ table .time {
   flex-wrap: wrap;
   align-items: middle;
   justify-content: center;
+  text-align: center;
   gap: 40px;
   margin: 20px;
 }
@@ -1036,4 +1037,48 @@ table .time {
 }
 .flex-grid > * > h3{
   margin: 15px 0px;
+}
+.back{
+  display: none;
+}
+.flex-grid > div:hover{
+  animation-name: rotate3d;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+}
+.hovered{
+  animation-name: changetext;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+}
+@keyframes changetext{
+  0%{
+    .back{
+      display:none;
+    }
+    .front{
+      display: initial;
+    }
+  }
+  100%{
+    .back{
+      display:initial;
+    }
+    .front{
+      display: none;
+    }
+  }
+}
+@keyframes rotate3d{
+  0%{
+    transform:rotateY(0deg);
+  }
+  50%{
+    transform:rotateY(90deg);
+  }
+  100%{
+    transform:rotateY(00deg);
+  }
 }

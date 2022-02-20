@@ -142,3 +142,13 @@ function resetAll(){
 		document.getElementById(list[i]).style.paddingBottom = "10px";
 	}
 }
+
+var x = document.getElementsByClassName("info-on-back");
+for (var i = 0; i < x.length; i++){
+	x[i].onmouseover = function(){
+		x[i].classList += "hovered";
+	}
+	x[i].onmouseout = function(){
+		x[i].classList -= "hovered";
+	}
+}
