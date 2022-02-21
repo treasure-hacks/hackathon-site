@@ -64,7 +64,7 @@ function categoryDetails(target){
 			target.style.borderBottom = "3px solid black";
 			target.style.paddingBottom = "10px";
 			document.getElementById("category-title").innerHTML = "Best Overall";
-			document.getElementById("category-description").innerHTML = "The \"Best Solo Hack\" award will be given to a single hacker with the best solo project in the entire Hackathon.";
+			document.getElementById("category-description").innerHTML = "The \"Best Overall\" award will be given to a hacker or team who best demonstrates their project&rsquo;s creativity, practicality, engineering excellence, and presentation.";
 			document.getElementById("category-prizes").innerHTML = "Prizes for this category include 1 $30 Amazon Gift Card For Each Group Member, 1 Cloud Stinger Headsets For Each Group Member, and 1 Alloy FPS RGB Refurb Keyboard For Each Group Member.";
 			
 			break;
@@ -75,7 +75,7 @@ function categoryDetails(target){
 			target.style.borderBottom = "3px solid black";
 			document.getElementById("category-title").innerHTML = "Best Solo Hack";
 			target.style.paddingBottom = "10px";
-			document.getElementById("category-description").innerHTML = "The \"Best Overall\" award will be given to a hacker or team who best demonstrates their project&rsquo;s creativity, practicality, engineering excellence, and presentation.";
+			document.getElementById("category-description").innerHTML = "The \"Best Solo Hack\" award will be given to a single hacker with the best solo project in the entire Hackathon.";
 			document.getElementById("category-prizes").innerHTML = "Prizes for this category include 1 $30 Amazon Gift Card, 1 Cloud Stinger Headset, 1 Alloy FPS RGB Refurb Keyboard, and 1 Goliath Automation and Robotics Monster Kit.";
 			break;
 		}
