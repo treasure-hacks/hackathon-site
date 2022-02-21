@@ -106,24 +106,6 @@ function categoryDetails(target){
 			document.getElementById("category-prizes").innerHTML = "Prizes for this category include 1 $30 Amazon Gift Card Each, 1 Cloud Stinger Headset Each, and 1 Alloy FPS RGB Refurb Keyboard Each.";
 			break;
 		}
-		case "qoom": {
-			resetAll();
-			target.style.borderBottom = "3px solid black";
-			document.getElementById("category-title").innerHTML = "Best Qoom Hack";
-			target.style.paddingBottom = "10px";
-			document.getElementById("category-description").innerHTML = "Qoom is a dream tool built to bring anything you imagine into reality with seamless development tools to create projects with HTML, CSS, and Javascript. This award will be given to the best project using Qoom.";
-			document.getElementById("category-prizes").innerHTML = "Prizes for this category include a 1-Year Pro Plan Package, a feature on Qoom, and an invitation to the Qoom Creator Group";
-			break;
-		}
-		case "sashido": {
-			resetAll();
-			target.style.borderBottom = "3px solid black";
-			document.getElementById("category-title").innerHTML = "Best Sashido Hack";
-			target.style.paddingBottom = "10px";
-			document.getElementById("category-description").innerHTML = "SashiDo is offering a special prize for the most original Image project build with SashiDo & Teachable Machine by Google.";
-			document.getElementById("category-prizes").innerHTML = "Prizes for this category include a short blog post on SashiDo social media, a possible internship, and a special prize from Sashido.";
-			break;
-		}
 		case "all-participants": {
 			resetAll();
 			target.style.borderBottom = "3px solid black";
