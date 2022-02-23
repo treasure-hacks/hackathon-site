@@ -1028,7 +1028,7 @@ table .time {
   align-items: middle;
   justify-content: center;
   text-align: center;
-  gap: 40px;
+  gap: 30px;
   margin: 20px;
 }
 .flex-grid > *{
@@ -1097,12 +1097,16 @@ table .time {
     opacity: 1;
   }
 }
-#first-place{
-
-}
-#second-place{
-  margin-top: 30px;
-}
-#third-place{
-  margin-top: 50px;
+@media only screen and (min-width: 1133px){
+  #first-place{
+    order: 2;
+  }
+  #second-place{
+    margin-top: 30px;
+    order: 1;
+  }
+  #third-place{
+    margin-top: 50px;
+    order: 3;
+  }
 }

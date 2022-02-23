@@ -118,7 +118,7 @@ function categoryDetails(target){
 	}
 }
 function resetAll(){
-	var list = ["best-overall","best-solo","best-duo","most-aesthetically-pleasing","most-people-helped","qoom","sashido", "all-participants"];
+	var list = ["best-overall","best-solo","best-duo","most-aesthetically-pleasing","most-people-helped", "all-participants"];
 	for (var i = 0; i < list.length; i++){
 		document.getElementById(list[i]).style.borderColor = "rgba(0,0,0,0)";
 		document.getElementById(list[i]).style.paddingBottom = "10px";
@@ -128,7 +128,6 @@ var x = document.getElementsByClassName("info-on-back");
 let currentAnimation = null;
 for (var i = 0; i < x.length; i++){
 	x[i].onmouseover = function(){
-		clearTimeout(currentAnimation);
 		currentAnimation = setTimeout(add,250, this);
 	}
 	x[i].onmouseout = function(){
