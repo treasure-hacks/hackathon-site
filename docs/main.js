@@ -124,13 +124,21 @@ function resetAll(){
 		document.getElementById(list[i]).style.paddingBottom = "10px";
 	}
 }
-
 var x = document.getElementsByClassName("info-on-back");
+let currentAnimation = null;
 for (var i = 0; i < x.length; i++){
 	x[i].onmouseover = function(){
-		x[i].classList += "hovered";
+		clearTimeout(currentAnimation);
+		currentAnimation = setTimeout(add,250, this);
 	}
 	x[i].onmouseout = function(){
-		x[i].classList -= "hovered";
+		clearTimeout(currentAnimation);
+		currentAnimation = setTimeout(remove,250, this);
 	}
+}
+function add(element){
+	element.classList.add("hovered");
+}
+function remove(element){
+	element.classList.remove("hovered");
 }
