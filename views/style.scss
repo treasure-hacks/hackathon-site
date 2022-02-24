@@ -1091,8 +1091,6 @@ table .time {
 .info-card.open {
   top: 50%;
   left: 50%;
-  width: calc(100% - 32px);
-  height: calc(100% - 32px);
 }
 .info-card > * {
   background-color: var(--card-color);

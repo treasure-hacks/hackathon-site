@@ -232,21 +232,5 @@
 		</div>
 		<script src="/main.js"></script>
 		<script src="script.js"></script>
-    <script>
-      const contentSkipBtn = document.querySelector('.content-skip');
-      contentSkipBtn.addEventListener('click', function() {
-        contentSkipBtn.style.display = 'none'
-      });
-      function scrollPos() {
-        return document.body.scrollTop || window.scrollY
-      }
-      window.addEventListener('load', () => {
-        if (document.querySelector('.header-text-container p').getBoundingClientRect().y < window.innerHeight) contentSkipBtn.style.display = 'none'
-        document.documentElement.style.scrollBehavior = 'smooth'
-      });
-      window.addEventListener('scroll', () => {
-        if (scrollPos() !== 0) contentSkipBtn.style.display = 'none'
-      }, { passive: true })
-    </script>
 	</body>
 </html>
