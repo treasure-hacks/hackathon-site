@@ -1041,6 +1041,17 @@ table .time {
 .blue-link{
   color: #9cf;
 }
+.action-link {
+  // Experimental, feel free to change
+  display: inline-block;
+  margin: 4px 0 2px;
+  padding: 4px 10px;
+  font-size: 16px;
+  background-color: #1119;
+  border-radius: 5px;
+  color: #ca85ff;
+  text-decoration: none;
+}
 .back{
   display: none;
 }
@@ -1074,12 +1085,8 @@ table .time {
 // Winners' Info Cards
 
 .info-card {
-  /* position: fixed;
-  display: block;
-  left: var(--x);
-  top: var(--y); */
-  width: 180px;
-  height: 180px;
+  width: 320px;
+  height: 200px;
   border-radius: 16px;
   transform-origin: 40px 100px;
   transform: /* translate(-50%, -50%) */ translateZ(1px);
@@ -1087,88 +1094,64 @@ table .time {
   perspective: 1000px;
   transform-style: preserve-3d;
   z-index: 10;
-}
-.info-card.open {
-  top: 50%;
-  left: 50%;
-}
-.info-card > * {
-  background-color: var(--card-color);
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  transition: transform 1s;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 16px;
-}
-.info-card .card {
-  animation: none;
-  opacity: 1;
-  filter: brightness(1);
-  width: 100%;
-}
-.info-card .card-back {
-  transform: rotateY(180deg);
-  border-radius: 16px;
-}
-.info-card .card-back .text-container {
-  padding: 16px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100vw - 32px);
-  height: 100%;
-  position: absolute;
-}
-.info-card .card-back * {
-  color: transparent;
-  transition: color 0.25s 0s;
-}
-.info-card.open .card-back * {
-  color: white;
-  transition: color 0.5s 0.5s;
-}
-.info-card .card-back h2 {
-  margin-top: 0;
-}
-.info-card .card-back .text-container > div {
-  padding: 2px 16px;
-  max-height: calc(100% - 96px);
-  overflow: auto;
-}
-.info-card .card-back p {
-  font-size: 18px;
-  line-height: 26px;
-  max-height: calc(100% - 96px);
-  text-align: center;
-}
-// .info-card .card-back :is(ul, ol) li {
-//   font-size: 18px;
-//   line-height: 22px;
-// }
-// .info-card .card-back .close-label {
-//   display: block;
-//   text-align: center;
-//   position: absolute;
-//   bottom: 20px;
-//   left: 0;
-//   width: 100%;
-//   padding: 0 16px;
-// }
-.info-card.open .card-back {
-  transform: rotateY(360deg);
-}
-.info-card .card-front * {
-  transition: color 0.25s 0.5s, stroke 0.25s 0.5s;
-}
-.info-card.open .card-front {
-  transform: rotateY(180deg);
-}
-.info-card.open .card-front * {
-  transition-delay: 0s;
-  color: transparent;
-  stroke: transparent;
+  > * {
+    background-color: var(--card-color);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 16px;
+  }
+  &.open {
+    top: 50%;
+    left: 50%;
+    .card-back {
+      transform: rotateY(360deg);
+    }
+    .card-front {
+      transform: rotateY(180deg);
+    }
+  }
+  .card {
+    animation: none;
+    opacity: 1;
+    filter: brightness(1);
+    width: 100%;
+  }
+  .card-back {
+    transform: rotateY(180deg);
+    border-radius: 16px;
+    .text-container {
+      padding: 16px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100vw - 32px);
+      height: 100%;
+      position: absolute;
+    }
+    .text-container > div {
+      padding: 2px 16px;
+      max-height: calc(100% - 96px);
+      overflow: auto;
+    }
+    p {
+      margin: 6px 8px 12px;
+      font-size: 25px;
+      line-height: 26px;
+      max-height: calc(100% - 96px);
+      text-align: center;
+    }
+  }
+  .project-title {
+    margin-top: 8px;
+    font-size: 30px;
+  }
+  p.project-link-container {
+    margin: 6px 0;
+  }
 }
 
 @keyframes changetext{
