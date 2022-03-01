@@ -11,6 +11,9 @@ Dark Green:    #2D630D
   --col-bg-toolbar: #111e;
   --gold-primary: #D5B032;
   --gold-secondary: #fcea35;
+  --silver-primary: #C0C0C0;
+  --bronze-primary: #CD7F32;
+  --green-primary: #55d507;
 }
 html {
   background-color: var(--col-bg-main);
@@ -667,7 +670,7 @@ h3.sponsor-title {
     z-index: 1000;
   }
   &.open + #menu-on-small {
-    max-height: 250px;
+    max-height: 300px;
   }
 }
 .navbar {
@@ -738,7 +741,7 @@ h3.sponsor-title {
 #hamburger {
   display: none;
 }
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 870px) {
   .menu-items {
     display: none!important;
   }
@@ -775,7 +778,7 @@ h3.sponsor-title {
 #menu-on-small > a {
   margin-bottom: 20px;
 }
-@media only screen and (min-width: 701px){
+@media only screen and (min-width: 871px){
   #menu-on-small {
     display: none;
   }
@@ -1018,4 +1021,177 @@ table .time {
 	max-width: 100vw;
 	flex-wrap: wrap;
 	justify-content: space-around;
+}
+.flex-grid{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: middle;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+  margin: 20px;
+}
+.flex-grid > *{
+  width: 28%;
+  min-width: 300px;
+}
+.flex-grid > * > h3{
+  margin: 15px 0px;
+}
+.blue-link{
+  color: #9cf;
+}
+.action-link {
+  // Experimental, feel free to change
+  display: inline-block;
+  margin: 4px 0 2px;
+  padding: 4px 10px;
+  font-size: 16px;
+  background-color: #1119;
+  border-radius: 5px;
+  color: #ca85ff;
+  text-decoration: none;
+}
+.back{
+  display: none;
+}
+
+
+.info-on-back{
+  height: 200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  transition: .5s;
+  cursor: pointer;
+}
+.info-on-back:hover{
+  animation-name: changetext;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.info-on-back:not( :hover ){
+  animation-name: changetext2;
+  animation-duration: 0.5s;
+  animation-play-state: running;
+}
+.hovered > div.front{
+  display: none;
+}
+.hovered > div.back{
+  display: initial;
+}
+
+// Winners' Info Cards
+
+.info-card {
+  width: 320px;
+  height: 200px;
+  border-radius: 16px;
+  transform-origin: 40px 100px;
+  transform: /* translate(-50%, -50%) */ translateZ(1px);
+  transition: 1s;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  z-index: 10;
+  > * {
+    background-color: var(--card-color);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 16px;
+  }
+  &.open {
+    top: 50%;
+    left: 50%;
+    .card-back {
+      transform: rotateY(360deg);
+    }
+    .card-front {
+      transform: rotateY(180deg);
+    }
+  }
+  .card {
+    animation: none;
+    opacity: 1;
+    filter: brightness(1);
+    width: 100%;
+  }
+  .card-back {
+    transform: rotateY(180deg);
+    border-radius: 16px;
+    .text-container {
+      padding: 16px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100vw - 32px);
+      height: 100%;
+      position: absolute;
+    }
+    .text-container > div {
+      padding: 2px 16px;
+      max-height: calc(100% - 96px);
+      overflow: auto;
+    }
+    p {
+      margin: 6px 8px 12px;
+      font-size: 25px;
+      line-height: 26px;
+      max-height: calc(100% - 96px);
+      text-align: center;
+    }
+  }
+  .project-title {
+    margin-top: 8px;
+    font-size: 30px;
+  }
+  p.project-link-container {
+    margin: 6px 0;
+  }
+}
+
+@keyframes changetext{
+  0%{
+    opacity: 1;
+  }
+  25%{
+    opacity: 0;
+  }
+  75%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes changetext2{
+  0%{
+    opacity: 1;
+  }
+  25%{
+    opacity: 0;
+  }
+  75%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@media only screen and (min-width: 1133px){
+  #first-place{
+    order: 2;
+  }
+  #second-place{
+    margin-top: 30px;
+    order: 1;
+  }
+  #third-place{
+    margin-top: 50px;
+    order: 3;
+  }
 }
