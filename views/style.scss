@@ -783,6 +783,27 @@ h3.sponsor-title {
     display: none;
   }
 }
+#mlh-trust-badge {
+  display: block;
+  max-width: 100px;
+  min-width:60px;
+  position: absolute;
+  right: 50px;
+  top: 70px;
+  width: 10%;
+  z-index: 999;
+}
+a#mlh-trust-badge::before {
+  content: ' ';
+  width: 90%;
+  background-color: black;
+  height: 200px;
+  top: -198px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  position: absolute;
+}
 center.main-header {
   display: flex;
   align-items: flex-end;
