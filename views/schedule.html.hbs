@@ -14,174 +14,30 @@
   {{> navigation_header }}
 	<div class="wrapper"> <!-- wrapper div starts -->
 		<div class="padder"></div>
+    <template id="event-template">
+      <tr>
+        <td class="time date">Day</td>
+        <td class="time start-time">
+          <span>Start Time</span>
+          <span class="small-table-info">&ndash; End Time</span>
+        </td>
+        <td class="time end-time">End Time</td>
+        <td class="event-name">Event</td>
+      </tr>
+    </template>
 		<center>
 			<div class="centered-popout background" style="--bg: url('/images/world-network.jpg');">
 				<center><h1 style="font-size: 50px;">March 25-26, 2022</h1></center>
 				<center><p id="countdown"></p></center>
 				<center><a href="https://docs.google.com/forms/d/e/1FAIpQLScP4YAwRzaanWJSuK_AQ15MQKgPJCZCl8ZaGcfRzG6gZ4yUUA/viewform" class="button">Sign Up</a></center>
-				<center><h2>Scheduled Events Coming Soon!</h2></center>
-				<!--
-				<center><h2>Schedule</h2></center>
-				<table>
-				  <tr>
-					<th>Day</th>
-					<th class="time">Start Time</th>
-					<th class="time">End Time</th>
-					<th>Event</th>
-				  </tr>
-				  <tr>
-					<td>Friday October 15</td>
-					<td class="time">4:00 PM <span class="small-table-info">&ndash; 4:30 PM</span></td>
-          <td class="time large-table-info">4:30 PM</td>
-					<td>Opening Ceremony</td>
-				  </tr>
-				  <tr>
-					<td>Friday October 15</td>
-					<td>4:30 PM <span class="small-table-info">&ndash; 5:00 PM</span></td>
-          <td class="time large-table-info">5:00 PM</td>
-					<td>Team Building</td>
-				  </tr>
-				  <tr>
-					<td>Friday October 15</td>
-					<td class="time">5:00 PM <span class="small-table-info">&ndash; 6:00 PM</span></td>
-          <td class="time large-table-info">6:00 PM</td>
-					<td>Workshop: GitHub 101 &ndash; Hosting a Static Website for Free!</td>
-				  </tr>
-				  <tr>
-					<td>Friday October 15</td>
-					<td class="time">6:00 PM <span class="small-table-info">&ndash; 6:45 PM</span></td>
-          <td class="time large-table-info">6:45 PM</td>
-					<td>Workshop: echo3D: How to Build a Cloud-Connected 3D/AR/VR App in 15 Minutes or Less</td>
-				  </tr>
-				  <tr>
-					<td>Friday October 15</td>
-					<td>7:30 PM <span class="small-table-info">&ndash; 8:30 PM</span></td>
-          <td class="time large-table-info">8:30 PM</td>
-					<td>Workshop: Intro to Python</td>
-				  </tr>
-				  <tr>
-					<td>Friday October 15</td>
-					<td class="time">9:00 PM <span class="small-table-info">&ndash; 9:30 PM</span></td>
-          <td class="time large-table-info">9:30 PM</td>
-					<td>Speaker: Software Entrepreneurship</td>
-				  </tr>
-				  <tr>
-					<td>Friday October 15</td>
-					<td class="time">10:00 PM <span class="small-table-info">&ndash; 10:30 PM</span></td>
-          <td class="time large-table-info">10:30 PM</td>
-					<td>Speaker: Cyber Security with Maksym</td>
-				  </tr>
 
+				<center><h2>Schedule</h2></center>
+				<table id="schedule-table">
 				  <tr>
-					<td>Saturday Oct 16</td>
-					<td class="time">8:00 AM <span class="small-table-info">&ndash; 9:00 AM</span></td>
-          <td class="time large-table-info">9:00 AM</td>
-					<td>Mentor Hours: Geetanjali Purohit</td>
-				  </tr>
-				  <tr>
-					<td>Saturday Oct 16</td>
-					<td class="time">9:00 AM <span class="small-table-info">&ndash; 10:00 AM</span></td>
-          <td class="time large-table-info">10:00 AM</td>
-					<td>Workshop: Beginner Web Design</td>
-				  </tr>
-				  <tr>
-					<td>Saturday Oct 16</td>
-					<td class="time">10:15 AM <span class="small-table-info">&ndash; 10:45 AM</span></td>
-          <td class="time large-table-info">10:45 AM</td>
-					<td>Workshop: GitHub 201 Q and A &ndash; Branches, PRs, and Collaboration</td>
-				  </tr>
-				  <tr>
-					<td>Saturday Oct 16</td>
-					<td class="time">11:00 AM <span class="small-table-info">&ndash; 12:00 PM</span></td>
-          <td class="time large-table-info">12:00 PM</td>
-					<td>Workshop: Introduction to C++</td>
-				  </tr>
-          <tr>
-					<td>Saturday Oct 16</td>
-					<td class="time">12:00 PM <span class="small-table-info">&ndash; 1:00 PM</span></td>
-          <td class="time large-table-info">1:00 PM</td>
-					<td>Mentor Hours: Alex Makeev and Howard Tai</td>
-				  </tr>
-				  <tr>
-					<td>Saturday Oct 16</td>
-					<td>1:30 PM <span class="small-table-info">&ndash; 2:00 PM</span></td>
-          <td class="time large-table-info">2:00 PM</td>
-					<td>Speaker: Ideation with Vidit</td>
-				  </tr>
-				  <tr>
-					<td>Saturday Oct 16</td>
-					<td class="time">3:00 PM <span class="small-table-info">&ndash; 4:00 PM</span></td>
-          <td class="time large-table-info">4:00 PM</td>
-					<td>Workshop: Networking 101 with Galicia</td>
-				  </tr>
-				  <tr>
-					<td>Saturday Oct 16</td>
-					<td class="time">8:00 PM <span class="small-table-info">&ndash; 9:00 PM</span></td>
-          <td class="time large-table-info">9:00 PM</td>
-					<td>Workshop: TwilioQuest</td>
-				  </tr>
-				  <tr>
-					<td>Saturday Oct 16</td>
-					<td class="time">9:00 PM <span class="small-table-info">&ndash; 10:00 PM</span></td>
-          <td class="time large-table-info">10:00 PM</td>
-					<td>Tetris Competition!</td>
-				  </tr>
-				  
-				  <tr>
-					<td>Sunday Oct 17</td>
-					<td class="time">8:00 AM <span class="small-table-info">&ndash; 9:00 AM</span></td>
-          <td class="time large-table-info">9:00 AM</td>
-					<td>Mentor Hours: Geetanjali Purohit</td>
-				  </tr>
-          <tr>
-					<td>Sunday Oct 17</td>
-					<td class="time">9:00 AM <span class="small-table-info">&ndash; 11:00 AM</span></td>
-          <td class="time large-table-info">11:00 AM</td>
-					<td>Mini-Event: Website Building Competition</td>
-				  </tr>
-				  <tr>
-					<td>Sunday Oct 17</td>
-					<td class="time">11:00 AM <span class="small-table-info">&ndash; 11:30 AM</span></td>
-          <td class="time large-table-info">11:30 AM</td>
-					<td>Speaker: Tech Security Forensics with William</td>
-				  </tr>
-          <tr>
-					<td>Sunday Oct 17</td>
-					<td class="time">12:00 PM <span class="small-table-info">&ndash; 1:00 PM</span></td>
-          <td class="time large-table-info">1:00 PM</td>
-					<td>Mentor Hours: Alex Makeev and Howard Tai</td>
-				  </tr>
-          <tr>
-					<td>Sunday Oct 17</td>
-					<td class="time">1:00 PM <span class="small-table-info">&ndash; 3:00 PM</span></td>
-          <td class="time large-table-info">3:00 PM</td>
-					<td>Mini-Event: Capture the Flag</td>
-				  </tr>
-				  <tr>
-					<td>Sunday Oct 17</td>
-					<td class="time">6:00 PM <span class="small-table-info">&ndash; 7:00 PM</span></td>
-          <td class="time large-table-info">7:00 PM</td>
-					<td>Jackbox Game Night!</td>
-				  </tr>
-				  
-				  
-				  <tr>
-					<td>Monday Oct 18</td>
-					<td class="time">8:00 AM</td>
-          <td class="time large-table-info">&ndash;</td>
-					<td>Hackathon Ends</td>
-				  </tr>
-				  
-				  
-				  <tr>
-					<td>Saturday Oct 23</td>
-					<td class="time">TBD</td>
-          <td class="time large-table-info">&ndash;</td>
-					<td>Closing Ceremony</td>
-				  </tr>
+            
+          </tr>
 				</table>
 				<br/><br/>
-				-->
 			</div>
 		</center>
 	</div>
@@ -191,5 +47,6 @@
 		<br style="line-height: 50px;"/>
 		{{> footer }}
 		<script src="main.js"></script>
+		<script src="/schedule/script.js"></script>
 	</body>
 </html>
