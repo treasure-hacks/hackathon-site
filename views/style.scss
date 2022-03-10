@@ -927,6 +927,9 @@ table .time {
   .small-table-info {
     display: unset;
   }
+  .time.end-time {
+    display: none;
+  }
 }
 .category-block {
 	min-height:190px;
