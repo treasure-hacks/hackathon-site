@@ -571,11 +571,8 @@ h3.sponsor-title {
 }
 .diamond-tier:hover {
 	cursor: pointer;
-    color: #000;
-    box-shadow: 0 0 5px rgba(99,226,255,0.75),
-                0 0 10px rgba(99,226,255,0.75),
-                0 0 15px rgba(99,226,255,0.75),
-                0 0 20px rgba(99,226,255,0.75);
+  color: #000;
+  box-shadow: 0 0 12px 4px rgba(99, 226, 255, 1);
 }
 .gold-tier {
 	border: none;
@@ -584,11 +581,8 @@ h3.sponsor-title {
 }
 .gold-tier:hover {
 	cursor: pointer;
-    color: #000;
-    box-shadow: 0 0 5px rgba(252, 234, 53,0.75),
-                0 0 10px rgba(252, 234, 53,0.75),
-                0 0 15px rgba(252, 234, 53,0.75),
-                0 0 20px rgba(252, 234, 53,0.75);
+  color: #000;
+  box-shadow: 0 0 12px 4px rgba(252, 234, 53, 1);
 }
 .silver-tier {
 	border: none;
@@ -597,11 +591,8 @@ h3.sponsor-title {
 }
 .silver-tier:hover {
 	cursor: pointer;
-    color: #000;
-    box-shadow: 0 0 5px rgba(150,150,150,0.75),
-                0 0 10px rgba(150,150,150,0.75),
-                0 0 15px rgba(150,150,150,0.75),
-                0 0 20px rgba(150,150,150,0.75);
+  color: #000;
+  box-shadow: 0 0 12px 4px rgba(150, 150, 150, 1);
 }
 .bronze-tier {
 	border: none;
@@ -610,11 +601,8 @@ h3.sponsor-title {
 }
 .bronze-tier:hover {
 	cursor: pointer;
-    color: #000;
-    box-shadow: 0 0 5px rgba(205,127,50,0.75),
-                0 0 10px rgba(205,127,50,0.75),
-                0 0 15px rgba(205,127,50,0.75),
-                0 0 20px rgba(205,127,50,0.75);
+  color: #000;
+  box-shadow: 0 0 12px 4px rgba(205, 127, 50, 1);
 }
 .topnav .icon {
   display: none;
