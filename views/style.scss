@@ -1078,6 +1078,9 @@ table .time {
 .flex-grid > *{
   width: 28%;
   min-width: 300px;
+  &.video {
+    aspect-ratio: 16 / 9;
+  }
 }
 .flex-grid > * > h3{
   margin: 15px 0px;
@@ -1130,7 +1133,7 @@ table .time {
 
 .info-card {
   width: 320px;
-  height: 200px;
+  height: 240px;
   border-radius: 16px;
   transform-origin: 40px 100px;
   transform: /* translate(-50%, -50%) */ translateZ(1px);
