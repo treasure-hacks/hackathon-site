@@ -37,7 +37,7 @@ body, button {
 p {
   margin: 0px 10px;
   font-size: 19px;
-  line-height: 1.65em;
+  line-height: calc(1.6em + 0.8vw);
   text-align: center;
 }
 @media only screen and (max-width: 700px){
@@ -282,11 +282,11 @@ h3 {
   object-fit: contain;
 }
 .item {
-  min-width: 33%;
+  min-width: 200px;
   height: 130px;
   margin: 30px 0;
   border-radius: 20px;
-  padding: 0 30px;
+  padding: 0 40px;
   box-sizing: border-box
 }
 
@@ -532,7 +532,7 @@ h3.sponsor-title {
   font-size: 20px;
 }
 /* Sponsorship Tiers */
-#diamond-tier {
+/* #diamond-tier {
   box-shadow: 0px 7px 4px -2px rgba(99,226,255,0.75);
   -webkit-box-shadow: 0px 7px 4px -2px rgba(99,226,255,0.75);
   -moz-box-shadow: 0px 7px 4px -2px rgba(99,226,255,0.75);
@@ -563,15 +563,44 @@ h3.sponsor-title {
   width: calc(258px + 10px);
   margin-top: 50px;
   margin-bottom: 15px;
-}
-.diamond-tier {
+} */
+
+.item .sponsor {
 	border: none;
-  outline:0;
-  transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  outline: 0;
+  transition: opacity 0.2s, box-shadow 0.2s;
+  opacity: 0.9;
+  box-shadow: 0 0 12px 4px rgba(var(--col-r), var(--col-g), var(--col-b), var(--col-alpha, 0.5));
+  &:hover {
+    opacity: 1;
+    --col-alpha: 1;
+  }
+  &.diamond-tier {
+    --col-r: 99;
+    --col-g: 226;
+    --col-b: 255;
+  }
+  &.gold-tier {
+    --col-r: 252;
+    --col-g: 234;
+    --col-b: 53;
+  }
+  &.silver-tier {
+    --col-r: 150;
+    --col-g: 150;
+    --col-b: 150;
+  }
+  &.bronze-tier {
+    --col-r: 205;
+    --col-g: 127;
+    --col-b: 50;
+  }
 }
-.diamond-tier:hover {
+
+/* .diamond-tier:hover {
 	cursor: pointer;
   color: #000;
+  opacity: 1;
   box-shadow: 0 0 12px 4px rgba(99, 226, 255, 1);
 }
 .gold-tier {
@@ -603,7 +632,7 @@ h3.sponsor-title {
 	cursor: pointer;
   color: #000;
   box-shadow: 0 0 12px 4px rgba(205, 127, 50, 1);
-}
+} */
 .topnav .icon {
   display: none;
 }
