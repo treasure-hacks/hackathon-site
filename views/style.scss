@@ -26,6 +26,7 @@ html {
   color: white;
   text-decoration: none;
   z-index: 10;
+  display: none;
 }
 @import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
 body, button {
@@ -875,13 +876,8 @@ center.main-header {
   background-size: 100%;
   z-index: -1;
 }
-.category-icon {
-	width: 100px;
-	margin: 10px;
-  filter: invert(1);
-  -webkit-filter: invert(1);
-  padding-bottom: 13px;
-}
+// .category-icon {
+// }
 .category-row {
    text-align:center;
    display: flex;
@@ -986,6 +982,69 @@ table .time {
 	.category-item {
 		margin: 5px 0px;
 	}
+}
+
+// CSS Categories
+.category-box {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 3vw;
+  --filter-value: invert(0.75) sepia(67%) saturate(5) hue-rotate(9deg) brightness(108%) contrast(98%);
+
+  .icon-container {
+    flex-grow: 0;
+    width: 100px;
+    max-width: 9%;
+    margin: 10px;
+
+    .category-icon {
+      width: 100%;
+      border-bottom: 3px solid transparent;
+      transition: .2s ease-out;
+      filter: invert(1);
+      -webkit-filter: invert(1);
+      padding-bottom: 12px;
+      &:hover {
+        filter: var(--filter-value);
+        -webkit-filter: var(--filter-value);
+      }
+    }
+  }
+
+  .category-info {
+    display: none;
+    width: 100%;
+    order: 2;
+  }
+
+  .category {
+    display: contents;
+
+    &:nth-child(2) .icon-container { margin-left: auto; }
+    &:last-child .icon-container { margin-right: auto; }
+
+    > input:checked {
+      + .icon-container .category-icon {
+        border-bottom-color: black;
+        // If we want hover to also make the highlight gold
+        // filter: var(--filter-value);
+        // -webkit-filter: var(--filter-value);
+      }
+      ~ .category-info {
+        display: block;
+      }
+    }
+  }
+
+  .category-description {
+    margin-bottom: 25px;
+    text-align: left;
+    line-height: 1.5em;
+  }
+  .category-prizes {
+    text-align: left;
+    line-height: 1.5em;
+  }
 }
 
 
