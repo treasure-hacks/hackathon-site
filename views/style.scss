@@ -994,10 +994,10 @@ table .time {
 
   .icon-container {
     flex-grow: 0;
-    width: 100px;
+    width: 75px;
     min-width: 50px;
     max-width: 9%;
-    margin: 10px;
+    margin: 1vw min(2vw, 25px);
 
     .category-icon {
       width: 100%;

@@ -85,93 +85,59 @@
           </div>
         </label>
 
-        <label class="category">
-          <input type="radio" name="category" value="1" hidden>
-          <div class="icon-container">
-            <img src="/images/icons/best-overall.png" class="category-icon" />
-          </div>
-          <div class="category-info">
-            <center>
-              <h3 class="category-title">Best Overall</h3>
-            </center>
-            <p class="category-description">The "Best Overall" award will be given to a hacker or team who best demonstrates their project&rsquo;s creativity, practicality, engineering excellence, and presentation.</p>
-            <p class="category-prizes"></p>
-          </div>
-        </label>
-        <label class="category">
-          <input type="radio" name="category" value="2" hidden>
-          <div class="icon-container">
-            <img src="/images/icons/best-solo.png" class="category-icon" />
-          </div>
-          <div class="category-info">
-            <center>
-              <h3 class="category-title">Best Solo Hack</h3>
-            </center>
-            <p class="category-description">The "Best Solo Hack" award will be given to a single hacker with the best solo project in the entire Hackathon.</p>
-            <p class="category-prizes"></p>
-          </div>
-        </label>
-        <label class="category">
-          <input type="radio" name="category" value="3" hidden>
-          <div class="icon-container">
-            <img src="/images/icons/best-duo.png" class="category-icon" />
-          </div>
-          <div class="category-info">
-            <center>
-              <h3 class="category-title">Best Duo Hack</h3>
-            </center>
-            <p class="category-description">Collaboration skills are super important in the programming world! The "Best Duo Hack" award will be given to a team of two hackers with the best project.</p>
-            <p class="category-prizes"></p>
-          </div>
-        </label>
-        <label class="category">
-          <input type="radio" name="category" value="4" hidden>
-          <div class="icon-container">
-            <img src="/images/icons/most-aesthetically-pleasing.png" class="category-icon" />
-          </div>
-          <div class="category-info">
-            <center>
-              <h3 class="category-title">Most Aesthetically Pleasing</h3>
-            </center>
-            <p class="category-description">Are you a creative and artistic person? The "Most Aesthetically Pleasing" award will be given to the project with the most polish, best presentation, and most intuitive user experience.</p>
-            <p class="category-prizes"></p>
-          </div>
-        </label>
-        <label class="category">
-          <input type="radio" name="category" value="5" hidden>
-          <div class="icon-container">
-            <img src="/images/icons/most-people-helped.png" class="category-icon" />
-          </div>
-          <div class="category-info">
-            <center>
-              <h3 class="category-title">Most People Helped</h3>
-            </center>
-            <p class="category-description">At Treasure Hacks, we value teamwork and working together. The "Most People Helped" award will be given to the hacker who has helped the most other groups complete their projects.</p>
-            <p class="category-prizes"></p>
-          </div>
-        </label>
-        <label class="category">
-          <input type="radio" name="category" value="6" hidden>
-          <div class="icon-container">
-            <img src="/images/icons/all-participants.png" class="category-icon" />
-          </div>
-          <div class="category-info">
-            <center>
-              <h3 class="category-title">All Participants</h3>
-            </center>
-            <p class="category-description">We also offer prizes for all of our participants!</p>
-            <p class="category-prizes"></p>
-          </div>
-        </label>
-        {{!-- <div class="icons-container">
-        </div>
-        <div id="info-box">
-          <center>
-            <h3 id="category-title">Click or hover a category icon to view details</h3>
-          </center>
-          <p id="category-description"></p>
-          <p id="category-prizes"></p>
-        </div> --}}
+        {{#> category }}
+          {{#*inline "title"}}Best Overall{{/inline}}
+          {{#*inline "icon_name"}}best-overall{{/inline}}
+          {{#*inline "description"}}
+            The "Best Overall" award will be given to a hacker or team who best demonstrates their project&rsquo;s creativity, practicality, engineering excellence, and presentation.
+          {{/inline}}
+          {{#*inline "prizes"}}{{/inline}}
+        {{/category}}
+
+        {{#> category }}
+          {{#*inline "title"}}Best Solo Hack{{/inline}}
+          {{#*inline "icon_name"}}best-solo{{/inline}}
+          {{#*inline "description"}}
+            The "Best Solo Hack" award will be given to a single hacker with the best solo project in the entire Hackathon.
+          {{/inline}}
+          {{#*inline "prizes"}}{{/inline}}
+        {{/category}}
+
+        {{#> category }}
+          {{#*inline "title"}}Best Duo Hack{{/inline}}
+          {{#*inline "icon_name"}}best-duo{{/inline}}
+          {{#*inline "description"}}
+            Collaboration skills are super important in the programming world! The "Best Duo Hack" award will be given to a team of two hackers with the best project.
+          {{/inline}}
+          {{#*inline "prizes"}}{{/inline}}
+        {{/category}}
+
+        {{#> category }}
+          {{#*inline "title"}}Most Aesthetically Pleasing{{/inline}}
+          {{#*inline "icon_name"}}most-aesthetically-pleasing{{/inline}}
+          {{#*inline "description"}}
+            Are you a creative and artistic person? The "Most Aesthetically Pleasing" award will be given to the project with the most polish, best presentation, and most intuitive user experience.
+          {{/inline}}
+          {{#*inline "prizes"}}{{/inline}}
+        {{/category}}
+
+        {{#> category }}
+          {{#*inline "title"}}Most People Helped{{/inline}}
+          {{#*inline "icon_name"}}most-people-helped{{/inline}}
+          {{#*inline "description"}}
+            At Treasure Hacks, we value teamwork and working together. The "Most People Helped" award will be given to the hacker who has helped the most other groups complete their projects.
+          {{/inline}}
+          {{#*inline "prizes"}}{{/inline}}
+        {{/category}}
+
+        {{#> category }}
+          {{#*inline "title"}}All Participants{{/inline}}
+          {{#*inline "icon_name"}}all-participants{{/inline}}
+          {{#*inline "description"}}
+            We also offer prizes for all of our participants!
+          {{/inline}}
+          {{#*inline "prizes"}}{{/inline}}
+        {{/category}}
       </div>
 
       <hr />
