@@ -988,12 +988,14 @@ table .time {
 .category-box {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   padding: 0 3vw;
   --filter-value: invert(0.75) sepia(67%) saturate(5) hue-rotate(9deg) brightness(108%) contrast(98%);
 
   .icon-container {
     flex-grow: 0;
     width: 100px;
+    min-width: 50px;
     max-width: 9%;
     margin: 10px;
 
@@ -1019,9 +1021,6 @@ table .time {
 
   .category {
     display: contents;
-
-    &:nth-child(2) .icon-container { margin-left: auto; }
-    &:last-child .icon-container { margin-right: auto; }
 
     > input:checked {
       + .icon-container .category-icon {
