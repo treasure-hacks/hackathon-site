@@ -26,3 +26,6 @@ toggle.addEventListener('click', function () {
     toggle.className = 'fa fa-close hamburger fa-lg'
   }
 })
+
+// Add touchmove listener to set immediate hover states on mobile
+document.body.addEventListener('touchmove', () => {})
