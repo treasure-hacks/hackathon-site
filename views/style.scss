@@ -37,8 +37,8 @@ body, button {
 }
 p {
   margin: 0px 10px;
-  font-size: 19px;
-  line-height: calc(1.6em + 0.8vw);
+  font-size: max(18px, 0.8vw);
+  line-height: max(32px, 1.6vw);
   text-align: center;
 }
 @media only screen and (max-width: 700px){
@@ -201,20 +201,26 @@ hr {
 	margin-top: 40px;
 }
 .section {
-	padding: 0px 8px;
-  min-height: 50vh;
+  max-width: 1250px;
+  min-height: 35vh;
+  padding: 0 min(3vw, 40px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  margin: auto;
+}
+@media only screen and (max-width: 480px) {
+  p { margin: 0; }
+  .section { padding: 0 2px; }
 }
 .row {
-   text-align:center;
-   display: flex;
-   width: 100%;
-   flex-wrap: wrap;
-   align-items: center;
-   justify-content:center;
+  text-align:center;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
 }
 @media only screen and (max-width: 700px){
 	.centered-popout {
@@ -231,8 +237,8 @@ hr {
   max-height: 50vw;
 }
 h3 {
-	margin-top:22px;
 	font-size: 25px;
+  margin: 0 auto 18px;
 }
 .glow {
     border: none;
@@ -287,7 +293,7 @@ h3 {
   height: 130px;
   margin: 30px 0;
   border-radius: 20px;
-  padding: 0 40px;
+  padding: 0 25px;
   box-sizing: border-box;
   @media only screen and (max-width: 400px) {
     padding-inline: 0;
