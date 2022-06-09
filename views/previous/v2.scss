@@ -52,15 +52,7 @@ div.winners {
       filter: blur(var(--blur)) brightness(var(--brightness));
       -webkit-filter: blur(var(--blur)) brightness(var(--brightness));
       opacity: 0.8;
-      transition: filter 0.2s, -webkit-filter 0.2s, opacity 0.2s;
     }
-    // &:hover img.fullsize {
-    //   --blur: 3px;
-    //   --brightness: 0.8;
-    //   opacity: 0.9;
-    //   // filter: brightness(0.8) blur(3px);
-    //   // -webkit-filter: brightness(0.8) blur(3px);
-    // }
     img.winner-category-icon {
       width: 60px;
       margin: 10px;
@@ -78,7 +70,6 @@ div.winners {
       &.gold { color: var(--gold-primary) }
       &.silver { color: var(--silver-primary) }
       &.bronze { color: var(--bronze-primary) }
-      // ;position: absolute;left: 36px;top: 50%;transform: translateY(-50%);
     }
   }
 }
@@ -105,4 +96,8 @@ div.winners {
 @media only screen and (max-width: 580px) {
   div.winners > *:not(.item) { margin: 0; }
   div.winners .item { margin-inline: 0; }
+}
+.row > .item a {
+  display: block;
+  height: 130px;
 }
