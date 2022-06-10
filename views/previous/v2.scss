@@ -6,6 +6,8 @@
     height: 45vw;
     max-height: 63vh;
     aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    box-shadow: 2px 4px 10px 1px #0005;
   }
 }
 
@@ -32,6 +34,7 @@ div.winners {
     max-width: 800px;
     margin: 30px;
     flex-basis: 800px;
+    box-shadow: 0.2px 0.5px 8px 2px #0003;
     .info {
       flex-grow: 1;
       margin-right: 80px;
