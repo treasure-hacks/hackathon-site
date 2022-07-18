@@ -606,6 +606,14 @@ h3.sponsor-title {
     --col-b: 50;
   }
 }
+.partners .sponsor {
+  --col-r: 255;
+  --col-g: 255;
+  --col-b: 255;
+  &:not(:hover) {
+    --col-alpha: 0;
+  }
+}
 
 /* .diamond-tier:hover {
 	cursor: pointer;
