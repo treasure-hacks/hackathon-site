@@ -417,6 +417,12 @@ h4 {
   width: 100%!important;
   object-fit: cover;
   object-position: 50% 50%;
+
+  // FOR SPADE HACKS ONLY
+  width: 101.1% !important;
+  object-fit: cover;
+  object-position: 50% 50%;
+  transform: translate(-0.4%, 0.1%);
 }
 .section-main {
 	height: calc(100vh - 70px);
@@ -604,6 +610,14 @@ h3.sponsor-title {
     --col-r: 205;
     --col-g: 127;
     --col-b: 50;
+  }
+}
+.partners .sponsor {
+  --col-r: 255;
+  --col-g: 255;
+  --col-b: 255;
+  &:not(:hover) {
+    --col-alpha: 0;
   }
 }
 
@@ -885,9 +899,9 @@ a#mlh-trust-badge::before {
 center.main-header {
   display: flex;
   align-items: flex-end;
-  height: calc(75vh + 97vw);
-  min-height: 128vw;
-  max-height: 145vw;
+  height: calc(75vh + 102vw);
+  min-height: 167vw;
+  max-height: 170vw;
   position: relative;
 }
 @media only screen and (max-width: 640px) {
