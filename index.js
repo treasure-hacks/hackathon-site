@@ -60,7 +60,7 @@ recursivePartials('partials')
 
 function buildApp () {
   // Clear the docs directory
-  fs.rmdirSync('docs', { recursive: true })
+  if (fs.existsSync('docs')) fs.rmdirSync('docs', { recursive: true })
 
   function recursiveRoutes (folderName) {
     fs.readdirSync(folderName).forEach(function (file) {
