@@ -215,6 +215,11 @@ hr {
   p { margin: 0; }
   .section { padding: 0 2px; }
 }
+
+.page-title {
+  text-align: center;
+  margin-block: 1.5em 1em;
+}
 .row {
   text-align:center;
   display: flex;
@@ -222,6 +227,45 @@ hr {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+  &.team-container {
+    .team-founder {
+      margin: 12px 24px;
+      max-width: 850px;
+      height: 100%;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: opacity 0.2s;
+      background-color: #2C1C4B;
+      border-radius: 20px;
+    }
+    img.founder-img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 16px;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    .row.team-container {
+      position: relative;
+      justify-content: space-between;
+      margin-block: 20px 50px;
+    }
+    @media (max-width: 850px) {
+      .team-founder {
+        flex-direction: column;
+      }
+    }
+    @media (max-width: 640px) {
+      p {
+        font-size: 16px;
+        line-height: 1.8;
+      }
+    }
+  }
 }
 @media only screen and (max-width: 700px){
 	.centered-popout {
