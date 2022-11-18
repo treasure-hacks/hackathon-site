@@ -77,6 +77,28 @@ div.winners {
     }
   }
 }
+
+div.sponsor-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+div.names-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  > div {
+    // width: auto
+    width: 320px;
+  }
+  div.name-title {
+    color: #ccc;
+    margin-inline: auto;
+    max-width: 250px;
+  }
+}
+
 @media only screen and (max-width: 880px) {
   div.winners .item {
     flex-direction: column;
