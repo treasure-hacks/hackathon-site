@@ -881,7 +881,7 @@ h3.sponsor-title {
 #hamburger {
   display: none;
 }
-@media only screen and (max-width: 870px) {
+@media only screen and (max-width: 800px) {
   .menu-items {
     display: none!important;
   }
@@ -901,7 +901,7 @@ h3.sponsor-title {
     transform: scale(1.1);
   }
 }
-@media only screen and (min-width: 871px){
+@media only screen and (min-width: 800.1px){
   #menu-on-small {
     display: none;
   }
