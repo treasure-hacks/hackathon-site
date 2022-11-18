@@ -2,12 +2,24 @@
   margin-bottom: 40px;
   > iframe {
     width: 80vw;
-    max-width: 112vh;
-    height: 45vw;
+    max-width: min(112vh, 1104px);
+    height: min(45vw, 621px);
     max-height: 63vh;
     aspect-ratio: 16 / 9;
     border-radius: 12px;
     box-shadow: 2px 4px 10px 1px #0005;
+  }
+}
+div.main-content {
+  padding: 0;
+  &::before {
+    z-index: 1;
+    pointer-events: none;
+  }
+  @media (max-width: 1499.9px) {
+    &::before {
+      display: none;
+    }
   }
 }
 
