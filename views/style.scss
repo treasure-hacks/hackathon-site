@@ -1149,21 +1149,27 @@ table .time {
 }
 
 
-
-.names-container h3 {
-	margin: 10px 0px;
-	font-size: 25px;
-}
-.names-container h4 {
-  margin: 10px 0px;
-}
-.names-container > div {
-	padding: 2%;
-	text-align: center;
-  min-width: 180px;
-	width: 20%;
-  max-width: 100%;
-  margin: 0 0 40px;
+div.names-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-wrap: wrap;
+  > div {
+    width: 320px;
+    padding: 2% 1%;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 0 40px;
+  }
+  h3 {
+    margin: 10px 0px;
+    font-size: 25px;
+  }
+  div.name-title {
+    color: #ccc;
+    margin-inline: auto;
+    max-width: 250px;
+  }
 }
 @media only screen and (max-width: 1116px){
   .names-container > div {
@@ -1181,30 +1187,7 @@ table .time {
 		width: 96%;
 	}
 }
-.names-container {
-	max-width: 100vw;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
 
-
-
-
-.names-container-team h3 {
-	margin: 10px 0px;
-	font-size: 25px;
-}
-.names-container-team h4 {
-  margin: 10px 0px;
-}
-.names-container-team > div {
-	padding: 2%;
-	text-align: center;
-  min-width: 360px;
-	width: 40%;
-  max-width: 100%;
-  margin: 0 0 40px;
-}
 @media only screen and (max-width: 1116px){
   .names-container-team > div {
     width: 80%;
@@ -1220,11 +1203,6 @@ table .time {
     min-width: unset;
 		width: 96%;
 	}
-}
-.names-container-team {
-	max-width: 100vw;
-	flex-wrap: wrap;
-	justify-content: space-around;
 }
 .flex-grid{
   display: flex;
