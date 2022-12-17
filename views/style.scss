@@ -267,6 +267,9 @@ hr {
     }
   }
 }
+center {
+  scroll-margin: 100px;
+}
 @media only screen and (max-width: 700px){
 	.centered-popout {
 		width: 80vw;
@@ -1012,15 +1015,21 @@ table {
   margin-bottom: 30px;
   background-color: rgba(51,51,51,0.85);
 }
+#schedule-table {
+  max-width: 850px;
+}
 
 td, th {
   text-align: left;
-  padding: 8px;
+  padding: 8px 12px;
+  &.event-name { white-space: nowrap; }
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
-  color: #333;
+  // background-color: #dddddd;
+  // color: #333;
+  background-color: #47454bf0;
+  // color: white;
 }
 .small-table-info {
   display: none;
@@ -1028,7 +1037,7 @@ tr:nth-child(even) {
 table .time {
   white-space: nowrap;
 }
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 1023.9px){
 	tr {
 		display: grid;
 	}

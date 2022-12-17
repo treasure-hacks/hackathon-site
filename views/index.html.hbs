@@ -143,6 +143,26 @@
         {{/category}}
       </div>
 
+      <hr/>
+
+      <center id="schedule"><h2>Schedule</h2></center>
+      <div class="row">
+        <template id="event-template">
+          <tr>
+            <td class="time date">Day</td>
+            <td class="time start-time">
+              <span>Start Time</span>
+              <span class="small-table-info">&ndash; End Time</span>
+            </td>
+            <td class="time end-time">End Time</td>
+            <td class="event-name">Event</td>
+          </tr>
+        </template>
+				<table id="schedule-table">
+				  <tr><td style="text-align:center">The schedule requires JavaScript to fetch the events in realtime</td></tr>
+				</table>
+      </div>
+
       <hr />
       <center>
         <h2>Sponsors</h2>
@@ -386,6 +406,7 @@
     {{> footer }}
   </div>
   <script src="main.js"></script>
+  <script src="schedule.js"></script>
   <script>
     const contentSkipBtn = document.querySelector('.content-skip');
     contentSkipBtn.addEventListener('click', function () {
