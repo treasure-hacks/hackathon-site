@@ -10,6 +10,11 @@
   <meta name="theme-color" content="#111">
   {{> site_icons }}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.6/dist/css/splide-core.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.6/dist/css/themes/splide-skyblue.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.6/dist/js/splide.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.4.2/dist/js/splide-extension-auto-scroll.min.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
   {{> navigation_header }}
@@ -43,20 +48,39 @@
     <div class="main-content">
       <!-- BEGIN MAIN CONTENT -->
       <br />
-      <hr />
       <div class="section">
-        <center>
-          <h3>Hackathon Information</h3>
-        </center>
-        <p>Our hackathon allows students of all levels of programming to come together and create a computer science
-          solution to a current problem. We target a wide skill range (from no programming knowledge to advanced
-          programming knowledge). Our opportunities include sponsor instruction, an industry computer scientist sharing
-          their experience, and teachers introducing programming techniques/skills. We also plan to present step by step
-          instruction to help you through every part of a hackathon.</p>
+        <div class="mountain-slider splide" data-aos="fade-up"><div class="splide__track">
+          <div class="splide__list">
+            <div class="mtn-card splide__slide">
+              <img src="/images/mountains/bg0.png" alt="Treasure Hacks as a Pathway to Success" height="100%">
+              <img class="mtn-fg-img" src="/images/mountains/stickman0.png" alt="Introduction Stickman" height="100%">
+            </div>
+            <div class="mtn-card splide__slide">
+              <img src="/images/mountains/bg1.png" alt="Mountain Background 1" height="100%">
+              <img class="mtn-fg-img" src="/images/mountains/flag1.png" alt="Hackathon Experience Flag" height="100%">
+              <img class="mtn-fg-img" src="/images/mountains/stickman1.png" alt="Stickman Holding Flag" height="100%">
+            </div>
+            <div class="mtn-card splide__slide">
+              <img src="/images/mountains/bg2.png" alt="Mountain Background 2" height="100%">
+              <img class="mtn-fg-img" src="/images/mountains/flag2.png" alt="Community & Mentors Flag" height="100%">
+              <img class="mtn-fg-img" src="/images/mountains/stickman2.png" alt="Stickman Holding Flag" height="100%">
+            </div>
+            <div class="mtn-card splide__slide">
+              <img src="/images/mountains/bg3.png" alt="Mountain Background 3" height="100%">
+              <img class="mtn-fg-img" src="/images/mountains/flag3.png" alt="Tech Industry Connections Flag" height="100%">
+              <img class="mtn-fg-img" src="/images/mountains/stickman3.png" alt="Stickman Holding Flag" height="100%">
+            </div>
+            <div class="mtn-card splide__slide">
+              <img src="/images/mountains/bg4.png" alt="Mountain Background 4" height="100%">
+              <img class="mtn-fg-img" src="/images/mountains/flag4.png" alt="Product Launch Flag" height="100%">
+              <img class="mtn-fg-img" src="/images/mountains/stickman4.png" alt="Stickman Holding Flag" height="100%">
+            </div>
+          </div>
+        </div></div>
       </div>
 
       <div class="section unsized">
-        <p style="max-width: 570px;">Our goal is to create a network of aspiring developers and industry professionals, so that your hackathon
+        <p style="max-width: 620px;">Our goal is to create a network of aspiring developers and industry professionals, so that your hackathon
           projects into professionally-developed and marketable applications.</p>
         <a target="_blank" href="https://treasurehacks.org" class="button">Learn More</a>
       </div>
@@ -399,7 +423,7 @@
       <br />
       <br />
     </div>
-    {{> footer }}
+  {{> footer }}
   </div>
   <script src="main.js"></script>
   <script src="schedule.js"></script>
