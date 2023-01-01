@@ -209,7 +209,7 @@ hr {
   align-items: center;
   margin: auto;
   &.unsized {
-    padding-block: 4vh;
+    padding-block: 6vh;
     min-height: 0;
   }
 }
@@ -279,12 +279,11 @@ center {
 }
 
 .map-frame {
-  margin: 16px;
   border: none;
   width: 100vh;
   height: 75vh;
-  max-width: 66vw;
-  max-height: 50vw;
+  max-width: calc(50vw + 75px);
+  max-height: calc(38vw + 60px);
 }
 h3 {
 	font-size: 25px;
