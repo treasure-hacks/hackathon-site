@@ -484,7 +484,6 @@ h4 {
     img {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.5s, transform 0.5s;
     }
     img[src*="mountains/stickman"] {
       opacity: 0;
@@ -501,6 +500,9 @@ h4 {
       opacity: 0;
       transform: translateY(10px);
     }
+  }
+  &.loaded .mtn-card img {
+    transition: opacity 0.5s, transform 0.5s;
   }
   p {
     height: 100%;

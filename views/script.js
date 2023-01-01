@@ -7,4 +7,8 @@ splide = new Splide('.mountain-slider', {
   updateOnMove: true,
   flickMaxPages: 0.1
 })
-splide.mount(window.splide.Extensions)
+
+window.addEventListener('load', () => {
+  splide.mount(window.splide.Extensions)
+  splide.root.classList.add('loaded')
+})
