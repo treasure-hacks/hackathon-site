@@ -7,9 +7,4 @@ splide = new Splide('.mountain-slider', {
   updateOnMove: true,
   flickMaxPages: 0.1
 })
-
-splide.on('moved', e => {
-  console.log(e)
-})
-
 splide.mount(window.splide.Extensions)
