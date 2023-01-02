@@ -1180,7 +1180,7 @@ table .time {
   flex-wrap: wrap;
   justify-content: center;
   padding: 0 3vw;
-  --filter-value: invert(0.75) sepia(67%) saturate(5) hue-rotate(9deg) brightness(108%) contrast(98%);
+  --filter-value: sepia(67%) saturate(20) hue-rotate(-5deg);
 
   .icon-container {
     flex-grow: 0;
@@ -1193,8 +1193,8 @@ table .time {
       width: 100%;
       border-bottom: 3px solid transparent;
       transition: .2s ease-out;
-      filter: invert(1);
-      -webkit-filter: invert(1);
+      // filter: invert(1);
+      // -webkit-filter: invert(1);
       padding-bottom: 12px;
       &:hover {
         filter: var(--filter-value);
@@ -1214,7 +1214,7 @@ table .time {
 
     > input:checked {
       + .icon-container .category-icon {
-        border-bottom-color: black;
+        border-bottom-color: white;
         // If we want hover to also make the highlight gold
         // filter: var(--filter-value);
         // -webkit-filter: var(--filter-value);
