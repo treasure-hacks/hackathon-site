@@ -15,7 +15,8 @@ const categorySplide = new Splide('.category-box-container', {
   autoWidth: true,
   gap: '16px',
   trimSpace: false,
-  updateOnMove: true
+  updateOnMove: true,
+  flickMaxPages: 0.1
 })
 
 window.addEventListener('load', () => {
