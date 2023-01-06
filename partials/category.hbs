@@ -1,4 +1,4 @@
-<label class="category">
+{{!-- OLD HTML HERE<label class="category">
   <input type="radio" name="category" value="{{>title}}" hidden>
   <div class="icon-container">
     <img src="/images/icons/categories/{{>icon_name}}.png" class="category-icon" />
@@ -10,4 +10,17 @@
     <p class="category-description">{{>description}}</p>
     <p class="category-prizes">{{>prizes}}</p>
   </div>
-</label>
+</label> --}}
+
+<div class="item splide__slide">
+  {{!-- <img src="/images/v2-winners/{{> image }}" alt="{{> name }}" class="fullsize" loading="lazy"> --}}
+  <img src="/images/icons/categories/{{>icon_name}}.png" class="category-icon" width="60" height="60"/>
+  <div class="info">
+    <h3>
+      {{> title}}
+    </h3>
+    <p class="category-description">{{> description }}</p>
+    <p class="category-prizes">{{> prizes }}</p>
+  </div>
+</div>
+
