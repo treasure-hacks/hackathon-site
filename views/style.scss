@@ -1337,6 +1337,9 @@ div.cards-container {
   div.cards-container .item { margin-inline: 0; }
 }
 // Category Cards Container
+div.category-box-container {
+  width: 100%;
+}
 div.category-box {
   flex-wrap: nowrap;
   justify-content: initial;
@@ -1346,7 +1349,9 @@ div.category-box {
     background-color: #2c1c4b;
     padding-block: 20px;
     height: auto;
-    max-width: 480px;
+    width: 480px;
+    flex-basis: 480px;
+    max-width: 100%;
     margin: 16px;
     transition: opacity 0.5s cubic-bezier(0.29, 0.98, 0.58, 1);
 
@@ -1357,6 +1362,17 @@ div.category-box {
   // SPLIDE ONLY
   .item:not(.is-active) { opacity: 0.2 }
   .item.is-active { opacity: 1 }
+  @media (max-width: 640px) {
+    .item {
+      padding: 0 2px;
+      background: none;
+      box-shadow: none;
+    }
+    .item .info p {
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
 }
 
 
