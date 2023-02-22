@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register for Treasure Hacks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form>
+    <div class="item-container header-image-container"><img src="/images/banner.jpg" alt="Treasure Hacks Banner" widht="640" height="160"></div>
+    <div class="item-container header">
+      <h1>Treasure Hacks Registration</h1>
+    </div>
+    {{> form_question
+        title="First Name"
+        description=""
+        input_type="text"
+        input_name="first_name"
+        placeholder="First name"
+        textarea=false
+        required=true
+    }}
+    {{> form_question
+        title="Last Name"
+        description=""
+        input_type="text"
+        input_name="last_name"
+        placeholder="Last name"
+        textarea=false
+        required=true
+    }}
+    {{> form_question
+        title="Email Address"
+        description=""
+        input_type="email"
+        input_name="email"
+        placeholder="someone@example.com"
+        textarea=false
+        required=true
+    }}
+    {{> form_question
+        title="Discord ID"
+        description="NOTE TO SELF: INTEGRATE CHECK WITH BOT"
+        input_type="text"
+        input_name="discord_tag"
+        placeholder="YellowFellow#3448"
+        textarea=false
+        required=true
+    }}
+    {{#>form_question
+        title="Where did you hear about us?"
+        description=""
+        custom=true
+    }}{{#*inline "content"}}
+      <label><input type="checkbox" name="referral--student" id=""> Another student</label>
+      <label><input type="checkbox" name="referral--discord" id=""> Discord</label>
+      <label><input type="checkbox" name="referral--school" id=""> School announcement, club, or flier</label>
+      <label><input type="checkbox" name="referral--coding_organization" id=""> Through an coding organization/community</label>
+      <label><input type="checkbox" name="referral--social_media" id=""> Social Media</label>
+      <label><input type="checkbox" name="referral--mlh" id=""> MLH</label>
+      <label><input type="checkbox" name="referral--devpost" id=""> Devpost</label>
+      <label><input type="checkbox" name="referral--other" id=""> Other: 
+        <div class="input-wrapper">
+          <input type="text" name="referral--other">
+        </div>
+      </label>
+    {{/inline}}{{/form_question}}
+    {{> form_question
+        title="How comfortable are you with programming?"
+        description="(1 being uncomfortable and 10 being comfortable)"
+        input_type="number"
+        input_name="discord_tag"
+        placeholder="10"
+        min="1"
+        max="10"
+        textarea=false
+        required=true
+    }}
+    {{#>form_question
+        title="Frequently Asked Questions"
+        custom=true
+    }}
+      {{#*inline "content"}}
+      <ul id="form-faq-list">
+        <li>Can I join even though I have no experience in coding?<ul>
+          <li>Yes, and we provide resources specifically for those who are new to programming</li>
+        </ul></li>
+
+        <li>Does it cost money?<ul>
+          <li>No</li>
+        </ul></li>
+
+        <li>Who receives swag and prizes?<ul>
+          <li>Anyone who turns in a non-empty project to Devpost</li>
+        </ul></li>
+
+        <li>What is the Theme?<ul>
+          <li>AI and Blockchain</li>
+        </ul></li>
+
+        <li>Where will we be turning in projects?<ul>
+          <li>Devpost (link will be in the discord)</li>
+          <li>You will need a short description and your code on GitHub.</li>
+          <li>A video is not strictly required, but will help significantly with your project’s scoring</li>
+        </ul></li>
+
+        <li>When can we start coding?<ul>
+          <li>When the events starts; any use of premade or previously-created code is not allowed.</li>
+          <li>Packages, APIs, and open-source code libraries are allowed.</li>
+          <li>If you are unsure about sometime, ask in the #questions chat in discord</li>
+        </ul></li>
+
+        <li>What coding language can I use?<ul>
+          <li>Any language is fine</li>
+        </ul></li>
+
+        <li>Can we submit our project to multiple hackathons?<ul>
+          <li>Yes, but for our hackathon, you can only work on it during our hacking period</li>
+        </ul></li>
+
+        <li>What do I do once I find my team?<ul>
+          <li>Once you have your team together, sign up on the devpost</li>
+        </ul></li>
+      </ul>
+      {{/inline}}
+    {{/form_question}}
+    {{#>form_question
+        title="Please agree to all of the following"
+        description=""
+        custom=true
+    }}{{#*inline "content"}}
+      <label><input type="checkbox" name="agreements--student" id=""> I understand that I <b>MUST NOT</b> start creating my project before the opening ceremony</label>
+      <label><input type="checkbox" name="agreements--discord" id=""> I understand that if I break any of the rules listed in the Discord, I will be disqualified.</label>
+      <label><input type="checkbox" name="agreements--discord" id=""> I understand that if I submit a project to multiple hackathons, including Treasure Hacks, it must be created during our hacking period.</label>
+    {{/inline}}{{/form_question}}
+    {{> form_question
+        title="Age"
+        description="MLH needs this data for eligibility purposes, as some codes are only available to hackers 18+"
+        input_type="number"
+        input_name="age"
+        placeholder="Age"
+        textarea=false
+        required=true
+    }}
+    {{> form_question
+        title="Country of Residence"
+        description=""
+        input_type="text"
+        input_name="country"
+        placeholder="United States"
+        textarea=false
+        required=true
+        autofill="iso_countries"
+    }}
+    {{> form_question
+        title="Current School or Institution"
+        description=""
+        input_type="text"
+        input_name="current_school"
+        placeholder="Your school"
+        textarea=false
+        required=true
+        autofill="mlh_schools"
+    }}
+    {{#>form_question
+        title="Please confirm all of the following."
+        description=""
+        custom=true
+    }}{{#*inline "content"}}
+      <label>
+        <input type="checkbox" name="agreements--mlh_conduct" id="">
+        I have read and agree to the <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">MLH Code of Conduct</a>
+      </label>
+      <label>
+        <input type="checkbox" name="agreements--mlh_data" id="">
+        I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the MLH Privacy Policy. I further agree to the terms of both the MLH Contest Terms and Conditions and the MLH Privacy Policy.
+      </label>
+    {{/inline}}{{/form_question}}
+    {{> form_question
+        title="Current/Highest Level of Education"
+        description=""
+        radio=true
+        input_name="edu_level"
+        required="true"
+        options='[
+          "Less than Secondary / High School",
+          "Secondary / High School",
+          "Undergraduate University (2 year - community college or similar)",
+          "Undergraduate University (3+ year)",
+          "Graduate University (Masters, Professional, Doctoral, etc.)",
+          "Code School / Bootcamp",
+          "Other Vocational / Trade Program or Apprenticeship",
+          "Post Doctorate",
+          "I\'m currently not a student"
+        ]'
+        other=true
+    }}
+    {{> form_question
+        title="I authorize MLH to send me pre- and post-event informational emails, which contain free credit and opportunities from their partners. (Optional)"
+        description=""
+        radio=true
+        input_name="mlh_emails"
+        options='["I accept", "I do not accept"]'
+        required="true"
+    }}
+    {{> form_question
+        title="(If you are under 18, your guardian must agree) I agree to have the following resume and LinkedIn shared with interested sponsors for potential opportunities"
+        description=""
+        radio=true
+        input_name="sponsor_allow_data"
+        options='[{"id":"data_allowed","text":"Yes"}, "No"]'
+        required="true"
+    }}
+    {{> form_question
+        title="Your resume"
+        description=""
+        input_type="file"
+        input_name="resume"
+        accept=".pdf, .docx, .doc"
+        show_if="data_allowed"
+    }}
+    {{> form_question
+        title="Link to Your LinkedIn Profile"
+        description=""
+        input_type="url"
+        input_name="linkedin"
+        placeholder="https://www.linkedin.com/in/treasure_hacks"
+        required="true"
+        show_if="data_allowed"
+    }}
+    {{!-- {{#> form_question}}
+      {{#*inline "isInput"}}TRUE{{/inline}}
+
+      {{#*inline "title"}}First Name{{/inline}}
+      {{#*inline "description"}}most-helpful{{/inline}}
+      {{#*inline "type"}}text{{/inline}}
+      {{#*inline "name"}}INPUT_NAME_HERE{{/inline}}
+      {{#*inline "placeholder"}}PLACEHOLDER_HERE{{/inline}}
+    {{/form_question}} --}}
+    
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

@@ -57,6 +57,9 @@ function recursivePartials (folderName) {
   })
 }
 recursivePartials('partials')
+Handlebars.registerHelper('getJsonContext', function (data, options) {
+  return options.fn(JSON.parse(data))
+})
 
 function buildApp () {
   // Clear the docs directory
