@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <form>
+  <form action="/test1">
     <div class="item-container header-image-container"><img src="/images/banner.jpg" alt="Treasure Hacks Banner" widht="640" height="160"></div>
     <div class="item-container header">
       <h1>Treasure Hacks Registration</h1>
@@ -46,6 +46,7 @@
         input_type="text"
         input_name="discord_tag"
         placeholder="YellowFellow#3448"
+        pattern=".{2,}#\d{4}"
         textarea=false
         required=true
     }}
@@ -71,7 +72,7 @@
         title="How comfortable are you with programming?"
         description="(1 being uncomfortable and 10 being comfortable)"
         input_type="number"
-        input_name="discord_tag"
+        input_name="comfort_level"
         placeholder="10"
         min="1"
         max="10"
@@ -133,7 +134,7 @@
     }}{{#*inline "content"}}
       <label><input type="checkbox" name="agreements--student" id=""> I understand that I <b>MUST NOT</b> start creating my project before the opening ceremony</label>
       <label><input type="checkbox" name="agreements--discord" id=""> I understand that if I break any of the rules listed in the Discord, I will be disqualified.</label>
-      <label><input type="checkbox" name="agreements--discord" id=""> I understand that if I submit a project to multiple hackathons, including Treasure Hacks, it must be created during our hacking period.</label>
+      <label><input type="checkbox" name="agreements--multiple" id=""> I understand that if I submit a project to multiple hackathons, including Treasure Hacks, it must be created during our hacking period.</label>
     {{/inline}}{{/form_question}}
     {{> form_question
         title="Age"
@@ -220,6 +221,7 @@
         input_name="resume"
         accept=".pdf, .docx, .doc"
         show_if="data_allowed"
+        require_if="data_allowed"
     }}
     {{> form_question
         title="Link to Your LinkedIn Profile"
@@ -227,8 +229,8 @@
         input_type="url"
         input_name="linkedin"
         placeholder="https://www.linkedin.com/in/treasure_hacks"
-        required="true"
         show_if="data_allowed"
+        require_if="data_allowed"
     }}
     {{!-- {{#> form_question}}
       {{#*inline "isInput"}}TRUE{{/inline}}
