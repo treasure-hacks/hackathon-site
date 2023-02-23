@@ -37,7 +37,8 @@ function save () {
 }
 
 function load () {
-  const entries = JSON.parse(localStorage.FORMTHING)
+  const entries = JSON.parse(localStorage.FORMTHING || '0')
+  if (!entries) return
   for (const [key, val] of entries) {
     const input = form.elements[key]
     if (!input) continue
