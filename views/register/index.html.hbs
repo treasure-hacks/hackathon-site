@@ -7,9 +7,10 @@
   <title>Register for Treasure Hacks 3.5</title>
   <link rel="stylesheet" href="style.css">
   {{> site_icons }}
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <form>
+  <form action="{{REGISTRATION_SUBMISSION_URL}}" method="POST" enctype="multipart/form-data">
     <div class="item-container header-image-container"><img src="/images/banner.jpg" alt="Treasure Hacks Banner" widht="640" height="160"></div>
     <div class="item-container header">
       <h1>Treasure Hacks 3.5 Registration</h1>
@@ -42,14 +43,15 @@
         required=true
     }}
     {{> form_question
-        title="Discord ID"
-        description="NOTE TO SELF: INTEGRATE CHECK WITH BOT"
+        title="Discord Tag"
+        description="Enter a valid Discord Tag (i.e. YellowFellow#3448)"
         input_type="text"
         input_name="discord_tag"
         placeholder="YellowFellow#3448"
         pattern=".{2,}#\d{4}"
         textarea=false
         required=true
+        custom_validation="user_in_server"
     }}
     {{> form_question
         title="Where did you hear about us?"
@@ -235,6 +237,7 @@
         show_if="data_allowed"
         require_if="data_allowed"
     }}
+    <input type="hidden" id="referrer-input" name="referrer">
     
     <input type="submit" value="Submit">
   </form>
