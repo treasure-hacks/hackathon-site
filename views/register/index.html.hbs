@@ -199,7 +199,10 @@
         description=""
         radio=true
         input_name="mlh_emails"
-        options='["I accept", "I do not accept"]'
+        options='[
+          {"text":"I accept","value":"1"},
+          {"text":"I do not accept","value":"0"}
+        ]'
         required="true"
     }}
     {{> form_question
@@ -232,15 +235,6 @@
         show_if="data_allowed"
         require_if="data_allowed"
     }}
-    {{!-- {{#> form_question}}
-      {{#*inline "isInput"}}TRUE{{/inline}}
-
-      {{#*inline "title"}}First Name{{/inline}}
-      {{#*inline "description"}}most-helpful{{/inline}}
-      {{#*inline "type"}}text{{/inline}}
-      {{#*inline "name"}}INPUT_NAME_HERE{{/inline}}
-      {{#*inline "placeholder"}}PLACEHOLDER_HERE{{/inline}}
-    {{/form_question}} --}}
     
     <input type="submit" value="Submit">
   </form>
