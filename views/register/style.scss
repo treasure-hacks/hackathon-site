@@ -47,6 +47,7 @@ div.item-container {
       width: 100%;
     }
   }
+  a { color-scheme: dark light; }
 }
 ul {
   padding-left: 20px;
@@ -99,6 +100,7 @@ ul#form-faq-list > li {
   align-items: center;
   &.other-label { padding: 0; }
   input[type="radio"], input[type="checkbox"] {
+    color-scheme: dark light;
     width: 16px;
     height: 16px;
     flex-shrink: 0;

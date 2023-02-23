@@ -51,24 +51,21 @@
         textarea=false
         required=true
     }}
-    {{#>form_question
+    {{> form_question
         title="Where did you hear about us?"
         description=""
-        custom=true
-    }}{{#*inline "content"}}
-      <label><input type="checkbox" name="referral--student" id=""> Another student</label>
-      <label><input type="checkbox" name="referral--discord" id=""> Discord</label>
-      <label><input type="checkbox" name="referral--school" id=""> School announcement, club, or flier</label>
-      <label><input type="checkbox" name="referral--coding_organization" id=""> Through an coding organization/community</label>
-      <label><input type="checkbox" name="referral--social_media" id=""> Social Media</label>
-      <label><input type="checkbox" name="referral--mlh" id=""> MLH</label>
-      <label><input type="checkbox" name="referral--devpost" id=""> Devpost</label>
-      <label><input type="checkbox" name="referral--other" id=""> Other: 
-        <div class="input-wrapper">
-          <input type="text" name="referral--other">
-        </div>
-      </label>
-    {{/inline}}{{/form_question}}
+        input_name="referral"
+        checkbox=true
+        options='[
+          {"value":"student", "text": "Another student"},
+          {"value":"discord", "text": "Discord"},
+          {"value":"school", "text": "School announcement, club, or flier"},
+          {"value":"coding_organization", "text": "Through an coding organization/community"},
+          {"value":"social_media", "text": "Social Media"},
+          {"value":"mlh", "text": "MLH"},
+          {"value":"devpost", "text": "Devpost"}
+        ]'
+    }}
     {{> form_question
         title="How comfortable are you with programming?"
         description="(1 being uncomfortable and 10 being comfortable)"
@@ -128,15 +125,17 @@
       </ul>
       {{/inline}}
     {{/form_question}}
-    {{#>form_question
+    {{> form_question
         title="Please agree to all of the following"
         description=""
-        custom=true
-    }}{{#*inline "content"}}
-      <label><input type="checkbox" name="agreements--student" id=""> I understand that I <b>MUST NOT</b> start creating my project before the opening ceremony</label>
-      <label><input type="checkbox" name="agreements--discord" id=""> I understand that if I break any of the rules listed in the Discord, I will be disqualified.</label>
-      <label><input type="checkbox" name="agreements--multiple" id=""> I understand that if I submit a project to multiple hackathons, including Treasure Hacks, it must be created during our hacking period.</label>
-    {{/inline}}{{/form_question}}
+        input_name="agreements"
+        checkbox=true
+        options='[
+          {"value":"student","text":"I understand that I <b>MUST NOT</b> start creating my project before the opening ceremony"},
+          {"value":"discord","text":"I understand that if I break any of the rules listed in the Discord, I will be disqualified."},
+          {"value":"multiple","text":"I understand that if I submit a project to multiple hackathons, including Treasure Hacks, it must be created during our hacking period."}
+        ]'
+    }}
     {{> form_question
         title="Age"
         description="MLH needs this data for eligibility purposes, as some codes are only available to hackers 18+"
@@ -166,20 +165,16 @@
         required=true
         autofill="mlh_schools"
     }}
-    {{#>form_question
+    {{> form_question
         title="Please confirm all of the following."
         description=""
-        custom=true
-    }}{{#*inline "content"}}
-      <label>
-        <input type="checkbox" name="agreements--mlh_conduct" id="">
-        I have read and agree to the <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">MLH Code of Conduct</a>
-      </label>
-      <label>
-        <input type="checkbox" name="agreements--mlh_data" id="">
-        I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the MLH Privacy Policy. I further agree to the terms of both the MLH Contest Terms and Conditions and the MLH Privacy Policy.
-      </label>
-    {{/inline}}{{/form_question}}
+        input_name="agreements"
+        checkbox=true
+        options='[
+          {"value":"mlh_conduct","text":"I have read and agree to the <a href=\"https://static.mlh.io/docs/mlh-code-of-conduct.pdf\">MLH Code of Conduct</a>"},
+          {"value":"mlh_data","text":"I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the MLH Privacy Policy. I further agree to the terms of both the MLH Contest Terms and Conditions and the MLH Privacy Policy."}
+        ]'
+    }}
     {{> form_question
         title="Current/Highest Level of Education"
         description=""
@@ -197,7 +192,6 @@
           "Post Doctorate",
           "I\'m currently not a student"
         ]'
-        other=true
     }}
     {{> form_question
         title="I authorize MLH to send me pre- and post-event informational emails, which contain free credit and opportunities from their partners. (Optional)"

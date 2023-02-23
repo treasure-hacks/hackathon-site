@@ -5,6 +5,23 @@
   {{/if}}
   {{#if custom}}
     {{>content}}
+  {{else if checkbox}}
+    {{#getJsonContext options}}{{#each this}}
+      <label><input
+        type="checkbox"
+        type="radio"
+        name="{{../../input_name}}--{{value}}"
+        value="{{value}}"
+        {{#if id}} id="{{id}}"{{/if}}
+        {{#if ../../required}}required{{/if}}
+      ><span>{{{text}}}</span></label>
+    {{/each}}{{/getJsonContext}}
+    {{#if other}}
+      <label class="other-label">
+        <input type="checkbox" name="{{input_name}}--other" id=""> Other: 
+        <div class="input-wrapper"><input type="text" name="{{input_name}}--other"></div>
+      </label>
+    {{/if}}
   {{else if radio}}
     {{#getJsonContext options}}{{#each this}}
       <label><input
