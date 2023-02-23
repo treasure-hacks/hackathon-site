@@ -69,9 +69,9 @@
     {{> form_question
         title="How comfortable are you with programming?"
         description="(1 being uncomfortable and 10 being comfortable)"
-        input_type="number"
+        input_type="number" number=true
         input_name="comfort_level"
-        placeholder="10"
+        placeholder="Enter a number"
         min="1"
         max="10"
         textarea=false
@@ -139,7 +139,7 @@
     {{> form_question
         title="Age"
         description="MLH needs this data for eligibility purposes, as some codes are only available to hackers 18+"
-        input_type="number"
+        input_type="number" number=true
         input_name="age"
         placeholder="Age"
         textarea=false

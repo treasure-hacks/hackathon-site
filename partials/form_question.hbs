@@ -52,7 +52,9 @@
       <textarea type="{{input_type}}" name="{{input_name}}" placeholder="{{placeholder}}"></textarea><br>
     </div>
   {{else}}
-    <div class="input-wrapper" {{#if autofill}} data-autofill="{{autofill}}"{{/if}}>
+    <div class="input-wrapper {{#if number}}number-input{{/if}}"
+      {{#if autofill}} data-autofill="{{autofill}}"{{/if}}
+    >
       <input
         type="{{input_type}}"
         name="{{input_name}}"

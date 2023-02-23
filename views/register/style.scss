@@ -52,13 +52,23 @@ div.item-container {
 ul {
   padding-left: 20px;
 }
+#form-faq-list {
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+}
 ul#form-faq-list > li {
   margin-block: 20px;
-  li { margin-block: 2px; }
+  font-weight: bold;
+  li {
+    font-weight: normal;
+    margin-block: 2px;
+  }
   li::marker { content: '➢ ' }
 }
 .input-wrapper {
   position: relative;
+  &.number-input { --input-wrapper-child-width: 160px; }
   &::before {
     content: ' ';
     width: 0;
