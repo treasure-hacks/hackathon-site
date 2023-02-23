@@ -11,7 +11,7 @@
 </head>
 <body>
   <form action="{{REGISTRATION_SUBMISSION_URL}}" method="POST" enctype="multipart/form-data">
-    <div class="item-container header-image-container"><img src="/images/banner.jpg" alt="Treasure Hacks Banner" widht="640" height="160"></div>
+    <div class="item-container header-image-container"><img src="/images/banner.jpg" alt="Treasure Hacks Banner" width="640" height="160"></div>
     <div class="item-container header">
       <h1>Treasure Hacks 3.5 Registration</h1>
     </div>
@@ -142,7 +142,7 @@
     <div class="item-container header-image-container">
       <picture>
         <source srcset="/images/registration/mlh_dark.png" media="(prefers-color-scheme: dark)">
-        <img src="/images/registration/mlh_light.png" alt="MLH Logo Light" widht="640" height="160">
+        <img src="/images/registration/mlh_light.png" alt="MLH Logo Light" width="640" height="160">
       </picture>
     </div>
     {{> form_question
@@ -213,6 +213,11 @@
         ]'
         required="true"
     }}
+    <div class="item-container header-image-container">
+      <picture>
+        <img src="/images/registration/sponsors.png" alt="MLH Logo Light" width="640" height="160">
+      </picture>
+    </div>
     {{> form_question
         title="(If you are under 18, your guardian must agree) I agree to have the following resume and LinkedIn shared with interested sponsors for potential opportunities"
         description=""
