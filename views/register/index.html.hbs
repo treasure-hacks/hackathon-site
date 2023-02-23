@@ -14,6 +14,14 @@
     <div class="item-container header-image-container"><img src="/images/banner.jpg" alt="Treasure Hacks Banner" width="640" height="160"></div>
     <div class="item-container header">
       <h1>Treasure Hacks 3.5 Registration</h1>
+      <p>It is mandatory join <a target="_blank" href="https://discord.gg/KA26nj6uZV">our discord</a> since all of our updates and announcements will be there.<br><br>
+        Other Social Media Links:
+        <ul>
+          <li>Website: <a target="_blank" href="https://hackathon.treasurehacks.org/">https://hackathon.treasurehacks.org/</a><br></li>
+          <li>Instagram: <a target="_blank" href="https://instagram.com/treasure_hacks">https://instagram.com/treasure_hacks</a><br></li>
+          <li>LinkedIn: <a target="_blank" href="https://www.linkedin.com/company/treasure-hacks/">https://www.linkedin.com/company/treasure-hacks/</a></li>
+        </ul>
+      </p>
     </div>
     {{> form_question
         title="First Name"
@@ -59,13 +67,13 @@
         input_name="referral"
         checkbox=true
         options='[
-          {"value":"student", "text": "Another student"},
-          {"value":"discord", "text": "Discord"},
-          {"value":"school", "text": "School announcement, club, or flier"},
-          {"value":"coding_organization", "text": "Through an coding organization/community"},
-          {"value":"social_media", "text": "Social Media"},
-          {"value":"mlh", "text": "MLH"},
-          {"value":"devpost", "text": "Devpost"}
+          "Another student",
+          "Discord",
+          "School announcement, club, or flier",
+          "Through an coding organization/community",
+          "Social Media",
+          "MLH",
+          "Devpost"
         ]'
         other=true
     }}
@@ -134,7 +142,7 @@
         input_name="agreements"
         checkbox=true
         options='[
-          {"value":"student","text":"I understand that I <b>MUST NOT</b> start creating my project before the opening ceremony"},
+          {"value":"starting","text":"I understand that I <b>MUST NOT</b> start creating my project before the opening ceremony"},
           {"value":"discord","text":"I understand that if I break any of the rules listed in the Discord, I will be disqualified."},
           {"value":"multiple","text":"I understand that if I submit a project to multiple hackathons, including Treasure Hacks, it must be created during our hacking period."}
         ]'
@@ -173,6 +181,8 @@
         textarea=false
         required=true
         autofill="iso_countries"
+        noscript="Turn on JavaScript to enable the autocomplete dropdown. Otherwise, enter an country name exactly as it's shown
+          in the <a target=\"_blank\" href=\"https://www.iban.com/country-codes\">list of ISO-3166 country names</a>"
     }}
     {{> form_question
         title="Current School or Institution"
@@ -183,6 +193,13 @@
         textarea=false
         required=true
         autofill="mlh_schools"
+        noscript="Turn on JavaScript to enable the autocomplete dropdown. Otherwise, enter one of the following:
+          <ul>
+            <li>A school name from the <a target=\"_blank\" href=\"https://github.com/MLH/mlh-policies/blob/main/schools.csv\">MLH Schools list</a></li>
+            <li>My school is not listed</li>
+            <li>I currently do not attend a school or institution</li>
+          </ul>"
+
     }}
     {{> form_question
         title="Please confirm all of the following."

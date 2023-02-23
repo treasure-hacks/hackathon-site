@@ -3,6 +3,9 @@
   {{#if description}}
     <i>{{{description}}}</i>
   {{/if}}
+  {{#if noscript}}
+    <noscript><i>{{{noscript}}}</i></noscript>
+  {{/if}}
   {{#if custom}}
     {{>content}}
   {{else if checkbox}}
@@ -11,15 +14,15 @@
         type="checkbox"
         type="radio"
         name="{{../../input_name}}"
-        value="{{value}}"
+        value="{{#if value}}{{value}}{{else}}{{this}}{{/if}}"
         {{#if id}} id="{{id}}"{{/if}}
         {{#if ../../required}}required{{/if}}
-      ><span>{{{text}}}</span></label>
+      ><span>{{#if text}}{{{text}}}{{else}}{{{this}}}{{/if}}</span></label>
     {{/each}}{{/getJsonContext}}
     {{#if other}}
       <label class="other-label">
-        <input type="checkbox" name="{{input_name}}" data-for="other" value="other"> Other: 
-        <div class="input-wrapper"><input type="text" name="{{input_name}}--other"></div>
+        <input type="checkbox" name="{{input_name}}" data-for="other" value="__other_option__"> Other: 
+        <div class="input-wrapper"><input type="text" name="{{input_name}}__other"></div>
       </label>
     {{/if}}
   {{else if radio}}
@@ -40,10 +43,10 @@
         <input
           type="radio"
           name="{{input_name}}"
-          value="other"
+          value="__other_option__"
           {{#if jstype}} data-type="{{jstype}}"{{/if}}
         ><span>Other: 
-          <div class="input-wrapper"><input type="text" name="{{input_name}}--other"></div>
+          <div class="input-wrapper"><input type="text" name="{{input_name}}__other"></div>
         </span>
       </label>
     {{/if}}
