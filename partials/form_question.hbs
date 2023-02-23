@@ -13,15 +13,23 @@
         value="{{#if text}}{{text}}{{else}}{{this}}{{/if}}"
         {{#if id}} id="{{id}}"{{/if}}
         {{#if ../../required}}required{{/if}}
-      >{{#if text}}{{text}}{{else}}{{this}}{{/if}}</label>
+      ><span>
+        {{#if text}}{{text}}{{else}}{{this}}{{/if}}
+      </span></label>
     {{/each}}{{/getJsonContext}}
     {{#if other}}
-      <label>
-        <input type="radio" name="{{input_name}}" id=""> Other: 
-        <div class="input-wrapper"><input type="text" name="{{input_name}}--other"></div>
+      <label class="other-label">
+        <input type="radio" name="{{input_name}}"> <span>Other: 
+        <div class="input-wrapper"><input type="text" name="{{input_name}}--other"></div></span>
       </label>
     {{/if}}
   {{else if file}}
+      <input
+        type="file"
+        name="{{input_name}}"
+        {{#if accept}} accept="{{accept}}"{{/if}}
+        {{#if required}} required{{/if}}
+      ><br>
   {{else if textarea}}
     <div class="input-wrapper">
       <textarea type="{{input_type}}" name="{{input_name}}" placeholder="{{placeholder}}"></textarea><br>
