@@ -42,7 +42,7 @@ div.item-container {
   &.header-image-container {
     padding: 0;
     overflow: hidden;
-    > img {
+    img {
       display: block;
       width: 100%;
       object-fit: cover;
