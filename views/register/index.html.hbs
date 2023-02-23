@@ -9,7 +9,7 @@
   {{> site_icons }}
 </head>
 <body>
-  <form action="/test1">
+  <form>
     <div class="item-container header-image-container"><img src="/images/banner.jpg" alt="Treasure Hacks Banner" widht="640" height="160"></div>
     <div class="item-container header">
       <h1>Treasure Hacks 3.5 Registration</h1>
@@ -65,6 +65,7 @@
           {"value":"mlh", "text": "MLH"},
           {"value":"devpost", "text": "Devpost"}
         ]'
+        other=true
     }}
     {{> form_question
         title="How comfortable are you with programming?"
@@ -206,8 +207,12 @@
         description=""
         radio=true
         input_name="sponsor_allow_data"
-        options='[{"id":"data_allowed","text":"Yes"}, "No"]'
+        options='[
+          {"id":"data_allowed","text":"Yes","value":"1"},
+          {"text":"No","value":"0"}
+        ]'
         required="true"
+        jstype="boolean"
     }}
     {{> form_question
         title="Your resume"

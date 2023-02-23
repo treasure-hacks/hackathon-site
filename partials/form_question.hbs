@@ -14,11 +14,12 @@
         value="{{value}}"
         {{#if id}} id="{{id}}"{{/if}}
         {{#if ../../required}}required{{/if}}
+        data-for="{{../../input_name}}"
       ><span>{{{text}}}</span></label>
     {{/each}}{{/getJsonContext}}
     {{#if other}}
       <label class="other-label">
-        <input type="checkbox" name="{{input_name}}--other" id=""> Other: 
+        <input type="checkbox" name="{{input_name}}--other" data-for="{{input_name}}" value=""> Other: 
         <div class="input-wrapper"><input type="text" name="{{input_name}}--other"></div>
       </label>
     {{/if}}
@@ -27,17 +28,23 @@
       <label><input
         type="radio"
         name="{{../../input_name}}"
-        value="{{#if text}}{{text}}{{else}}{{this}}{{/if}}"
+        value="{{#if value}}{{value}}{{else}}{{this}}{{/if}}"
         {{#if id}} id="{{id}}"{{/if}}
         {{#if ../../required}}required{{/if}}
+        {{#if ../../jstype}} data-type="{{../../jstype}}"{{/if}}
       ><span>
         {{#if text}}{{text}}{{else}}{{this}}{{/if}}
       </span></label>
     {{/each}}{{/getJsonContext}}
     {{#if other}}
       <label class="other-label">
-        <input type="radio" name="{{input_name}}"> <span>Other: 
-        <div class="input-wrapper"><input type="text" name="{{input_name}}--other"></div></span>
+        <input
+          type="radio"
+          name="{{input_name}}"
+          {{#if jstype}} data-type="{{jstype}}"{{/if}}
+        ><span>Other: 
+          <div class="input-wrapper"><input type="text" name="{{input_name}}--other"></div>
+        </span>
       </label>
     {{/if}}
   {{else if file}}
@@ -64,6 +71,7 @@
         {{#if accept}} accept="{{accept}}"{{/if}}
         {{#if pattern}} pattern="{{pattern}}"{{/if}}
         {{#if required}} required{{/if}}
+        {{#if jstype}} data-type="{{jstype}}"{{/if}}
       ><br>
     </div>
   {{/if}}
