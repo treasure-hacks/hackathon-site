@@ -24,6 +24,7 @@ form {
   width: 640px;
   max-width: calc(100% - 16px);
   margin: auto;
+  padding-bottom: 44px;
 }
 div.label {
   margin: 0 0 10px;
@@ -138,7 +139,7 @@ input[type="submit"] {
   --saturation: 91%;
   --brightness: 47%;
   background-color: hsl(50, var(--saturation), var(--brightness));
-  padding: 12px 16px;
+  padding: 10px 18px;
   color: white;
   border: none;
   border-radius: 4px;
