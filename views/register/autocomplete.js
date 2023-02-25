@@ -1505,7 +1505,7 @@ fetch('https://raw.githubusercontent.com/MLH/mlh-policies/main/schools.csv')
     const schools = result.split('\n').slice(1)
       .map(line => { try { return JSON.parse(line) } catch { return line } })
       .map(line => line.trim().replace(/^The\s+/i, ''))
-      .sort()
+      .sort().filter(s => !!s)
     schoolList = schools.map(s => ({
       name: s,
       searchText: toSearchable(s)
