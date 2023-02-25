@@ -275,7 +275,6 @@
         input_name="resume"
         accept=".pdf, .docx, .doc"
         show_if="data_allowed"
-        require_if="data_allowed"
     }}
     {{> form_question
         title="Link to Your LinkedIn Profile"
@@ -284,7 +283,6 @@
         input_name="linkedin"
         placeholder="https://www.linkedin.com/in/treasure_hacks"
         show_if="data_allowed"
-        require_if="data_allowed"
         pattern="https:\/\/(?:www\.)?linkedin\.com\/in\/\w+.*"
         error_text="Please enter a valid LinkedIn URL"
     }}

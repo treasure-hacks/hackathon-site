@@ -37,6 +37,7 @@ function save () {
 }
 
 function load () {
+  updateConditionalShows() // Hide at first so that if it returns, it's still updated
   const entries = JSON.parse(localStorage.FORMTHING || '0')
   if (!entries) return
   for (const [key, val] of entries) {
@@ -55,6 +56,7 @@ function load () {
     }
     updateValidity(input)
   }
+  updateConditionalShows()
 }
 
 document.getElementById('referrer-input').value = location.href
@@ -76,6 +78,13 @@ function updateValidity (input, blankIsInvalid) {
   questionEl.classList.toggle('invalid', !validity)
 }
 
+function updateConditionalShows () {
+  document.body.querySelectorAll('[data-show-if]').forEach(el => {
+    const source = document.getElementById(el.dataset.showIf)
+    el.hidden = !source.checked
+  })
+}
+
 document.body.addEventListener('change', (e) => {
   save()
   updateValidity(e.target, true)
@@ -91,6 +100,7 @@ document.body.addEventListener('input', (e) => {
   const questionEl = getQuestionContainer(e.target)
   // Every input event should only make things valid, not invalid
   if (e.target.validity && e.target.validity.valid) questionEl.classList.remove('invalid')
+  updateConditionalShows()
 }, { capture: true })
 
 form.querySelector('input[type="submit"]').addEventListener('click', e => {
