@@ -112,6 +112,11 @@ form.querySelector('input[type="submit"]').addEventListener('click', e => {
   if (!firstInvalidField.querySelector('input:invalid')) e.preventDefault()
 })
 
+// eslint-disable-next-line
+let countryList = []
+// eslint-disable-next-line
+let schoolList = []
+
 window.addEventListener('load', () => {
   load()
   const formErrors = new URL(location.href).searchParams.get('errors')

@@ -80,7 +80,11 @@
         {{#if pattern}} pattern="{{pattern}}"{{/if}}
         {{#if required}} required{{/if}}
         {{#if jstype}} data-type="{{jstype}}"{{/if}}
+        {{#if autofill}}autocomplete="off"{{/if}}
       ><br>
+      {{#if autofill}}
+        <div class="autofill-container empty"></div>
+      {{/if}}
     </div>
   {{/if}}
   {{!-- Error Container --}}

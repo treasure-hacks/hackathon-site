@@ -103,6 +103,7 @@ ul#form-faq-list > li {
     transition: width 0.3s;
     pointer-events: none;
   }
+  &.hold-focus::before,
   &:focus-within::before {
     width: var(--input-wrapper-child-width);
   }
@@ -120,6 +121,35 @@ ul#form-faq-list > li {
     -webkit-appearance: none;
     color: inherit;
     background-color: inherit;
+  }
+  .autofill-container {
+    position: absolute;
+    top: 100%;
+    width: var(--input-wrapper-child-width);
+    background-color: #333;
+    color: white; /* For now */
+    padding: 0 12px;
+    max-height: 180px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    z-index: 1;
+    p {
+      display: none;
+      margin: 0;
+      padding: 0.5em;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: opacity 0.2s;
+      &:hover { opacity: 0.9 }
+      &:active { opacity: 0.6 }
+    }
+  }
+  &.hold-focus .autofill-container,
+  &:focus-within .autofill-container {
+    &:not(.empty) { padding-block: 8px; }
+    p[data-show] { display: block; }
   }
 }
 .item-container label {

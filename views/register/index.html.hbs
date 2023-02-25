@@ -9,6 +9,7 @@
   {{> site_icons }}
   <script defer src="/main.js"></script>
   <script defer src="script.js"></script>
+  <script defer src="autocomplete.js"></script>
 </head>
 <body>
   <form action="{{REGISTRATION_SUBMISSION_URL}}" method="POST" enctype="multipart/form-data">
@@ -181,12 +182,13 @@
         required=true
         error_text="Please enter a valid phone number"
     }}
+    {{!-- Input name has to be `ctry` instead of `country` so Chrome doesn't autofill country even though autocomplete is off--}}
     {{> form_question
         title="Country of Residence"
         description=""
         input_type="text"
-        input_name="country"
-        placeholder="United States"
+        input_name="ctry"
+        placeholder="Count⁣ry name or 3-letter code..."
         textarea=false
         required=true
         autofill="iso_countries"
