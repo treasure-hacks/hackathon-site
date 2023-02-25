@@ -1544,6 +1544,10 @@ document.querySelectorAll('[data-autofill]').forEach(el => {
     el.classList.add('hold-focus')
     showAutocomplete(e)
   })
+  document.body.addEventListener('focusin', e => {
+    if (!el.contains(e.target)) el.classList.remove('hold-focus')
+    updateValidity(el.querySelector('input'))
+  }, { capture: true })
   el.addEventListener('focusout', e => {
     const targetContained = !!el.querySelector('.input-wrapper :hover')
     el.classList.toggle('hold-focus', targetContained)
