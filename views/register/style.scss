@@ -62,8 +62,8 @@ div.item-container {
   &.invalid {
     box-shadow: 0 0 0.5px 1px #c00;
     .error { display: flex; }
-    .input-wrapper::before { border-color: #c00; }
-    input { border-color: #c00; }
+    > .input-wrapper::before { border-color: #c00; }
+    > .input-wrapper input { border-color: #c00; }
   }
 }
 ul {

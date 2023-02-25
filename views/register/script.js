@@ -45,6 +45,7 @@ function load () {
     if (input instanceof RadioNodeList) {
       const el = [...input].find(e => e.value === val)
       if (el) el.checked = true
+      updateValidity(el)
       continue
     }
     switch (input.type) {
@@ -52,15 +53,40 @@ function load () {
       case 'checkbox': input.checked = !!val; break
       default: input.value = val; break
     }
+    updateValidity(input)
   }
 }
 
 document.getElementById('referrer-input').value = location.href
+
+function getQuestionContainer (el) {
+  return nodeTree(el).find(el => el.classList.contains('item-container'))
+}
+function updateValidity (input, blankIsInvalid) {
+  const questionEl = getQuestionContainer(input)
+  if (!questionEl) return
+  if (input.value === '' && !blankIsInvalid) return
+  const validity = input.validity && input.validity.valid
+  questionEl.classList.toggle('invalid', !validity)
+}
+
 document.body.addEventListener('change', (e) => {
   save()
-  const questionEl = nodeTree(e.target).find(el => el.classList.contains('item-container'))
-  questionEl.classList.toggle('invalid', e.target.validity?.valid === false)
+  updateValidity(e.target, true)
 })
+
+document.body.addEventListener('focusout', (e) => {
+  const questionEl = getQuestionContainer(e.target)
+  // Only make invalid on focusout
+  if (e.target.validity && e.target.validity.valid === false) questionEl.classList.add('invalid')
+}, { capture: true })
+
+document.body.addEventListener('input', (e) => {
+  const questionEl = getQuestionContainer(e.target)
+  // Every input event should only make things valid, not invalid
+  if (e.target.validity && e.target.validity.valid) questionEl.classList.remove('invalid')
+}, { capture: true })
+
 window.addEventListener('load', () => {
   const formErrors = new URL(location.href).searchParams.get('errors')
   console.log('Errors:', formErrors)

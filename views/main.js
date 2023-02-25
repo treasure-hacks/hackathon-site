@@ -36,18 +36,19 @@ function nodeTree (element, index, topDown) {
   return tree[index] || null
 }
 
-toggle.addEventListener('click', function () {
-  const nav = document.getElementById('navigation')
-  if (nav.classList.contains('open')) {
-    nav.parentNode.classList.remove('open')
-    toggle.className = 'fa fa-bars hamburger fa-lg'
-    document.getElementById('navigation').classList.remove('open')
-  } else {
-    nav.parentNode.classList.add('open')
-    document.getElementById('navigation').classList.add('open')
-    toggle.className = 'fa fa-close hamburger fa-lg'
-  }
-})
-
+if (toggle) {
+  toggle.addEventListener('click', function () {
+    const nav = document.getElementById('navigation')
+    if (nav.classList.contains('open')) {
+      nav.parentNode.classList.remove('open')
+      toggle.className = 'fa fa-bars hamburger fa-lg'
+      document.getElementById('navigation').classList.remove('open')
+    } else {
+      nav.parentNode.classList.add('open')
+      document.getElementById('navigation').classList.add('open')
+      toggle.className = 'fa fa-close hamburger fa-lg'
+    }
+  })
+}
 // Add touchmove listener to set immediate hover states on mobile
 document.body.addEventListener('touchmove', () => {})
