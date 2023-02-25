@@ -102,7 +102,11 @@ form.querySelector('input[type="submit"]').addEventListener('click', e => {
 })
 
 window.addEventListener('load', () => {
-  const formErrors = new URL(location.href).searchParams.get('errors')
-  console.log('Errors:', formErrors)
   load()
+  const formErrors = new URL(location.href).searchParams.get('errors')
+  if (!formErrors) return
+  formErrors.split(',').forEach(name => {
+    const input = form.querySelector(`input[name="${name}"]`)
+    if (input) updateValidity(input, true)
+  })
 })
