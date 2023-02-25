@@ -1553,18 +1553,48 @@ document.querySelectorAll('[data-autofill]').forEach(el => {
     el.classList.toggle('hold-focus', targetContained)
     updateValidity(e.target)
   }, { capture: true })
+
+  el.querySelector('input').addEventListener('keydown', e => {
+    if (e.metaKey || e.shiftKey || e.altKey) return
+    const container = e.target.parentNode.querySelector('.autofill-container')
+    if (e.key === 'Enter') {
+      const selected = container.querySelector('[data-show].selected')
+      if (!selected) return
+      e.preventDefault()
+      selectAutocompleteOption(selected)
+    }
+    if (!['ArrowUp', 'ArrowDown'].includes(e.key)) return
+    const shown = [...container.querySelectorAll('[data-show]')]
+      .sort((a, b) => parseInt(a.style.order) - parseInt(b.style.order))
+    if (!shown.length) return
+    e.preventDefault()
+    const current = shown.find(el => el.classList.contains('selected'))
+    const index = shown.indexOf(current)
+    const offset = e.key === 'ArrowUp' ? -1 : 1
+    const next = shown[index + offset] || current || shown[shown.length - 1]
+    if (!next) return
+    if (current) current.classList.remove('selected')
+    next.classList.add('selected')
+    container.scrollTop = Math.max(
+      Math.min(container.scrollTop, next.offsetTop - 8), // Top
+      next.offsetTop + next.offsetHeight - container.offsetHeight + 8 // Bottom
+    )
+  })
 })
+
+function selectAutocompleteOption (optionEl) {
+  const input = nodeTree(optionEl, 2).querySelector('input')
+  input.value = optionEl.innerText
+  input.blur()
+  nodeTree(optionEl, 2).classList.remove('hold-focus')
+  updateValidity(input)
+  save()
+}
 
 function addAutocompleteChild (container, child, terms) {
   child.dataset.terms = JSON.stringify(terms)
   container.appendChild(child)
-  child.addEventListener('click', () => {
-    const input = nodeTree(child, 2).querySelector('input')
-    input.value = child.innerText
-    nodeTree(child, 2).classList.remove('hold-focus')
-    updateValidity(input)
-    save()
-  })
+  child.addEventListener('click', () => { selectAutocompleteOption(child) })
 }
 
 countryList.forEach(c => {
