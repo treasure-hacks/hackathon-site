@@ -74,6 +74,13 @@ function updateValidity (input, blankIsInvalid) {
     const checked = questionEl.querySelectorAll('input:checked').length
     const { min } = questionEl.dataset
     validity = min <= checked
+  } else if (questionEl.querySelector('.input-wrapper[data-autofill]')) {
+    const options = [...questionEl.querySelectorAll('.autofill-container p')]
+      .map(el => el.innerText)
+    if (!questionEl.querySelector('.hold-focus')) {
+      // Only if not holding focus
+      validity = validity && (!options.length || options.includes(input.value))
+    }
   }
   questionEl.classList.toggle('invalid', !validity)
 }
@@ -109,7 +116,8 @@ form.querySelector('input[type="submit"]').addEventListener('click', e => {
   const firstInvalidField = form.querySelector('.invalid.item-container')
   if (!firstInvalidField) return
   firstInvalidField.scrollIntoView()
-  if (!firstInvalidField.querySelector('input:invalid')) e.preventDefault()
+  if (!firstInvalidField.querySelector('input:invalid')) e.preventDefault() // HTML Input is not invalid
+  firstInvalidField.querySelector('input')?.focus()
 })
 
 // eslint-disable-next-line

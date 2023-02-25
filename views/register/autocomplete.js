@@ -1512,7 +1512,7 @@ fetch('https://raw.githubusercontent.com/MLH/mlh-policies/main/schools.csv')
     }))
     populateSchoolsAutocomplete()
   })
-  .catch(e => console.error('Could not load list of schools'))
+  .catch(e => console.error('Could not load list of schools', e))
 
 function showAutocomplete (event) {
   const searchTerm = toSearchable(event.target.value).toLowerCase()
@@ -1544,9 +1544,10 @@ document.querySelectorAll('[data-autofill]').forEach(el => {
     el.classList.add('hold-focus')
     showAutocomplete(e)
   })
-  el.addEventListener('focusout', () => {
+  el.addEventListener('focusout', e => {
     const targetContained = !!el.querySelector('.input-wrapper :hover')
     el.classList.toggle('hold-focus', targetContained)
+    updateValidity(e.target)
   }, { capture: true })
 })
 
@@ -1557,6 +1558,7 @@ function addAutocompleteChild (container, child, terms) {
     const input = nodeTree(child, 2).querySelector('input')
     input.value = child.innerText
     nodeTree(child, 2).classList.remove('hold-focus')
+    updateValidity(input)
     save()
   })
 }
