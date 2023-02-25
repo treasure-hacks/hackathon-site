@@ -1,34 +1,34 @@
 const form = document.querySelector('form')
-function test () {
-  const data = [...new FormData(form).entries()].map(([inputName, value]) => {
-    const element = document.querySelector(`[name="${inputName}"]:not([type=radio]:not(:checked))`)
-    const type = element.dataset.type || element.type
-    const name = element.dataset.for || inputName
-    return { name, value, element, type }
-  }).filter(({ value, type }) => (type !== 'file' && value) || value.size)
-  return data.reduce((dict, next) => {
-    switch (next.type) {
-      case 'checkbox': {
-        const arr = dict[next.name] || []
-        arr.push(next.value)
-        dict[next.name] = arr
-        break
-      }
-      case 'number': dict[next.name] = Number(next.value); break
-      case 'boolean': dict[next.name] = !!Number(next.value); break
-      default: dict[next.name] = next.value
-    }
-    return dict
-  }, {})
-}
+// function test () {
+//   const data = [...new FormData(form).entries()].map(([inputName, value]) => {
+//     const element = document.querySelector(`[name="${inputName}"]:not([type=radio]:not(:checked))`)
+//     const type = element.dataset.type || element.type
+//     const name = element.dataset.for || inputName
+//     return { name, value, element, type }
+//   }).filter(({ value, type }) => (type !== 'file' && value) || value.size)
+//   return data.reduce((dict, next) => {
+//     switch (next.type) {
+//       case 'checkbox': {
+//         const arr = dict[next.name] || []
+//         arr.push(next.value)
+//         dict[next.name] = arr
+//         break
+//       }
+//       case 'number': dict[next.name] = Number(next.value); break
+//       case 'boolean': dict[next.name] = !!Number(next.value); break
+//       default: dict[next.name] = next.value
+//     }
+//     return dict
+//   }, {})
+// }
 
-form.addEventListener('submit', e => {
-  // Check validity of form; prevent submission if client says invalid.
-  // Server will still validate, of course
+// form.addEventListener('submit', e => {
+//   // Check validity of form; prevent submission if client says invalid.
+//   // Server will still validate, of course
 
-  console.log(test())
-  // e.preventDefault()
-})
+//   console.log(test())
+//   // e.preventDefault()
+// })
 
 function save () {
   const data = new FormData(form)

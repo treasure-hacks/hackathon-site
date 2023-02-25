@@ -5,7 +5,7 @@
   {{!-- Title and Description --}}
   <div class="label">{{title}}</div>
   {{#if description}}
-    <i>{{{description}}}</i>
+    <i>{{{description}}}</i>{{#if noscript}} &ic;{{/if}}
   {{/if}}
   {{#if noscript}}
     <noscript><i>{{{noscript}}}</i></noscript>

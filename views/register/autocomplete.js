@@ -1510,6 +1510,15 @@ fetch('https://raw.githubusercontent.com/MLH/mlh-policies/main/schools.csv')
       name: s,
       searchText: toSearchable(s)
     }))
+    schoolList.push({
+      missingOption: true,
+      name: 'My school is not listed',
+      searchText: ''
+    }, {
+      missingOption: true,
+      name: 'I currently do not attend a school or institution',
+      searchText: 'I currently do not attend a school or institution'
+    })
     populateSchoolsAutocomplete()
   })
   .catch(e => console.error('Could not load list of schools', e))
@@ -1517,7 +1526,7 @@ fetch('https://raw.githubusercontent.com/MLH/mlh-policies/main/schools.csv')
 function showAutocomplete (event) {
   const searchTerm = toSearchable(event.target.value).toLowerCase()
   const container = event.target.parentNode.querySelector('.autofill-container')
-  const hasMatch = [...container.children].map(child => {
+  let hasMatch = [...container.children].map(child => {
     const matchTerms = JSON.parse(child.dataset.terms)
     const hasMatch = matchTerms.some(term => term.toLowerCase().includes(searchTerm))
 
@@ -1535,6 +1544,13 @@ function showAutocomplete (event) {
 
     return show
   }).some(m => !!m)
+
+  const noMatchOption = container.querySelector('.missing-option')
+  if (noMatchOption) {
+    noMatchOption.toggleAttribute('data-show', !hasMatch && event.target.value)
+    hasMatch = !!event.target.value
+  }
+
   container.classList.toggle('empty', !hasMatch)
 }
 
@@ -1611,6 +1627,7 @@ function populateSchoolsAutocomplete () {
     const container = document.querySelector('[data-autofill="mlh_schools"] .autofill-container')
     const terms = [s.searchText]
     const child = document.createElement('p')
+    child.classList.toggle('missing-option', !!s.missingOption)
     child.innerText = s.name
     addAutocompleteChild(container, child, terms)
   })
