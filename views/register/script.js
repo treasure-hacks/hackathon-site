@@ -66,7 +66,12 @@ function updateValidity (input, blankIsInvalid) {
   const questionEl = getQuestionContainer(input)
   if (!questionEl) return
   if (input.value === '' && !blankIsInvalid) return
-  const validity = input.validity && input.validity.valid
+  let validity = input.validity && input.validity.valid
+  if (input.type === 'checkbox') {
+    const checked = questionEl.querySelectorAll('input:checked').length
+    const { min } = questionEl.dataset
+    validity = min <= checked
+  }
   questionEl.classList.toggle('invalid', !validity)
 }
 

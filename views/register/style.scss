@@ -32,6 +32,7 @@ div.label {
 }
 
 div.item-container {
+  --col-error: #c22;
   margin: 16px 0;
   display: block;
   padding: 30px 40px;
@@ -55,15 +56,15 @@ div.item-container {
     display: none;
     align-items: center;
     margin-top: 12px;
-    color: #c00;
+    color: var(--col-error);
     img { margin-right: 5px; }
     span { position: relative; top: 0.5px; }
   }
   &.invalid {
-    box-shadow: 0 0 0.5px 1px #c00;
+    box-shadow: 0 0 0.5px 1px var(--col-error);
     .error { display: flex; }
-    > .input-wrapper::before { border-color: #c00; }
-    > .input-wrapper input { border-color: #c00; }
+    > .input-wrapper::before { border-color: var(--col-error); }
+    > .input-wrapper input { border-color: var(--col-error); }
   }
 }
 ul {
