@@ -66,6 +66,7 @@ function updateValidity (input, blankIsInvalid) {
   const questionEl = getQuestionContainer(input)
   if (!questionEl) return
   if (input.value === '' && !blankIsInvalid) return
+  if (input.name.endsWith('__other')) return
   let validity = input.validity && input.validity.valid
   if (input.type === 'checkbox') {
     const checked = questionEl.querySelectorAll('input:checked').length
@@ -91,6 +92,14 @@ document.body.addEventListener('input', (e) => {
   // Every input event should only make things valid, not invalid
   if (e.target.validity && e.target.validity.valid) questionEl.classList.remove('invalid')
 }, { capture: true })
+
+form.querySelector('input[type="submit"]').addEventListener('click', e => {
+  form.querySelectorAll('.item-container input').forEach(el => updateValidity(el, true))
+  const firstInvalidField = form.querySelector('.invalid.item-container')
+  if (!firstInvalidField) return
+  firstInvalidField.scrollIntoView()
+  if (!firstInvalidField.querySelector('input:invalid')) e.preventDefault()
+})
 
 window.addEventListener('load', () => {
   const formErrors = new URL(location.href).searchParams.get('errors')
