@@ -99,7 +99,8 @@ document.body.addEventListener('focusout', (e) => {
 document.body.addEventListener('input', (e) => {
   const questionEl = getQuestionContainer(e.target)
   // Every input event should only make things valid, not invalid
-  if (e.target.validity && e.target.validity.valid) questionEl.classList.remove('invalid')
+  const valid = e.target.validity && e.target.validity.valid
+  if (valid && !e.target.name.endsWith('__other')) questionEl.classList.remove('invalid')
   updateConditionalShows()
 }, { capture: true })
 
