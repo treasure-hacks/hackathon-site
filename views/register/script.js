@@ -56,8 +56,10 @@ function load () {
 }
 
 document.getElementById('referrer-input').value = location.href
-document.body.addEventListener('change', () => {
+document.body.addEventListener('change', (e) => {
   save()
+  const questionEl = nodeTree(e.target).find(el => el.classList.contains('item-container'))
+  questionEl.classList.toggle('invalid', e.target.validity?.valid === false)
 })
 window.addEventListener('load', () => {
   const formErrors = new URL(location.href).searchParams.get('errors')

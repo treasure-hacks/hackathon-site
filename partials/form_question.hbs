@@ -1,4 +1,5 @@
 <div class="item-container">
+  {{!-- Title and Description --}}
   <div class="label">{{title}}</div>
   {{#if description}}
     <i>{{{description}}}</i>
@@ -6,6 +7,7 @@
   {{#if noscript}}
     <noscript><i>{{{noscript}}}</i></noscript>
   {{/if}}
+  {{!-- Form Question --}}
   {{#if custom}}
     {{>content}}
   {{else if checkbox}}
@@ -78,4 +80,11 @@
       ><br>
     </div>
   {{/if}}
+  {{!-- Error Container --}}
+  <div class="error">
+    <img src="/images/registration/invalid_field.svg" width="18" height="18"><span>
+      {{#if error_text}}{{error_text}}
+      {{else if required}}This question is required{{/if}}
+    </span>
+  </div>
 </div>
