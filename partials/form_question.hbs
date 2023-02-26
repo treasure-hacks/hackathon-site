@@ -60,6 +60,7 @@
       <input
         type="file"
         name="{{input_name}}"
+        {{#if max}} max="{{max}}"{{/if}}
         {{#if accept}} accept="{{accept}}"{{/if}}
         {{#if required}} required{{/if}}
       ><br>

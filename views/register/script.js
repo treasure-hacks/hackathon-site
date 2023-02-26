@@ -72,6 +72,7 @@ function getQuestionContainer (el) {
 async function updateValidity (input, blankIsInvalid) {
   const questionEl = getQuestionContainer(input)
   if (!questionEl) return
+  const errorEl = questionEl.querySelector('.error span')
   if (input.value === '' && !blankIsInvalid) return
   if (input.name.endsWith('__other')) return
   let validity = input.validity && input.validity.valid
@@ -79,6 +80,17 @@ async function updateValidity (input, blankIsInvalid) {
     const checked = questionEl.querySelectorAll('input:checked').length
     const { min } = questionEl.dataset
     validity = min <= checked
+  } else if (input.type === 'file') {
+    const file = input.files[0]
+    if (file) {
+      const mimetype = file.type
+      const validType = ['application/pdf', 'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(mimetype)
+      const validSize = file.size < parseInt(input.max)
+      if (!validType) errorEl.innerText = 'File must be a .pdf, .doc, or .docx file'
+      else if (!validSize) errorEl.innerText = 'File must be at most 5MB'
+      validity = validity && validType && validSize
+    }
   } else if (questionEl.querySelector('.input-wrapper[data-autofill]')) {
     const options = [...questionEl.querySelectorAll('.autofill-container p')]
       .map(el => el.innerText)
@@ -88,7 +100,6 @@ async function updateValidity (input, blankIsInvalid) {
     }
   }
   questionEl.classList.toggle('invalid', !validity)
-  const errorEl = questionEl.querySelector('.error span')
   if (errorEl.dataset.originalError) {
     errorEl.innerText = errorEl.dataset.originalError
   }
