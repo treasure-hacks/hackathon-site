@@ -149,7 +149,7 @@ document.body.addEventListener('input', (e) => {
 form.querySelector('input[type="submit"]').addEventListener('click', e => {
   let firstInvalidField = form.querySelector('.invalid.item-container')
   if (!firstInvalidField) {
-    form.querySelectorAll('.item-container input').forEach(el => updateValidity(el, true))
+    form.querySelectorAll('.item-container input').forEach(el => updateValidity(el, el.required))
     firstInvalidField = form.querySelector('.invalid.item-container')
   }
   if (!firstInvalidField) return
