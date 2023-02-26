@@ -35,7 +35,6 @@ function save () {
   const entries = [...(new URLSearchParams(data)).entries()]
   localStorage.FORMTHING = JSON.stringify(entries)
 }
-
 function load () {
   updateConditionalShows() // Hide at first so that if it returns, it's still updated
   const entries = JSON.parse(localStorage.FORMTHING || '0')
@@ -61,10 +60,16 @@ function load () {
 
 document.getElementById('referrer-input').value = location.href
 
+async function validateDiscord (value) {
+  const endpoint = form.action + '/discord?user='
+  const response = await fetch(endpoint + encodeURIComponent(value)).then(x => x.json())
+  return response
+}
+
 function getQuestionContainer (el) {
   return nodeTree(el).find(el => el.classList.contains('item-container'))
 }
-function updateValidity (input, blankIsInvalid) {
+async function updateValidity (input, blankIsInvalid) {
   const questionEl = getQuestionContainer(input)
   if (!questionEl) return
   if (input.value === '' && !blankIsInvalid) return
@@ -83,6 +88,25 @@ function updateValidity (input, blankIsInvalid) {
     }
   }
   questionEl.classList.toggle('invalid', !validity)
+  const errorEl = questionEl.querySelector('.error span')
+  if (errorEl.dataset.originalError) {
+    errorEl.innerText = errorEl.dataset.originalError
+  }
+  if (!questionEl.dataset.validation || !validity) return
+  switch (questionEl.dataset.validation) {
+    case 'user_in_server': {
+      const response = await validateDiscord(input.value)
+      updateCustomValidity(questionEl, !!response.success, response.error)
+    }
+  }
+}
+function updateCustomValidity (container, valid, error) {
+  container.classList.toggle('invalid', !valid)
+  console.log(valid, error)
+  if (!error) return
+  const errorEl = container.querySelector('.error span')
+  if (!errorEl.dataset.originalError) errorEl.dataset.originalError = errorEl.innerText
+  errorEl.innerText = error
 }
 
 function updateConditionalShows () {
@@ -112,8 +136,11 @@ document.body.addEventListener('input', (e) => {
 }, { capture: true })
 
 form.querySelector('input[type="submit"]').addEventListener('click', e => {
-  form.querySelectorAll('.item-container input').forEach(el => updateValidity(el, true))
-  const firstInvalidField = form.querySelector('.invalid.item-container')
+  let firstInvalidField = form.querySelector('.invalid.item-container')
+  if (!firstInvalidField) {
+    form.querySelectorAll('.item-container input').forEach(el => updateValidity(el, true))
+    firstInvalidField = form.querySelector('.invalid.item-container')
+  }
   if (!firstInvalidField) return
   firstInvalidField.scrollIntoView()
   if (!firstInvalidField.querySelector('input:invalid')) e.preventDefault() // HTML Input is not invalid
