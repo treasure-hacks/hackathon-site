@@ -91,6 +91,7 @@ async function updateValidity (input, blankIsInvalid) {
       else if (!validSize) errorEl.innerText = 'File must be at most 5MB'
       validity = validity && validType && validSize
     }
+    if (blankIsInvalid) validity = validity && !!file
   } else if (questionEl.querySelector('.input-wrapper[data-autofill]')) {
     const options = [...questionEl.querySelectorAll('.autofill-container p')]
       .map(el => el.innerText)
@@ -128,7 +129,7 @@ function updateConditionalShows () {
 
 document.body.addEventListener('change', (e) => {
   save()
-  updateValidity(e.target, true)
+  updateValidity(e.target, e.target.required)
 })
 
 document.body.addEventListener('focusout', (e) => {
@@ -169,5 +170,7 @@ window.addEventListener('load', () => {
   formErrors.split(',').forEach(name => {
     const input = form.querySelector(`input[name="${name}"]`)
     if (input) updateValidity(input, true)
+    const firstInvalidField = form.querySelector('.invalid.item-container')
+    if (firstInvalidField) firstInvalidField.scrollIntoView()
   })
 })
