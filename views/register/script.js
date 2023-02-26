@@ -102,7 +102,6 @@ async function updateValidity (input, blankIsInvalid) {
 }
 function updateCustomValidity (container, valid, error) {
   container.classList.toggle('invalid', !valid)
-  console.log(valid, error)
   if (!error) return
   const errorEl = container.querySelector('.error span')
   if (!errorEl.dataset.originalError) errorEl.dataset.originalError = errorEl.innerText
