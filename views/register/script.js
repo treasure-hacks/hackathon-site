@@ -174,3 +174,18 @@ window.addEventListener('load', () => {
     if (firstInvalidField) firstInvalidField.scrollIntoView()
   })
 })
+
+const dateOptions = {
+  timeZone: 'America/Los_Angeles',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric'
+}
+function showDateTime (element) {
+  const startDate = new Date(element.dateTime)
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+  element.innerText = startDate.toLocaleString(undefined, { timezone, ...dateOptions }) + ` (${timezone.replace(/_/g, ' ')})`
+  element.title = element.dataset.description + ', adjusted for your time zone'
+}
+document.querySelectorAll('.item-container time[datetime]').forEach(showDateTime)

@@ -67,6 +67,11 @@ div.item-container {
     > .input-wrapper::before { border-color: var(--col-error); }
     > .input-wrapper input { border-color: var(--col-error); }
   }
+  time[datetime] {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    font-weight: 500;
+  }
 }
 ul {
   padding-left: 20px;
