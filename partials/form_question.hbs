@@ -1,0 +1,99 @@
+<div class="item-container"
+  {{#if checkbox}}{{#if min}}data-min="{{min}}"{{/if}}{{/if}}
+  {{#if show_if}}data-show-if="{{show_if}}"{{/if}}
+  {{#if custom_validation}}data-validation="{{custom_validation}}"{{/if}}
+>
+  {{!-- Title and Description --}}
+  <div class="label">{{title}}</div>
+  {{#if description}}
+    <i>{{{description}}}</i>{{#if noscript}} &ic;{{/if}}
+  {{/if}}
+  {{#if noscript}}
+    <noscript><i>{{{noscript}}}</i></noscript>
+  {{/if}}
+  {{!-- Form Question --}}
+  {{#if custom}}
+    {{>content}}
+  {{else if checkbox}}
+    {{#getJsonContext options}}{{#each this}}
+      <label><input
+        type="checkbox"
+        type="radio"
+        name="{{../../input_name}}"
+        value="{{#if value}}{{value}}{{else}}{{this}}{{/if}}"
+        {{#if id}} id="{{id}}"{{/if}}
+        {{#if ../../required}}required{{/if}}
+      ><span>{{#if text}}{{{text}}}{{else}}{{{this}}}{{/if}}</span></label>
+    {{/each}}{{/getJsonContext}}
+    {{#if other}}
+      <label class="other-label">
+        <input type="checkbox" name="{{input_name}}" data-for="other" value="__other_option__"> Other: 
+        <div class="input-wrapper"><input type="text" name="{{input_name}}__other"></div>
+      </label>
+    {{/if}}
+  {{else if radio}}
+    {{#getJsonContext options}}{{#each this}}
+      <label><input
+        type="radio"
+        name="{{../../input_name}}"
+        value="{{#if value}}{{value}}{{else}}{{this}}{{/if}}"
+        {{#if id}} id="{{id}}"{{/if}}
+        {{#if ../../required}}required{{/if}}
+        {{#if ../../jstype}} data-type="{{../../jstype}}"{{/if}}
+      ><span>
+        {{#if text}}{{text}}{{else}}{{this}}{{/if}}
+      </span></label>
+    {{/each}}{{/getJsonContext}}
+    {{#if other}}
+      <label class="other-label">
+        <input
+          type="radio"
+          name="{{input_name}}"
+          value="__other_option__"
+          {{#if jstype}} data-type="{{jstype}}"{{/if}}
+        ><span>Other: 
+          <div class="input-wrapper"><input type="text" name="{{input_name}}__other"></div>
+        </span>
+      </label>
+    {{/if}}
+  {{else if file}}
+      <input
+        type="file"
+        name="{{input_name}}"
+        {{#if max}} max="{{max}}"{{/if}}
+        {{#if accept}} accept="{{accept}}"{{/if}}
+        {{#if required}} required{{/if}}
+      ><br>
+  {{else if textarea}}
+    <div class="input-wrapper">
+      <textarea type="{{input_type}}" name="{{input_name}}" placeholder="{{placeholder}}"></textarea><br>
+    </div>
+  {{else}}
+    <div class="input-wrapper {{#if number}}number-input{{/if}}"
+      {{#if autofill}} data-autofill="{{autofill}}"{{/if}}
+    >
+      <input
+        type="{{input_type}}"
+        name="{{input_name}}"
+        placeholder="{{placeholder}}"
+        {{#if min}} min="{{min}}"{{/if}}
+        {{#if max}} max="{{max}}"{{/if}}
+        {{#if accept}} accept="{{accept}}"{{/if}}
+        {{#if pattern}} pattern="{{pattern}}"{{/if}}
+        {{#if required}} required{{/if}}
+        {{#if jstype}} data-type="{{jstype}}"{{/if}}
+        {{#if autofill}}autocomplete="off"{{/if}}
+      ><br>
+      {{#if autofill}}
+        <div class="autofill-container empty"></div>
+      {{/if}}
+    </div>
+  {{/if}}
+  {{!-- Error Container --}}
+  <div class="error">
+    <img src="/images/registration/invalid_field.svg" width="18" height="18"><span>
+      {{#if error_text}}{{error_text}}
+      {{else if required}}This question is required{{/if}}
+    </span>
+  </div>
+</div>
