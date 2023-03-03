@@ -78,16 +78,17 @@ async function updateValidity (input, blankIsInvalid) {
   switch (questionEl.dataset.validation) {
     case 'user_in_server': {
       const response = await validateDiscord(input.value)
-      updateCustomValidity(questionEl, !!response.success, response.error)
+      const { errorHTML } = response
+      updateCustomValidity(questionEl, !!response.success, errorHTML || response.error, !!errorHTML)
     }
   }
 }
-function updateCustomValidity (container, valid, error) {
+function updateCustomValidity (container, valid, error, isHTML) {
   container.classList.toggle('invalid', !valid)
   if (!error) return
   const errorEl = container.querySelector('.error span')
   if (!errorEl.dataset.originalError) errorEl.dataset.originalError = errorEl.innerText
-  errorEl.innerText = error
+  errorEl[isHTML ? 'innerHTML' : innerText] = error
 }
 
 function updateConditionalShows () {

@@ -60,6 +60,7 @@ div.item-container {
     color: var(--col-error);
     img { margin-right: 5px; }
     span { position: relative; top: 0.5px; }
+    a { color: inherit; }
   }
   &.invalid {
     box-shadow: 0 0 0.5px 1px var(--col-error);
