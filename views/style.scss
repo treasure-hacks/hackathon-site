@@ -1259,7 +1259,8 @@ div.cards-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  div.item { margin: 0 }
+  div.item { margin: 0; }
+  &:not(.splide__list) div.item { margin: 15px 0; }
   // END SPLIDE ONLY
   > *:not(.item) {
     display: flex;
