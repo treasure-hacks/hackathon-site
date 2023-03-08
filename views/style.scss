@@ -1608,3 +1608,14 @@ div.names-container {
     order: 3;
   }
 }
+
+.person-title {
+  color: #ababab;
+}
+
+.person-title > p.name {
+  color: white;
+  display: inline;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
