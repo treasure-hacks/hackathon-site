@@ -23,6 +23,7 @@
         value="{{#if value}}{{value}}{{else}}{{this}}{{/if}}"
         {{#if id}} id="{{id}}"{{/if}}
         {{#if ../../required}}required{{/if}}
+        {{#if checked}} checked{{/if}}
       ><span>{{#if text}}{{{text}}}{{else}}{{{this}}}{{/if}}</span></label>
     {{/each}}{{/getJsonContext}}
     {{#if other}}
