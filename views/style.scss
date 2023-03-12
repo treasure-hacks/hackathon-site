@@ -1611,11 +1611,18 @@ div.names-container {
 
 .person-title {
   color: #ababab;
+  white-space: nowrap;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
 }
 
 .person-title > p.name {
   color: white;
   display: inline;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
+}
+
+.person-title + p {
+  line-height: max(24px,1.2vw);
 }
