@@ -1623,6 +1623,17 @@ div.names-container {
   font-weight: bold;
 }
 
+.person-title .name::after {
+  content: ",";
+}
+
 .person-title + p {
   line-height: max(24px,1.2vw);
+}
+
+@media only screen and (max-width: 1200px) {
+  .person-title .name::after {
+    content: "\a";
+    white-space: pre;
+  }
 }
