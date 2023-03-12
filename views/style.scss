@@ -246,6 +246,26 @@ hr {
         flex-direction: column;
         justify-content: space-evenly;
       }
+      .person-title {
+        color: #ababab;
+        white-space: nowrap;
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+        > p.name {
+          color: white;
+          display: inline;
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+        .name::after { content: ","; }
+        + p { line-height: max(24px,1.2vw); }
+      }
+      @media only screen and (max-width: 1200px) {
+        .person-title .name::after {
+          content: "\a";
+          white-space: pre;
+        }
+      }
     }
     img.founder-img {
       width: 200px;
@@ -1613,34 +1633,5 @@ div.names-container {
   #third-place{
     margin-top: 50px;
     order: 3;
-  }
-}
-
-.person-title {
-  color: #ababab;
-  white-space: nowrap;
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-}
-
-.person-title > p.name {
-  color: white;
-  display: inline;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.person-title .name::after {
-  content: ",";
-}
-
-.person-title + p {
-  line-height: max(24px,1.2vw);
-}
-
-@media only screen and (max-width: 1200px) {
-  .person-title .name::after {
-    content: "\a";
-    white-space: pre;
   }
 }
