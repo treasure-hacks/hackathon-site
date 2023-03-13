@@ -97,6 +97,19 @@
         required=true
         error_text="Please enter a number between 1 and 10"
     }}
+    {{> form_question
+        title="What should we notify you about during the hackathon?"
+        description="You can change these later in the <b>#🔔notification-config</b> channel, which will be visible after you submit this form"
+        input_name="additional_roles"
+        options='[
+          {"value":"1084279809359757373","text":"Workshops 30 minutes in advance","checked":true},
+          {"value":"1084279556392890378","text":"Workshops 5 minutes in advance","checked":true},
+          {"value":"1084647291304026212","text":"Recordings of workshops after they finish"},
+          {"value":"1084647280415604797","text":"Free promotions for services from sponsors"}
+        ]'
+        min="0"
+        checkbox=true
+    }}
     {{#>form_question
         title="Frequently Asked Questions"
         custom=true
