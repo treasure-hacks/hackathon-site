@@ -183,111 +183,114 @@
           <h2>Sponsors</h2>
         </center>
         <div class="sponsor-grid">
-          <div class="item">
-            <center>
-              <a target="_blank" title="Echo3D" href="https://www.echo3d.co/">
-                <img loading="lazy" src="/images/sponsors/echo3d.png" class="sponsor diamond-tier" alt="Echo3D logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="Axure" href="https://www.axure.com/">
-                <img loading="lazy" src="/images/sponsors/axure.jpg" class="sponsor diamond-tier" alt="Axure logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="Wolfram Language" href="https://www.wolframalpha.com/">
-                <img loading="lazy" src="/images/sponsors/wolfram.png" class="sponsor diamond-tier" alt="Wolfram logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="1Password" href="https://www.1password.com/">
-                <img loading="lazy" src="/images/sponsors/1password.png" class="sponsor diamond-tier" alt="1Password logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="Interview Cake" href="https://interviewcake.com">
-                <img loading="lazy" src="/images/sponsors/interview_cake.png" class="sponsor diamond-tier" alt="Interview Cake logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="GeeksForGeeks" href="https://www.geeksforgeeks.org/">
-                <img loading="lazy" src="/images/sponsors/geeksforgeeks.jpg" class="sponsor diamond-tier" alt="GeeksForGeeks logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="Advanced Risk Management" href="https://www.managearisk.com/">
-                <img loading="lazy" src="/images/sponsors/advancedriskmanagement.png" class="sponsor diamond-tier" alt="Advanced Risk Management logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="Leading Learners" href="https://www.leading-learners.com/">
-                <img loading="lazy" src="/images/sponsors/leading_learners.jpg" class="sponsor gold-tier" alt="Leading learners logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a title="Inspirit AI" href="https://www.inspiritai.com/">
-                <img src="/images/sponsors/inspirit-ai.webp" class="sponsor silver-tier">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="JDoodle" href="https://www.jdoodle.com">
-                <img loading="lazy" src="/images/sponsors/jdoodle.png" class="sponsor silver-tier" alt="JDoodle logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="Goliath Automation and Robotics" href="https://automationroboticsarduino.com/">
-                <img loading="lazy" src="/images/sponsors/goliath_ar.png" class="sponsor silver-tier" alt="Goliath AR logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="Sticker Giant" href="https://stickergiant.com/">
-                <img loading="lazy" src="/images/sponsors/sticker_giant.png" class="sponsor silver-tier" alt="Sticker Giant logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="Balsamiq" href="https://balsamiq.com/">
-                <img loading="lazy" src="/images/sponsors/balsamiq.png" class="sponsor bronze-tier" alt="Balsamiq logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="ClickUp" href="https://clickup.com/about">
-                <img loading="lazy" src="/images/sponsors/clickup.png" class="sponsor bronze-tier" alt="Clickup logo">
-              </a>
-            </center>
-          </div>
-          <div class="item">
-            <center>
-              <a target="_blank" title="GiveMyCertificate" href="https://givemycertificate.com/">
-                <img loading="lazy" src="/images/sponsors/givemycert.png" class="sponsor bronze-tier" alt="Give My Certificate logo">
-              </a>
-            </center>
-          </div>
+           {{#> sponsor }}
+            {{#*inline "name"}}Wolfram Language{{/inline}}
+            {{#*inline "image"}}wolfram.png{{/inline}}
+            {{#*inline "link"}}https://www.wolframalpha.com/{{/inline}}
+            {{#*inline "tier"}}diamond{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Digital Ocean{{/inline}}
+            {{#*inline "image"}}digital-ocean.webp{{/inline}}
+            {{#*inline "link"}}https://www.digitalocean.com/{{/inline}}
+            {{#*inline "tier"}}gold{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Interview Cake{{/inline}}
+            {{#*inline "image"}}interview_cake.png{{/inline}}
+            {{#*inline "link"}}https://interviewcake.com/{{/inline}}
+            {{#*inline "tier"}}gold{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Taskade{{/inline}}
+            {{#*inline "image"}}taskade.webp{{/inline}}
+            {{#*inline "link"}}https://www.taskade.com/{{/inline}}
+            {{#*inline "tier"}}gold{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Verbwire{{/inline}}
+            {{#*inline "image"}}verbwire.webp{{/inline}}
+            {{#*inline "link"}}https://www.verbwire.com/{{/inline}}
+            {{#*inline "tier"}}gold{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Applied Computing Foundation{{/inline}}
+            {{#*inline "image"}}qoom-acf.webp{{/inline}}
+            {{#*inline "link"}}https://www.applied-computing.org/{{/inline}}
+            {{#*inline "tier"}}silver{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Axure{{/inline}}
+            {{#*inline "image"}}axure.jpg{{/inline}}
+            {{#*inline "link"}}https://www.axure.com/{{/inline}}
+            {{#*inline "tier"}}silver{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Centered{{/inline}}
+            {{#*inline "image"}}centered.webp{{/inline}}
+            {{#*inline "link"}}https://www.centered.app/{{/inline}}
+            {{#*inline "tier"}}silver{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Echo3D{{/inline}}
+            {{#*inline "image"}}echo3d.png{{/inline}}
+            {{#*inline "link"}}https://www.echo3d.com/{{/inline}}
+            {{#*inline "tier"}}silver{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Qoom{{/inline}}
+            {{#*inline "image"}}qoom.png{{/inline}}
+            {{#*inline "link"}}https://www.qoom.io/{{/inline}}
+            {{#*inline "tier"}}silver{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Replit{{/inline}}
+            {{#*inline "image"}}replit.webp{{/inline}}
+            {{#*inline "link"}}https://replit.com/{{/inline}}
+            {{#*inline "tier"}}silver{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}SashiDo{{/inline}}
+            {{#*inline "image"}}sashido_fullsize.png{{/inline}}
+            {{#*inline "link"}}https://www.sashido.io/{{/inline}}
+            {{#*inline "tier"}}silver{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}DevITjobs{{/inline}}
+            {{#*inline "image"}}devit.webp{{/inline}}
+            {{#*inline "link"}}https://devitjobs.uk/startup-jobs{{/inline}}
+            {{#*inline "tier"}}bronze{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Gen XYZ{{/inline}}
+            {{#*inline "image"}}xyz.webp{{/inline}}
+            {{#*inline "link"}}https://gen.xyz/{{/inline}}
+            {{#*inline "tier"}}bronze{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}GiveMyCertificate{{/inline}}
+            {{#*inline "image"}}givemycert.png{{/inline}}
+            {{#*inline "link"}}https://automationroboticsarduino.com/{{/inline}}
+            {{#*inline "tier"}}bronze{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Goliath Automation and Robotics{{/inline}}
+            {{#*inline "image"}}goliath_ar.png{{/inline}}
+            {{#*inline "link"}}https://automationroboticsarduino.com/{{/inline}}
+            {{#*inline "tier"}}bronze{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}Interview Buddy{{/inline}}
+            {{#*inline "image"}}interview-buddy.webp{{/inline}}
+            {{#*inline "link"}}https://interviewbuddy.in/{{/inline}}
+            {{#*inline "tier"}}bronze{{/inline}}
+          {{/sponsor}}
+          {{#> sponsor }}
+            {{#*inline "name"}}No Starch Press{{/inline}}
+            {{#*inline "image"}}no-starch.webp{{/inline}}
+            {{#*inline "link"}}https://nostarch.com/{{/inline}}
+            {{#*inline "tier"}}bronze{{/inline}}
+          {{/sponsor}}
         </div>
         <hr>
         <center><h2>Judges</h2><br></center>
