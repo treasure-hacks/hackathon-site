@@ -24,9 +24,10 @@ div.main-content {
 }
 
 div.sponsor-grid {
-  display: flex;
+  display: grid;
   justify-content: space-around;
-  flex-wrap: wrap;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fit, 250px);
 }
 
 .row > .item a {
