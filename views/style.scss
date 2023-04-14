@@ -236,11 +236,36 @@ hr {
       height: 100%;
       padding: 24px;
       display: flex;
-      align-items: center;
+      align-items: stretch;
       gap: 16px;
       transition: opacity 0.2s;
       background-color: #2C1C4B;
       border-radius: 20px;
+      > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+      .person-title {
+        color: #ababab;
+        white-space: nowrap;
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+        > p.name {
+          color: white;
+          display: inline;
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+        .name::after { content: ","; }
+        + p { line-height: max(24px,1.2vw); }
+      }
+      @media only screen and (max-width: 1200px) {
+        .person-title .name::after {
+          content: "\a";
+          white-space: pre;
+        }
+      }
     }
     img.founder-img {
       width: 200px;
@@ -250,15 +275,17 @@ hr {
       border-radius: 16px;
       z-index: 1;
       flex-shrink: 0;
+      margin: auto;
     }
     .row.team-container {
       position: relative;
       justify-content: space-between;
       margin-block: 20px 50px;
     }
-    @media (max-width: 850px) {
+    @media (max-width: 950px) {
       .team-founder {
         flex-direction: column;
+        align-items: center;
       }
     }
     @media (max-width: 640px) {
