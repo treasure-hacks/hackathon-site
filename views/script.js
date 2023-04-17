@@ -24,3 +24,12 @@ window.addEventListener('load', () => {
   splide.root.classList.add('loaded')
   categorySplide.mount(window.splide.Extensions)
 })
+
+const regTimeEl = document.querySelector('time.registration-time')
+regTimeEl.innerText = new Date(regTimeEl.dateTime).toLocaleString(undefined, {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric'
+})
