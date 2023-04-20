@@ -21,6 +21,7 @@ function load () {
     switch (input.type) {
       case 'file': input.value = ''; break
       case 'checkbox': input.checked = !!val; break
+      case 'hidden': break
       default: input.value = val; break
     }
     updateValidity(input)
@@ -28,7 +29,8 @@ function load () {
   updateConditionalShows()
 }
 
-document.getElementById('referrer-input').value = location.href
+const currentURL = new URL(location.href)
+document.getElementById('referrer-input').value = currentURL.origin + currentURL.pathname
 
 async function validateDiscord (value) {
   const endpoint = form.action + '/discord?user='
@@ -141,9 +143,13 @@ window.addEventListener('load', () => {
   formErrors.split(',').forEach(name => {
     const input = form.querySelector(`input[name="${name}"]`)
     if (input) updateValidity(input, true)
-    const firstInvalidField = form.querySelector('.invalid.item-container')
-    if (firstInvalidField) firstInvalidField.scrollIntoView()
   })
+  const firstInvalidField = form.querySelector('.invalid.item-container')
+  if (firstInvalidField) return firstInvalidField.scrollIntoView()
+  setTimeout(() => {
+    alert(`The server could not process the following fields: ${formErrors.replace(/,/g, ', ')}. ` +
+      'Please contact the Treasure Hacks organizers on Discord.')
+  }, 400)
 })
 
 const dateOptions = {
