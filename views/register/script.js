@@ -119,8 +119,13 @@ document.body.addEventListener('input', (e) => {
   updateConditionalShows()
 }, { capture: true })
 
-form.querySelector('input[type="submit"]').addEventListener('click', e => {
+form.addEventListener('submit', e => {
   let firstInvalidField = form.querySelector('.invalid.item-container')
+  if (!firstInvalidField && document.activeElement.tagName === 'INPUT') {
+    document.activeElement.parentNode.classList.remove('hold-focus')
+    updateValidity(document.activeElement, document.activeElement.required)
+    firstInvalidField = form.querySelector('.invalid.item-container')
+  }
   if (!firstInvalidField) {
     form.querySelectorAll('.item-container input').forEach(el => updateValidity(el, el.required))
     firstInvalidField = form.querySelector('.invalid.item-container')
