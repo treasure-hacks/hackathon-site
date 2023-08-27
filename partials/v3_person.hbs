@@ -1,5 +1,12 @@
-<div>
+<div class="v3-person-container">
   <img class="person" src="/images/people/{{img}}"/>
-  <h3>{{name}}</h3>
-  <div class="name-title">{{title}}</div>
+  <div>
+    <h3>{{name}}</h3>
+    <div class="name-title">{{title}}</div>
+    <div class="badge-container" style="">
+      {{#if roles}}{{#getJsonContext roles}}{{#each this}}
+        <span class="badge" data-role="{{this}}">{{this}}</span>
+      {{/each}}{{/getJsonContext}}{{/if}}
+    </div>
+  </div>
 </div>
