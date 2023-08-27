@@ -157,7 +157,7 @@ if (args.serve) {
   const express = require('express')
   const http = require('http')
   const app = express()
-  app.use(express.static('./docs'))
+  app.use(express.static('./docs', { extensions: ['html'] }))
   app.use(function (req, res) {
     try {
       fs.readFile('./docs/404.html', function (error, content) {
