@@ -42,16 +42,16 @@
       error_text="Please enter a valid email"
   }}
   {{> form_question
-      title="Discord Tag"
-      description="Enter a valid Discord Tag (i.e. TheRealWumpus#1209)"
+      title="Discord Username"
+      description="Enter a valid Discord Username (i.e. real_wumpus, TheRealWumpus#1209). It may follow the new or old username system, but cannot be your display name"
       input_type="text"
       input_name="discord_tag"
       placeholder="TheRealWumpus#1209"
-      pattern=".{2,}#\d{4}"
+      pattern=".{2,}#\d{4}|[a-z0-9\._]{2,}"
       textarea=false
       required=true
       custom_validation="user_in_server"
-      error_text="Please enter a valid discord tag"
+      error_text="Please enter a valid discord username"
   }}
   {{> form_question
       title="Where did you hear about us?"
