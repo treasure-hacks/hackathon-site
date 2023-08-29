@@ -116,8 +116,9 @@ function updateCustomValidity (container, valid, error, isHTML) {
 
 function updateConditionalShows () {
   document.body.querySelectorAll('[data-show-if]').forEach(el => {
-    const source = document.getElementById(el.dataset.showIf)
-    el.hidden = !source.checked
+    const ids = el.dataset.showIf.split(',')
+    // Hide if none of the showIf elements are checked
+    el.hidden = ids.every(id => !document.getElementById(id)?.checked)
   })
 }
 
@@ -138,6 +139,12 @@ document.body.addEventListener('input', (e) => {
   const valid = e.target.validity && e.target.validity.valid
   if (valid && !e.target.name.endsWith('__other')) questionEl.classList.remove('invalid')
   updateConditionalShows()
+
+  // Auto-adjust height of textareas
+  if (e.target.nodeName === 'TEXTAREA') {
+    e.target.style.height = ''
+    e.target.style.height = (e.target.scrollHeight + 2) + 'px'
+  }
 }, { capture: true })
 
 form.addEventListener('submit', e => {

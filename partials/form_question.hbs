@@ -16,14 +16,13 @@
     {{>content}}
   {{else if checkbox}}
     {{#getJsonContext options}}{{#each this}}
-      <label><input
+      <label {{#if hidden}} hidden{{/if}}><input
         type="checkbox"
-        type="radio"
         name="{{../../input_name}}"
         value="{{#if value}}{{value}}{{else}}{{this}}{{/if}}"
         {{#if id}} id="{{id}}"{{/if}}
         {{#if ../../required}}required{{/if}}
-        {{#if checked}} checked{{/if}}
+        {{#if checked}}checked{{/if}}
       ><span>{{#if text}}{{{text}}}{{else}}{{{this}}}{{/if}}</span></label>
     {{/each}}{{/getJsonContext}}
     {{#if other}}
@@ -34,13 +33,14 @@
     {{/if}}
   {{else if radio}}
     {{#getJsonContext options}}{{#each this}}
-      <label><input
+      <label {{#if hidden}} hidden{{/if}}><input
         type="radio"
         name="{{../../input_name}}"
         value="{{#if value}}{{value}}{{else}}{{this}}{{/if}}"
         {{#if id}} id="{{id}}"{{/if}}
         {{#if ../../required}}required{{/if}}
         {{#if ../../jstype}} data-type="{{../../jstype}}"{{/if}}
+        {{#if checked}}checked{{/if}}
       ><span>
         {{#if text}}{{text}}{{else}}{{this}}{{/if}}
       </span></label>
@@ -66,8 +66,8 @@
         {{#if required}} required{{/if}}
       ><br>
   {{else if textarea}}
-    <div class="input-wrapper">
-      <textarea type="{{input_type}}" name="{{input_name}}" placeholder="{{placeholder}}"></textarea><br>
+    <div class="input-wrapper textarea-wrapper">
+      <textarea type="{{input_type}}" name="{{input_name}}" placeholder="{{placeholder}}" {{#if required}} required{{/if}}></textarea><br>
     </div>
   {{else}}
     <div class="input-wrapper {{#if number}}number-input{{/if}}"
