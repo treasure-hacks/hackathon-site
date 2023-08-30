@@ -1,11 +1,11 @@
 :root {
   --input-wrapper-child-width: 65%;
-  background-color: #faf3cd;
+  background-color: #F4F4ED;
   @media only screen and (max-width: 560px) {
     --input-wrapper-child-width: 100%;
   }
   @media (prefers-color-scheme: dark) {
-    background-color: #090808;
+    background-color: #161615;
     color: #ddd;
   }
 }
@@ -36,12 +36,12 @@ div.item-container {
   --col-error: #c22;
   margin: 16px 0;
   padding: 30px 40px;
-  box-shadow: 0 0 1px 0px #dfbe18;
+  box-shadow: 0 0 1px 0px #7b9a6b;
   border-radius: 8px;
   background-color: white;
   scroll-margin: 48px;
   &.header {
-    border-top: 10px solid #e6c10b;
+    border-top: 10px solid #79B553;
   }
   &.header-image-container {
     padding: 0;
@@ -105,7 +105,7 @@ ul#form-faq-list > li {
     z-index: 1;
     left: calc(var(--input-wrapper-child-width) / 2);
     transform: translateX(-50%);
-    border-bottom: 2.5px solid #e6c10b;
+    border-bottom: 2.5px solid #79B553;
     margin: 8px 0;
     transition: width 0.3s;
     pointer-events: none;
@@ -203,9 +203,9 @@ input[type="submit"] {
   /* --saturation: 78%;
   --brightness: 20%;
   background-color: hsl(173, var(--saturation), var(--brightness)); */
-  --saturation: 91%;
-  --brightness: 47%;
-  background-color: hsl(50, var(--saturation), var(--brightness));
+  --saturation: 40%;
+  --brightness: 55%;
+  background-color: hsl(97, var(--saturation), var(--brightness));
   padding: 10px 18px;
   color: white;
   border: none;
@@ -216,12 +216,12 @@ input[type="submit"] {
   cursor: pointer;
   transition: background-color 0.25s;
   &:hover {
-    --saturation: 70%;
+    --saturation: 35%;
     --brightness: 50%;
   }
   &:active {
-    --saturation: 70%;
-    --brightness: 70%;
+    --saturation: 35%;
+    --brightness: 45%;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -238,7 +238,7 @@ input[type="submit"] {
 }
 @media (prefers-color-scheme: dark) {
   div.item-container, input[type="text"] {
-    background-color: #100f0a;
+    background-color: #0c100a;
   }
 }
 /* END COPIED CSS */
