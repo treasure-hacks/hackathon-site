@@ -148,15 +148,15 @@ document.body.addEventListener('input', (e) => {
 }, { capture: true })
 
 form.addEventListener('submit', e => {
-  let firstInvalidField = form.querySelector('.invalid.item-container')
+  let firstInvalidField = form.querySelector('.invalid.item-container:not([hidden])')
   if (!firstInvalidField && document.activeElement.tagName === 'INPUT') {
     document.activeElement.parentNode.classList.remove('hold-focus')
     updateValidity(document.activeElement, document.activeElement.required)
-    firstInvalidField = form.querySelector('.invalid.item-container')
+    firstInvalidField = form.querySelector('.invalid.item-container:not([hidden])')
   }
   if (!firstInvalidField) {
     form.querySelectorAll('.item-container input').forEach(el => updateValidity(el, el.required))
-    firstInvalidField = form.querySelector('.invalid.item-container')
+    firstInvalidField = form.querySelector('.invalid.item-container:not([hidden])')
   }
   if (!firstInvalidField) return
   firstInvalidField.scrollIntoView()
