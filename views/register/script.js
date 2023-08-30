@@ -113,7 +113,7 @@ function updateCustomValidity (container, valid, error, isHTML) {
   if (!error) return
   const errorEl = container.querySelector('.error span')
   if (!errorEl.dataset.originalError) errorEl.dataset.originalError = errorEl.innerText
-  errorEl[isHTML ? 'innerHTML' : innerText] = error
+  errorEl[isHTML ? 'innerHTML' : 'innerText'] = error
 }
 
 function updateConditionalShows () {
