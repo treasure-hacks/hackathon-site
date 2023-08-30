@@ -27,6 +27,8 @@ function load () {
     updateValidity(input)
   }
   updateConditionalShows()
+  // Recalculate textarea heights
+  document.querySelectorAll('textarea').forEach(restyleHeight)
 }
 
 /**
@@ -118,7 +120,18 @@ function updateConditionalShows () {
   document.body.querySelectorAll('[data-show-if]').forEach(el => {
     const ids = el.dataset.showIf.split(',')
     // Hide if none of the showIf elements are checked
+    const hiddenBefore = el.hidden
     el.hidden = ids.every(id => !document.getElementById(id)?.checked)
+    if (el.hidden === hiddenBefore) return
+    el.querySelectorAll('input, textarea').forEach(input => {
+      if (el.hidden) {
+        input.dataset.required = input.required
+        input.required = false
+      } else {
+        input.required = input.dataset.required === 'true'
+        delete input.dataset.required
+      }
+    })
   })
 }
 
@@ -133,6 +146,11 @@ document.body.addEventListener('focusout', (e) => {
   if (e.target.validity && e.target.validity.valid === false) questionEl.classList.add('invalid')
 }, { capture: true })
 
+function restyleHeight (textarea) {
+  textarea.style.height = '' // So that scroll height is based on content rather than styled height
+  textarea.style.height = Math.max(textarea.scrollHeight + 2, 42) + 'px'
+}
+
 document.body.addEventListener('input', (e) => {
   const questionEl = getQuestionContainer(e.target)
   // Every input event should only make things valid, not invalid
@@ -141,10 +159,7 @@ document.body.addEventListener('input', (e) => {
   updateConditionalShows()
 
   // Auto-adjust height of textareas
-  if (e.target.nodeName === 'TEXTAREA') {
-    e.target.style.height = ''
-    e.target.style.height = (e.target.scrollHeight + 2) + 'px'
-  }
+  if (e.target.nodeName === 'TEXTAREA') restyleHeight(e.target)
 }, { capture: true })
 
 form.addEventListener('submit', e => {
