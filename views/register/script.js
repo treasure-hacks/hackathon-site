@@ -73,8 +73,8 @@ async function updateValidity (input, blankIsInvalid) {
   let validity = input.validity && input.validity.valid
   if (input.type === 'checkbox') {
     const checked = questionEl.querySelectorAll('input:checked').length
-    const { min } = questionEl.dataset
-    validity = min <= checked
+    const { min, max } = questionEl.dataset
+    validity = (min || 0) <= checked && checked <= (max || Infinity)
   } else if (input.type === 'file') {
     const file = input.files[0]
     if (file) {
