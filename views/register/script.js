@@ -27,6 +27,29 @@ function load () {
     updateValidity(input)
   }
   updateConditionalShows()
+  // Recalculate textarea heights
+  document.querySelectorAll('textarea').forEach(restyleHeight)
+}
+
+/**
+ * Returns an item from or an entire array of ancestor elements
+ * @param {HTMLElement} element The element to obtain the tree from
+ * @param {number} index The number of nodes to travel up (or down) the tree
+ * @param {boolean} topDown Whether to return a top-down tree that starts with
+ * the document element and ends with the specified element
+ * @returns {HTMLElement | HTMLElement[]} The array if no index is specified, or the node at the
+ * specified index of the node tree
+ */
+function nodeTree (element, index, topDown) {
+  const tree = []
+  let target = element
+  while (target && target !== document.documentElement) {
+    tree.push(target)
+    target = target.parentNode
+  }
+  if (topDown) tree.reverse()
+  if (index == null) return tree
+  return tree[index] || null
 }
 
 const currentURL = new URL(location.href)
@@ -50,8 +73,8 @@ async function updateValidity (input, blankIsInvalid) {
   let validity = input.validity && input.validity.valid
   if (input.type === 'checkbox') {
     const checked = questionEl.querySelectorAll('input:checked').length
-    const { min } = questionEl.dataset
-    validity = min <= checked
+    const { min, max } = questionEl.dataset
+    validity = (min || 0) <= checked && checked <= (max || Infinity)
   } else if (input.type === 'file') {
     const file = input.files[0]
     if (file) {
@@ -90,13 +113,25 @@ function updateCustomValidity (container, valid, error, isHTML) {
   if (!error) return
   const errorEl = container.querySelector('.error span')
   if (!errorEl.dataset.originalError) errorEl.dataset.originalError = errorEl.innerText
-  errorEl[isHTML ? 'innerHTML' : innerText] = error
+  errorEl[isHTML ? 'innerHTML' : 'innerText'] = error
 }
 
 function updateConditionalShows () {
   document.body.querySelectorAll('[data-show-if]').forEach(el => {
-    const source = document.getElementById(el.dataset.showIf)
-    el.hidden = !source.checked
+    const ids = el.dataset.showIf.split(',')
+    // Hide if none of the showIf elements are checked
+    const hiddenBefore = el.hidden
+    el.hidden = ids.every(id => !document.getElementById(id)?.checked)
+    if (el.hidden === hiddenBefore) return
+    el.querySelectorAll('input, textarea').forEach(input => {
+      if (el.hidden) {
+        input.dataset.required = input.required
+        input.required = false
+      } else {
+        input.required = input.dataset.required === 'true'
+        delete input.dataset.required
+      }
+    })
   })
 }
 
@@ -111,24 +146,32 @@ document.body.addEventListener('focusout', (e) => {
   if (e.target.validity && e.target.validity.valid === false) questionEl.classList.add('invalid')
 }, { capture: true })
 
+function restyleHeight (textarea) {
+  textarea.style.height = '' // So that scroll height is based on content rather than styled height
+  textarea.style.height = Math.max(textarea.scrollHeight + 2, 42) + 'px'
+}
+
 document.body.addEventListener('input', (e) => {
   const questionEl = getQuestionContainer(e.target)
   // Every input event should only make things valid, not invalid
   const valid = e.target.validity && e.target.validity.valid
   if (valid && !e.target.name.endsWith('__other')) questionEl.classList.remove('invalid')
   updateConditionalShows()
+
+  // Auto-adjust height of textareas
+  if (e.target.nodeName === 'TEXTAREA') restyleHeight(e.target)
 }, { capture: true })
 
 form.addEventListener('submit', e => {
-  let firstInvalidField = form.querySelector('.invalid.item-container')
+  let firstInvalidField = form.querySelector('.invalid.item-container:not([hidden])')
   if (!firstInvalidField && document.activeElement.tagName === 'INPUT') {
     document.activeElement.parentNode.classList.remove('hold-focus')
     updateValidity(document.activeElement, document.activeElement.required)
-    firstInvalidField = form.querySelector('.invalid.item-container')
+    firstInvalidField = form.querySelector('.invalid.item-container:not([hidden])')
   }
   if (!firstInvalidField) {
     form.querySelectorAll('.item-container input').forEach(el => updateValidity(el, el.required))
-    firstInvalidField = form.querySelector('.invalid.item-container')
+    firstInvalidField = form.querySelector('.invalid.item-container:not([hidden])')
   }
   if (!firstInvalidField) return
   firstInvalidField.scrollIntoView()
