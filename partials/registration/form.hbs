@@ -162,6 +162,19 @@
       ]'
       show_if="rti-student"
   }}
+  {{> form_question
+      title="Would you attend a workshop for real estate and passive income in a future event?"
+      input_type="text"
+      input_name="student_passive_income"
+      show_if="rti-student"
+      options='[
+        {"text":"Yes","value":"1"},
+        {"text":"No","value":"0"}
+      ]'
+      jstype="boolean"
+      radio=true
+      required=true
+  }}
   {{!-- END OF STUDENTS --}}
   {{> form_question
       title="Company Name"
