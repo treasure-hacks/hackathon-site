@@ -54,6 +54,7 @@ function nodeTree (element, index, topDown) {
 
 const currentURL = new URL(location.href)
 document.getElementById('referrer-input').value = currentURL.origin + currentURL.pathname
+document.getElementById('ref-param-input').value = new URL(location.href).searchParams.get('ref') ?? ''
 
 async function validateDiscord (value) {
   const endpoint = form.action + '/discord?user='
