@@ -212,10 +212,20 @@
       required="true"
   }}
   {{> form_question
-      title="[PLACEHOLDER] Why are you interested in this event?"
-      textarea=true
-      input_name="interest_reason"
-      required="true"
+      title="How prepared do you feel for the industry, on a scale from 1 to 7?"
+      description="1 = not at all, 4 = somewhat, 7 = very prepared"
+      input_type="number" number=true
+      input_name="industry_readiness"
+      placeholder="2"
+      required=true
+  }}
+  {{> form_question
+      title="How much does your school assist you in improving your communication skills, on a scale from 1 to 7?"
+      description="1 = not at all, 4 = somewhat, 7 = a lot"
+      input_type="number" number=true
+      input_name="communication_rating"
+      placeholder="3"
+      required=true
   }}
   <input type="hidden" id="referrer-input" name="referrer"> {{!-- For redirecting back with errors --}}
   <input type="hidden" id="ref-param-input" name="ref_source"> {{!-- For ?ref params --}}
