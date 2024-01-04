@@ -201,7 +201,7 @@
       required=true
   }} --}}
   {{> form_question
-      title="Would you like to receive emails from us about sponsored opportunities and free resources? (Optional)"
+      title="Would you like to receive emails from us about sponsored opportunities and free resources?"
       description="Your email will not be given to our sponsors."
       radio=true
       input_name="sponsor_emails"
@@ -217,7 +217,10 @@
       input_type="number" number=true
       input_name="industry_readiness"
       placeholder="2"
+      min="1"
+      max="7"
       required=true
+      error_text="Enter a number between 1 and 7"
   }}
   {{> form_question
       title="How much does your school assist you in improving your communication skills, on a scale from 1 to 7?"
@@ -225,7 +228,10 @@
       input_type="number" number=true
       input_name="communication_rating"
       placeholder="3"
+      min="1"
+      max="7"
       required=true
+      error_text="Enter a number between 1 and 7"
   }}
   <input type="hidden" id="referrer-input" name="referrer"> {{!-- For redirecting back with errors --}}
   <input type="hidden" id="ref-param-input" name="ref_source"> {{!-- For ?ref params --}}
