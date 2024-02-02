@@ -86,16 +86,11 @@
       ]'
   }}
   {{> form_question
-      title="What kind of student are you?"
+      title="What are you studying?"
       input_name="student_type"
-      checkbox=true
-      options='[
-        {"text":"Computer Science","value":"computer-science"},
-        {"text":"Business or Business-related (i.e. Marketing)","value":"business-related"}
-      ]'
-      min="1"
-      other=true
-      error_text="Please choose at least one option"
+      input_type="text"
+      placeholder="Major or intended area of study"
+      error_text="This question is required"
   }}
   {{> form_question
       title="Which of the following best describes you? (optional)"
@@ -231,6 +226,15 @@
       max="7"
       required=true
       error_text="Enter a number between 1 and 7"
+  }}
+  {{> form_question
+      title="Attendance Agreement"
+      description="I understand that because there is limited space, I must email the organizers if I cannot attend the event."
+      input_name="attendance_agreement"
+      checkbox=true
+      min="1"
+      options='[{"text":"I agree","value":"1"}]'
+      error_text="This question is required"
   }}
   <input type="hidden" id="referrer-input" name="referrer"> {{!-- For redirecting back with errors --}}
   <input type="hidden" id="ref-param-input" name="ref_source"> {{!-- For ?ref params --}}
